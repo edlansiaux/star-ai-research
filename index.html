@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STaR-AI - Systems for Triage and Response with AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #dc2626;
+            --accent: #2563eb;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* Section */
+        section {
+            margin-bottom: 5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: var(--accent);
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        /* Publications */
+        .publication-list {
+            list-style: none;
+        }
+        
+        .publication-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .publication-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-type {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .team-member h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .affiliation {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        footer h4 {
+            margin-bottom: 1rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        footer a:hover {
+            opacity: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: white;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-section">
+                <span style="font-size: 2rem; font-weight: 700; color: var(--primary);">STaR-AI</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#equipe">Équipe</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <h1>STaR-AI</h1>
+        <div class="subtitle">Systems for Triage and Response with AI</div>
+        <p>
+            Équipe de recherche innovante dédiée à l'amélioration du triage et de la prise en charge 
+            aux urgences par l'Intelligence Artificielle. Dirigée par le Dr Edouard Lansiaux, 
+            nous développons des solutions qui sauvent des vies.
+        </p>
+        <a href="#projets" class="btn">Découvrir nos projets</a>
+    </section>
+
+    <!-- Stats -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <h3>5</h3>
+                <p>Projets de recherche</p>
+            </div>
+            <div class="stat-item">
+                <h3>2000+</h3>
+                <p>Patients inclus</p>
+            </div>
+            <div class="stat-item">
+                <h3>78%</h3>
+                <p>Concordance IA</p>
+            </div>
+            <div class="stat-item">
+                <h3>6</h3>
+                <p>Centres partenaires</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="container">
+        <section id="projets">
+            <h2>Nos Projets de Recherche</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-light);">
+                Une approche progressive et complémentaire pour révolutionner le triage aux urgences
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="project-badge">Étude pilote</span>
+                    <h3>TIAEU</h3>
+                    <div class="project-meta">Triage Intelligent à l'Entrée des Urgences</div>
+                    <p>
+                        Étude rétrospective monocentrique (n=657) ayant démontré la supériorité de 3 modèles d'IA 
+                        sur le triage infirmier standard. Concordance de 78% vs 68% (p<0.001).
+                    </p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Publication:</strong> IEEE BDCAT 2025
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-badge">Validation multicentrique</span>
+                    <h3>TIAEU-2</h3>
+                    <div class="project-meta">Extension multicentrique prospective</div>
+                    <p>
+                        Étude prospective sur 6 centres (CHU Lille, CH Douai, Denain, Maubeuge, Eaubonne, Tenon AP-HP). 
+                        Validation externe des modèles sur plusieurs milliers de patients.
+                    </p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Période:</strong> Janvier-Mars 2026
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-badge">Essai contrôlé</span>
+                    <h3>TRIADE</h3>
+                    <div class="project-meta">Triage par IA et Décision Éclairée</div>
+                    <p>
+                        Étude prospective randomisée en cluster évaluant l'assistance IA en conditions réelles. 
+                        Objectif: améliorer la concordance de 68% à 76% avec acceptabilité professionnelle.
+                    </p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Financement:</strong> PHRC-I 300 000€
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-badge">Intelligence IA</span>
+                    <h3>EIMLIA-3M-TEU</h3>
+                    <div class="project-meta">Évaluation Intelligence Modèles LLM IA</div>
+                    <p>
+                        Développement et évaluation de modèles de langage de grande taille (LLM) spécifiquement 
+                        entraînés pour le triage aux urgences en langue française.
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-badge">Réorientation</span>
+                    <h3>REDIRECT-IA</h3>
+                    <div class="project-meta">Réorientation assistée par IA</div>
+                    <p>
+                        Développement d'une application de réorientation intégrant l'IA pour identifier 
+                        les cas pouvant être pris en charge en soins primaires. Réduction de la congestion.
+                    </p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Partenaires:</strong> CHU Québec, Mila, IVADO
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h2>Publications & Communications</h2>
+            
+            <h3 style="margin-top: 2rem;">Articles scientifiques</h3>
+            <ul class="publication-list">
+                <li class="publication-item">
+                    <span class="publication-type">Conférence</span>
+                    <strong>Development and Comparative Evaluation of Three AI Models for Predicting Triage in Emergency Departments</strong>
+                    <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">
+                        IEEE/ACM 12th International Conference on Big Data Computing, Applications and Technologies (BDCAT '25), 
+                        December 2025, Nantes, France
+                    </p>
+                </li>
+                
+                <li class="publication-item">
+                    <span class="publication-type">Article</span>
+                    <strong>Navigating the landscape of medical triage: Unveiling the potential and challenges of large language models</strong>
+                    <p>Lansiaux E, Baron MA, Vromant A.</p>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">
+                        American Journal of Emergency Medicine, 2024 Apr;78:224
+                    </p>
+                </li>
+            </ul>
+            
+            <h3 style="margin-top: 3rem;">Couverture médiatique</h3>
+            <ul class="publication-list">
+                <li class="publication-item">
+                    <span class="publication-type" style="background: #059669;">Presse</span>
+                    <strong>Intelligence artificielle aux urgences : vers un triage plus efficace</strong>
+                    <p style="color: var(--text-light);">À venir - Couverture nationale des résultats TIAEU</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Team Section -->
+        <section id="equipe">
+            <h2>Notre Équipe</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>Dr Edouard Lansiaux</h4>
+                    <div class="role">Investigateur Principal</div>
+                    <div class="affiliation">Médecin Urgentiste & Ingénieur IA<br>CHU de Lille</div>
+                </div>
+                
+                <div class="team-member">
+                    <h4>Dr Ramy Azzouz</h4>
+                    <div class="role">Co-directeur</div>
+                    <div class="affiliation">Praticien Hospitalier<br>Centre Antipoison CHU Lille</div>
+                </div>
+                
+                <div class="team-member">
+                    <h4>Pr Mehdi Ammi</h4>
+                    <div class="role">Co-directeur</div>
+                    <div class="affiliation">Professeur Sciences Informatiques<br>LIASD, Université Paris 8</div>
+                </div>
+                
+                <div class="team-member">
+                    <h4>Pr Emmanuel Chazard</h4>
+                    <div class="role">Comité Scientifique</div>
+                    <div class="affiliation">PU-PH Santé Publique<br>Biostatistiques & Informatique médicale</div>
+                </div>
+                
+                <div class="team-member">
+                    <h4>Pr Eric Wiel</h4>
+                    <div class="role">Comité Scientifique</div>
+                    <div class="affiliation">PU-PH Urgentiste<br>CHU de Lille</div>
+                </div>
+                
+                <div class="team-member">
+                    <h4>Dr Romain Dewilde</h4>
+                    <div class="role">Co-investigateur</div>
+                    <div class="affiliation">Médecin d'Urgence<br>CH Maubeuge</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 3rem;">Partenaires Institutionnels</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
+                    <strong>CRIStAL UMR CNRS 9189</strong>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Université de Lille - Développement des modèles IA</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
+                    <strong>LIASD</strong>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Université Paris 8 - Interface & Interaction Homme-Machine</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
+                    <strong>METRICS ULR 2694</strong>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">CHU Lille - Évaluation médico-économique</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section>
+            <h2>Impact Attendu</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Sécurité Patient</h3>
+                    <p>Réduction du sous-triage de 18% à 11%, diminuant les retards de prise en charge des urgences graves</p>
+                </div>
+                <div style="padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Efficience</h3>
+                    <p>Économies estimées de 50-80 M€/an pour 650 services d'urgences en France</p>
+                </div>
+                <div style="padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Standardisation</h3>
+                    <p>Réduction de la variabilité inter-opérateurs et amélioration de l'équité d'accès aux soins</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <h4>STaR-AI</h4>
+                <p>Systems for Triage and Response with AI</p>
+                <p style="margin-top: 1rem; opacity: 0.8;">
+                    Équipe de recherche innovante<br>
+                    CHU de Lille, France
+                </p>
+            </div>
+            
+            <div>
+                <h4>Contact</h4>
+                <p>Dr Edouard Lansiaux</p>
+                <p><a href="mailto:edouard1.lansiaux@chu-lille.fr">edouard1.lansiaux@chu-lille.fr</a></p>
+                <p style="margin-top: 1rem;">Service des Urgences Adultes<br>CHU de Lille</p>
+            </div>
+            
+            <div>
+                <h4>Affiliations</h4>
+                <p>ULR 2694 METRICS (CHU Lille)</p>
+                <p>CRIStAL UMR CNRS 9189 (Université de Lille)</p>
+                <p>LIASD (Université Paris 8)</p>
+            </div>
+            
+            <div>
+                <h4>Liens</h4>
+                <p><a href="#projets">Nos projets</a></p>
+                <p><a href="#publications">Publications</a></p>
+                <p><a href="#equipe">Équipe</a></p>
+                <p><a href="https://github.com/star-ai" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p>&copy; 2024 STaR-AI Research Group. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
