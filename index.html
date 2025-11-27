@@ -53,21 +53,34 @@
         }
         
         .logo {
-            height: 60px;
-            width: auto;
-        }
-        
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
+            text-decoration: none;
             color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
         
-        .logo-icon {
+        .logo-main {
             font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .logo-subtitle .line2 {
+            font-size: 0.65rem;
+            color: var(--text-light);
         }
         
         .nav-links {
@@ -378,12 +391,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .logo-text {
-                font-size: 1.5rem;
+            .logo-main {
+                font-size: 2rem;
             }
             
-            .logo-icon {
-                font-size: 2rem;
+            .logo-subtitle {
+                font-size: 0.6rem;
             }
         }
     </style>
@@ -393,9 +406,12 @@
     <nav>
         <div class="nav-container">
             <div class="logo-section">
-                <a href="index.html" class="logo-text">
-                    <span class="logo-icon">🧠</span>
-                    STaR-AI
+                <a href="index.html" class="logo">
+                    <div class="logo-main">STaR-AI</div>
+                    <div class="logo-subtitle">
+                        <div class="line1">SYSTEMS FOR TRIAGE</div>
+                        <div class="line2">AND RESPONSE WITH AI</div>
+                    </div>
                 </a>
             </div>
             <ul class="nav-links">
@@ -451,7 +467,7 @@
             </p>
             
             <div class="projects-grid">
-                <a href="projets/projet-tiaeu.html" class="project-card">
+                <a href="projet-tiaeu.html" class="project-card">
                     <span class="project-badge">Étude pilote</span>
                     <h3>TIAEU</h3>
                     <div class="project-meta">Triage Intelligent à l'Entrée des Urgences</div>
@@ -464,7 +480,7 @@
                     </p>
                 </a>
                 
-                <a href="projets/projet-tiaeu-2.html" class="project-card">
+                <a href="projet-tiaeu-2.html" class="project-card">
                     <span class="project-badge">Validation multicentrique</span>
                     <h3>TIAEU-2</h3>
                     <div class="project-meta">Extension multicentrique prospective</div>
@@ -477,7 +493,7 @@
                     </p>
                 </a>
                 
-                <a href="projets/projet-triade.html" class="project-card">
+                <a href="projet-triade.html" class="project-card">
                     <span class="project-badge">Essai contrôlé</span>
                     <h3>TRIADE</h3>
                     <div class="project-meta">Triage par IA et Décision Éclairée</div>
@@ -486,11 +502,11 @@
                         Objectif: améliorer la concordance de 68% à 76% avec acceptabilité professionnelle.
                     </p>
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Financement demandé:</strong> PHRC-I
+                        <strong>Financement:</strong> PHRC-I 300 000€
                     </p>
                 </a>
                 
-                <a href="projets/projet-eimlia.html" class="project-card">
+                <a href="projet-eimlia.html" class="project-card">
                     <span class="project-badge">Intelligence IA</span>
                     <h3>EIMLIA-3M-TEU</h3>
                     <div class="project-meta">Évaluation Intelligence Modèles LLM IA</div>
@@ -500,7 +516,7 @@
                     </p>
                 </a>
                 
-                <a href="projets/projet-redirect.html" class="project-card">
+                <a href="projet-redirect.html" class="project-card">
                     <span class="project-badge">Réorientation</span>
                     <h3>REDIRECT-IA</h3>
                     <div class="project-meta">Réorientation assistée par IA</div>
@@ -515,7 +531,6 @@
             </div>
         </section>
 
-        <!-- Rest of the index.html content remains the same -->
         <!-- Publications Section -->
         <section id="publications">
             <h2>Publications & Communications</h2>
