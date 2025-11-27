@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIAEU - STaR-AI</title>
+    <style>
+        /* Copier le même CSS que dans index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #dc2626;
+            --accent: #2563eb;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: var(--border);
+        }
+        
+        /* Project detail page */
+        .project-detail {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-content {
+            padding: 0 2rem;
+        }
+        
+        .project-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="index.html" class="logo-text">
+                    <span class="logo-icon">🧠</span>
+                    STaR-AI
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#equipe">Équipe</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html#projets" class="back-btn">← Retour aux projets</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Étude pilote</span>
+                <h1>TIAEU</h1>
+                <p>Triage Intelligent à l'Entrée des Urgences</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    TIAEU (Triage Intelligent à l'Entrée des Urgences) est une étude rétrospective monocentrique 
+                    ayant inclus 657 patients et démontré la supériorité de 3 modèles d'IA sur le triage infirmier standard. 
+                    La concordance avec la décision médicale finale a atteint 78% pour l'IA contre 68% pour le triage infirmier standard (p<0.001).
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Objectifs</h3>
+                        <p>Évaluer la performance de modèles d'IA pour le triage aux urgences comparé au triage infirmier standard</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Méthodologie</h3>
+                        <p>Étude rétrospective monocentrique incluant 657 patients avec validation croisée</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Résultats</h3>
+                        <p>Concordance IA: 78% vs Infirmier: 68% (p<0.001)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Publication</h3>
+                        <p>IEEE/ACM BDCAT 2025</p>
+                    </div>
+                </div>
+                
+                <h2>Détails Techniques</h2>
+                <p>
+                    Trois modèles d'apprentissage automatique ont été développés et évalués : 
+                    Random Forest, XGBoost et un réseau de neurones profond. Les modèles ont été 
+                    entraînés sur des données démographiques, les motifs de recours et les constantes vitales.
+                </p>
+                
+                <h2>Impact et Perspectives</h2>
+                <p>
+                    Cette étude pilote a démontré la faisabilité et la supériorité potentielle de l'IA 
+                    pour le triage aux urgences. Elle a ouvert la voie à l'étude multicentrique TIAEU-2 
+                    et à l'essai contrôlé randomisé TRIADE.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
