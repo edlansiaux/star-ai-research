@@ -57,6 +57,19 @@
             width: auto;
         }
         
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+        
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -140,6 +153,9 @@
             padding: 2rem;
             transition: all 0.3s;
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
         .project-card:hover {
@@ -297,6 +313,57 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: var(--border);
+        }
+        
+        /* Project detail page */
+        .project-detail {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+        }
+        
+        .project-content {
+            padding: 0 2rem;
+        }
+        
+        .project-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -310,6 +377,14 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -318,14 +393,17 @@
     <nav>
         <div class="nav-container">
             <div class="logo-section">
-                <span style="font-size: 2rem; font-weight: 700; color: var(--primary);">STaR-AI</span>
+                <a href="index.html" class="logo-text">
+                    <span class="logo-icon">🧠</span>
+                    STaR-AI
+                </a>
             </div>
             <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#equipe">Équipe</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#equipe">Équipe</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -373,7 +451,7 @@
             </p>
             
             <div class="projects-grid">
-                <div class="project-card">
+                <a href="projet-tiaeu.html" class="project-card">
                     <span class="project-badge">Étude pilote</span>
                     <h3>TIAEU</h3>
                     <div class="project-meta">Triage Intelligent à l'Entrée des Urgences</div>
@@ -384,9 +462,9 @@
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
                         <strong>Publication:</strong> IEEE BDCAT 2025
                     </p>
-                </div>
+                </a>
                 
-                <div class="project-card">
+                <a href="projet-tiaeu-2.html" class="project-card">
                     <span class="project-badge">Validation multicentrique</span>
                     <h3>TIAEU-2</h3>
                     <div class="project-meta">Extension multicentrique prospective</div>
@@ -397,9 +475,9 @@
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
                         <strong>Période:</strong> Janvier-Mars 2026
                     </p>
-                </div>
+                </a>
                 
-                <div class="project-card">
+                <a href="projet-triade.html" class="project-card">
                     <span class="project-badge">Essai contrôlé</span>
                     <h3>TRIADE</h3>
                     <div class="project-meta">Triage par IA et Décision Éclairée</div>
@@ -410,9 +488,9 @@
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
                         <strong>Financement:</strong> PHRC-I 300 000€
                     </p>
-                </div>
+                </a>
                 
-                <div class="project-card">
+                <a href="projet-eimlia.html" class="project-card">
                     <span class="project-badge">Intelligence IA</span>
                     <h3>EIMLIA-3M-TEU</h3>
                     <div class="project-meta">Évaluation Intelligence Modèles LLM IA</div>
@@ -420,9 +498,9 @@
                         Développement et évaluation de modèles de langage de grande taille (LLM) spécifiquement 
                         entraînés pour le triage aux urgences en langue française.
                     </p>
-                </div>
+                </a>
                 
-                <div class="project-card">
+                <a href="projet-redirect.html" class="project-card">
                     <span class="project-badge">Réorientation</span>
                     <h3>REDIRECT-IA</h3>
                     <div class="project-meta">Réorientation assistée par IA</div>
@@ -433,10 +511,11 @@
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
                         <strong>Partenaires:</strong> CHU Québec, Mila, IVADO
                     </p>
-                </div>
+                </a>
             </div>
         </section>
 
+        <!-- Rest of the index.html content remains the same -->
         <!-- Publications Section -->
         <section id="publications">
             <h2>Publications & Communications</h2>
@@ -532,11 +611,11 @@
                     <p style="color: var(--text-light); margin-top: 0.5rem;">Université de Lille - Développement des modèles IA</p>
                 </div>
                 <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
-                    <strong>LIASD</strong>
+                    <strong> Laboratoire d'Intelligence Artificielle et Sémantique des Données (LIASD)</strong>
                     <p style="color: var(--text-light); margin-top: 0.5rem;">Université Paris 8 - Interface & Interaction Homme-Machine</p>
                 </div>
                 <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
-                    <strong>METRICS ULR 2694</strong>
+                    <strong>METRICS ULR 2694 - Évaluation des technologies de santé et des pratiques médicales</strong>
                     <p style="color: var(--text-light); margin-top: 0.5rem;">CHU Lille - Évaluation médico-économique</p>
                 </div>
             </div>
@@ -583,10 +662,10 @@
             
             <div>
                 <h4>Affiliations</h4>
-                <p>ULR 2694 METRICS (CHU Lille)</p>
+                <p>Pôle de l'Urgence (Centre Hospitalier Universitaire de Lille)</p>
+                <p>ULR 2694 METRICS (CHU Lille|Université de Lille)</p>
                 <p>CRIStAL UMR CNRS 9189 (Université de Lille)</p>
                 <p>LIASD (Université Paris 8)</p>
-                <p>Pôle de l'Urgence (Centre Hospitalier Universitaire de Lille)</p>
             </div>
             
             <div>
