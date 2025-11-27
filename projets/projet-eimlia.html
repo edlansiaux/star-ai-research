@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIMLIA-3M-TEU - STaR-AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #dc2626;
+            --accent: #2563eb;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: var(--border);
+        }
+        
+        /* Project detail page */
+        .project-detail {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-content {
+            padding: 0 2rem;
+        }
+        
+        .project-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .tech-specs {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="index.html" class="logo-text">
+                    <span class="logo-icon">🧠</span>
+                    STaR-AI
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#equipe">Équipe</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html#projets" class="back-btn">← Retour aux projets</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Intelligence IA</span>
+                <h1>EIMLIA-3M-TEU</h1>
+                <p>Évaluation Intelligence Modèles LLM IA pour le Triage aux Urgences</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    EIMLIA-3M-TEU est un projet de recherche fondamental visant à développer et évaluer 
+                    des modèles de langage de grande taille (LLM) spécifiquement entraînés pour le triage 
+                    aux urgences en langue française. Ce projet explore les frontières de l'IA générative 
+                    appliquée à la médecine d'urgence.
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Objectifs</h3>
+                        <p>Développer des LLM spécialisés pour le triage médical en français</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Innovation</h3>
+                        <p>Premiers LLM dédiés au triage aux urgences en langue française</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Approche</h3>
+                        <p>Fine-tuning de modèles existants sur données médicales françaises</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Application</h3>
+                        <p>Triage conversationnel et analyse de texte libre</p>
+                    </div>
+                </div>
+                
+                <h2>Spécifications Techniques</h2>
+                <div class="tech-specs">
+                    <h3>Architecture des Modèles</h3>
+                    <ul style="margin: 1rem 0;">
+                       
