@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIAEU-2 - STaR-AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #dc2626;
+            --accent: #2563eb;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: var(--border);
+        }
+        
+        /* Project detail page */
+        .project-detail {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-content {
+            padding: 0 2rem;
+        }
+        
+        .project-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .center-card {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="index.html" class="logo-text">
+                    <span class="logo-icon">🧠</span>
+                    STaR-AI
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#equipe">Équipe</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html#projets" class="back-btn">← Retour aux projets</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Validation multicentrique</span>
+                <h1>TIAEU-2</h1>
+                <p>Extension multicentrique prospective</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    TIAEU-2 est l'extension multicentrique prospective du projet TIAEU, visant à valider 
+                    les modèles d'IA développés dans l'étude pilote sur une plus large échelle. 
+                    Cette étude inclut 6 centres hospitaliers et plusieurs milliers de patients pour 
+                    une validation externe robuste.
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Objectifs</h3>
+                        <p>Validation externe des modèles d'IA sur une cohorte multicentrique prospective</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Méthodologie</h3>
+                        <p>Étude prospective observationnelle multicentrique</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Période</h3>
+                        <p>Janvier - Mars 2026</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Échantillon</h3>
+                        <p>Plusieurs milliers de patients sur 6 centres</p>
+                    </div>
+                </div>
+                
+                <h2>Centres Participants</h2>
+                <div class="centers-grid">
+                    <div class="center-card">
+                        <strong>CHU Lille</strong>
+                        <p>Centre coordinateur</p>
+                    </div>
+                    <div class="center-card">
+                        <strong>CH Douai</strong>
+                        <p>Centre partenaire</p>
+                    </div>
+                    <div class="center-card">
+                        <strong>CH Denain</strong>
+                        <p>Centre partenaire</p>
+                    </div>
+                    <div class="center-card">
+                        <strong>CH Maubeuge</strong>
+                        <p>Centre partenaire</p>
+                    </div>
+                    <div class="center-card">
+                        <strong>CH Eaubonne</strong>
+                        <p>Centre partenaire</p>
+                    </div>
+                    <div class="center-card">
+                        <strong>Hôpital Tenon AP-HP</strong>
+                        <p>Centre partenaire</p>
+                    </div>
+                </div>
+                
+                <h2>Détails Techniques</h2>
+                <p>
+                    L'étude TIAEU-2 reprend les trois modèles d'IA validés dans l'étude pilote 
+                    (Random Forest, XGBoost et réseau de neurones profond) et les évalue en conditions 
+                    réelles sur des données prospectives. L'objectif est de confirmer la performance 
+                    de ces modèles dans différents contextes hospitaliers.
+                </p>
+                
+                <h2>Impact et Perspectives</h2>
+                <p>
+                    La validation multicentrique est une étape cruciale avant le déploiement en routine 
+                    des outils d'IA. TIAEU-2 permettra de démontrer la généralisabilité des modèles 
+                    et de préparer l'essai contrôlé randomisé TRIADE.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
