@@ -47,12 +47,6 @@
         }
         
         .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo {
             text-decoration: none;
             color: var(--primary);
         }
@@ -326,65 +320,13 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        /* Back button */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--bg-light);
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 6px;
-            margin-bottom: 2rem;
-            transition: all 0.3s;
-        }
-        
-        .back-btn:hover {
-            background: var(--border);
-        }
-        
-        /* Project detail page */
-        .project-detail {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .project-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            border-radius: 12px;
-        }
-        
-        .project-content {
-            padding: 0 2rem;
-        }
-        
-        .project-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .info-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-        }
-        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
             
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
             
             .projects-grid {
@@ -405,18 +347,19 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                    <div class="logo-main">STaR-AI</div>
-                    <div class="logo-subtitle">
-                        <div class="line1">SYSTEMS FOR TRIAGE</div>
-                        <div class="line2">AND RESPONSE WITH AI</div>
-                    </div>
+            <a href="index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle">
+                    <div class="line1">SYSTEMS FOR TRIAGE</div>
+                    <div class="line2">AND RESPONSE WITH AI</div>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#publications">Publications</a></li>
-                <li><a href="index.html#equipe">Équipe</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#equipe">Équipe</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -449,7 +392,7 @@
                 <p>Concordance IA</p>
             </div>
             <div class="stat-item">
-                <h3>6</h3>
+                <h3>8</h3>
                 <p>Centres partenaires</p>
             </div>
         </div>
@@ -465,38 +408,38 @@
             
             <div class="projects-grid">
                 <a href="projets/projet-tiaeu.html" class="project-card">
-                    <span class="project-badge">Étude pilote</span>
+                    <span class="project-badge">Étude pilote - Publié</span>
                     <h3>TIAEU</h3>
                     <div class="project-meta">Triage Intelligent à l'Entrée des Urgences</div>
                     <p>
-                        Étude rétrospective monocentrique (n=657) ayant démontré la supériorité de 3 modèles d'IA 
-                        sur le triage infirmier standard. Concordance de 78% vs 68% (p<0.001).
+                        Étude rétrospective monocentrique (n=657, CHU Lille) démontrant la supériorité de 3 modèles d'IA 
+                        (NLP, LLM, JEPA) sur le triage infirmier standard. Concordance de 78% vs 68% (p&lt;0.001).
                     </p>
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Publication:</strong> IEEE BDCAT 2025
+                        <strong>Publication:</strong> IEEE BDCAT 2025, Nantes
                     </p>
                 </a>
                 
                 <a href="projets/projet-tiaeu-2.html" class="project-card">
-                    <span class="project-badge">Validation multicentrique</span>
+                    <span class="project-badge">En cours</span>
                     <h3>TIAEU-2</h3>
                     <div class="project-meta">Extension multicentrique prospective</div>
                     <p>
-                        Étude prospective sur 5 centres (CHU Lille, CH Douai, Denain, Maubeuge, Tenon AP-HP). 
-                        Validation externe des modèles sur plusieurs milliers de patients.
+                        Validation externe sur 6 centres (CHU Lille, CH Douai, Denain, Maubeuge, Eaubonne, Tenon AP-HP) 
+                        avec plusieurs milliers de patients. Période: janvier-mars 2026.
                     </p>
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Période:</strong> Janvier-Mars 2026
+                        <strong>Type:</strong> Étude prospective observationnelle
                     </p>
                 </a>
                 
                 <a href="projets/projet-triade.html" class="project-card">
-                    <span class="project-badge">Essai contrôlé</span>
+                    <span class="project-badge">Financement obtenu</span>
                     <h3>TRIADE</h3>
                     <div class="project-meta">Triage par IA et Décision Éclairée</div>
                     <p>
-                        Étude prospective randomisée en cluster évaluant l'assistance IA en conditions réelles. 
-                        Objectif: améliorer la concordance de 68% à 76% avec acceptabilité professionnelle.
+                        Essai prospectif randomisé en cluster bicentrique (CHU Lille, CH Maubeuge) évaluant l'assistance IA 
+                        en conditions réelles. Objectif: concordance de 68% à 76%.
                     </p>
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
                         <strong>Financement:</strong> PHRC-I 300 000€
@@ -504,22 +447,25 @@
                 </a>
                 
                 <a href="projets/projet-eimlia.html" class="project-card">
-                    <span class="project-badge">Intelligence IA</span>
+                    <span class="project-badge">Recherche fondamentale</span>
                     <h3>EIMLIA-3M-TEU</h3>
                     <div class="project-meta">Évaluation Intelligence Modèles LLM IA</div>
                     <p>
-                        Développement et évaluation de modèles de langage de grande taille (LLM) spécifiquement 
-                        entraînés pour le triage aux urgences en langue française.
+                        Évaluation comparative multidimensionnelle de trois architectures d'IA (NLP, LLM, JEPA) pour 
+                        le triage aux urgences, avec simulation hybride Process Mining et jumeaux numériques.
+                    </p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Approche:</strong> Simulation DES + Systèmes Multi-Agents
                     </p>
                 </a>
                 
-                <a href="projet-redirect.html" class="project-card">
-                    <span class="project-badge">Réorientation</span>
+                <a href="projets/projet-redirect.html" class="project-card">
+                    <span class="project-badge">Collaboration internationale</span>
                     <h3>REDIRECT-IA</h3>
                     <div class="project-meta">Réorientation assistée par IA</div>
                     <p>
-                        Développement d'une application de réorientation intégrant l'IA pour identifier 
-                        les cas pouvant être pris en charge en soins primaires. Réduction de la congestion.
+                        Application de réorientation intégrant l'IA pour identifier les cas pouvant être pris en charge 
+                        en soins primaires. Réduction estimée de 15-20% de la congestion des urgences.
                     </p>
                     <p style="margin-top: 1rem; font-size: 0.9rem;">
                         <strong>Partenaires:</strong> CHU Québec, Mila, IVADO
@@ -536,7 +482,7 @@
             <ul class="publication-list">
                 <li class="publication-item">
                     <span class="publication-type">Conférence</span>
-                    <strong>Development and Comparative Evaluation of Three AI Models for Predicting Triage in Emergency Departments</strong>
+                    <strong>Development and Comparative Evaluation of Three Artificial Intelligence Models (NLP, LLM, JEPA) for Predicting Triage in Emergency Departments</strong>
                     <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
                     <p style="color: var(--text-light); font-size: 0.9rem;">
                         IEEE/ACM 12th International Conference on Big Data Computing, Applications and Technologies (BDCAT '25), 
@@ -546,7 +492,7 @@
                 
                 <li class="publication-item">
                     <span class="publication-type">Article</span>
-                    <strong>Navigating the landscape of medical triage: Unveiling the potential and challenges of large language models</strong>
+                    <strong>Navigating the landscape of medical triage: Unveiling the potential and challenges of large language models and beyond</strong>
                     <p>Lansiaux E, Baron MA, Vromant A.</p>
                     <p style="color: var(--text-light); font-size: 0.9rem;">
                         American Journal of Emergency Medicine, 2024 Apr;78:224
@@ -558,17 +504,13 @@
             <ul class="publication-list">
                 <li class="publication-item">
                     <span class="publication-type" style="background: #059669;">Presse</span>
-                    <strong>TIAEU : l’IA qui écoute le triage, entre promesse clinique et réalité du terrain</strong>
-                    <p style="color: var(--text-light);"><p style="color: var(--text-light);"><a href=" https://www.healthandtech.eu/post_ci/tiaeu-lia-qui-ecoute-le-triage-entre-promesse-clinique-et-realite-du-terrain/" target="_blank" rel="noopener noreferrer">
-  Health & Tech Intelligence
-</a></p></p>
+                    <strong>TIAEU : l'IA qui écoute le triage, entre promesse clinique et réalité du terrain</strong>
+                    <p style="color: var(--text-light);"><a href="https://www.healthandtech.eu/post_ci/tiaeu-lia-qui-ecoute-le-triage-entre-promesse-clinique-et-realite-du-terrain/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Health & Tech Intelligence</a></p>
                 </li>
                 <li class="publication-item">
                     <span class="publication-type" style="background: #059669;">Presse</span>
-                    <strong>Urgences à l’hôpital, sécuriser les diagnostics grâce au numérique</strong>
-                    <p style="color: var(--text-light);"><a href=" https://www.sante-future.com/actualites-sante/61631-urgences-a-l-hopital-securiser-les-diagnostics-grace-au-numerique.html" target="_blank" rel="noopener noreferrer">
-  Santé Future
-</a></p>
+                    <strong>Urgences à l'hôpital, sécuriser les diagnostics grâce au numérique</strong>
+                    <p style="color: var(--text-light);"><a href="https://www.sante-future.com/actualites-sante/61631-urgences-a-l-hopital-securiser-les-diagnostics-grace-au-numerique.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Santé Future</a></p>
                 </li>
             </ul>
         </section>
@@ -587,7 +529,7 @@
                 <div class="team-member">
                     <h4>Dr Ramy Azzouz</h4>
                     <div class="role">Co-directeur</div>
-                    <div class="affiliation">Praticien Hospitalier<br>Centre Antipoison CHU Lille</div>
+                    <div class="affiliation">Praticien Hospitalier<br>Centre Antipoison CHU Lille<br>Directeur DU IA en Santé</div>
                 </div>
                 
                 <div class="team-member">
@@ -598,14 +540,14 @@
                 
                 <div class="team-member">
                     <h4>Pr Hayfa Zgaya-Biau</h4>
-                    <div class="role">Comité Scientifique</div>
-                    <div class="affiliation">Professeur Logistique et Informatique en Santé<br> CRISTAL/UMR CNRS 9189 - Equipe OSL, Université de Lille</div>
+                    <div class="role">Direction Scientifique</div>
+                    <div class="affiliation">Professeure Logistique et Informatique en Santé<br>CRIStAL UMR CNRS 9189<br>Équipe OSL, Université de Lille</div>
                 </div>
             
                 <div class="team-member">
                     <h4>Pr Emmanuel Chazard</h4>
                     <div class="role">Comité Scientifique</div>
-                    <div class="affiliation">PU-PH Santé Publique<br>Biostatistiques & Informatique médicale</div>
+                    <div class="affiliation">PU-PH Santé Publique<br>Biostatistiques & Informatique médicale<br>ULR 2694 METRICS</div>
                 </div>
                 
                 <div class="team-member">
@@ -617,7 +559,7 @@
                 <div class="team-member">
                     <h4>Dr Romain Dewilde</h4>
                     <div class="role">Co-investigateur</div>
-                    <div class="affiliation">Praticien Hospitalier en Médecine d'Urgence<br>CH Maubeuge</div>
+                    <div class="affiliation">Praticien Hospitalier<br>Médecine d'Urgence<br>CH Maubeuge</div>
                 </div>
             </div>
             
@@ -625,19 +567,19 @@
             <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
                 <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
                     <strong>Pôle de l'Urgence</strong>
-                    <p style="color: var(--text-light); margin-top: 0.5rem;">CHU Lille - Implication clinique</p>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">CHU de Lille</p>
                 </div>
                 <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
-                    <strong> Centre de Recherche en Informatique, Signal et Automatique de Lille (CRISTAL/UMR CNRS 9189) - Equipe Optimisation des Systèmes Logistiques (OSL)</strong>
-                    <p style="color: var(--text-light); margin-top: 0.5rem;">Université de Lille - Développement des modèles IA</p>
+                    <strong>CRIStAL UMR CNRS 9189</strong>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Équipe OSL - Université de Lille</p>
                 </div>
                 <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
-                    <strong> Laboratoire d'Intelligence Artificielle et Sémantique des Données (LIASD)</strong>
-                    <p style="color: var(--text-light); margin-top: 0.5rem;">Université Paris 8 - Interface & Interaction Homme-Machine</p>
+                    <strong>LIASD</strong>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Université Paris 8</p>
                 </div>
                 <div style="flex: 1; min-width: 250px; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
-                    <strong>METRICS ULR 2694 - Évaluation des technologies de santé et des pratiques médicales</strong>
-                    <p style="color: var(--text-light); margin-top: 0.5rem;">CHU Lille - Évaluation médico-économique</p>
+                    <strong>METRICS ULR 2694</strong>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">CHU de Lille</p>
                 </div>
             </div>
         </section>
@@ -655,8 +597,8 @@
                     <p>Économies estimées de 50-80 M€/an pour 650 services d'urgences en France</p>
                 </div>
                 <div style="padding: 2rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--accent);">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Standardisation</h3>
-                    <p>Réduction de la variabilité inter-opérateurs et amélioration de l'équité d'accès aux soins</p>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Leadership Européen</h3>
+                    <p>Positionner la France en tête de l'innovation IA en médecine d'urgence</p>
                 </div>
             </div>
         </section>
@@ -683,9 +625,9 @@
             
             <div>
                 <h4>Affiliations</h4>
-                <p>Pôle de l'Urgence (Centre Hospitalier Universitaire de Lille)</p>
-                <p>ULR 2694 METRICS (CHU Lille|Université de Lille)</p>
-                <p>CRIStAL UMR CNRS 9189 (Université de Lille)</p>
+                <p>Pôle de l'Urgence (CHU Lille)</p>
+                <p>ULR 2694 METRICS</p>
+                <p>CRIStAL UMR CNRS 9189</p>
                 <p>LIASD (Université Paris 8)</p>
             </div>
             
@@ -694,7 +636,7 @@
                 <p><a href="#projets">Nos projets</a></p>
                 <p><a href="#publications">Publications</a></p>
                 <p><a href="#equipe">Équipe</a></p>
-                <p><a href="https://github.com/star-ai" target="_blank">GitHub</a></p>
+                <p><a href="https://github.com/star-ai-research">GitHub</a></p>
             </div>
         </div>
         
