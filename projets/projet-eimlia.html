@@ -26,6 +26,7 @@
             line-height: 1.6;
             color: var(--text);
             background: white;
+            padding-bottom: 2rem;
         }
         
         /* Navigation */
@@ -220,6 +221,26 @@
             margin-top: 5rem;
             text-align: center;
         }
+        
+        /* Citation Link Style */
+        .citation-link {
+            color: var(--secondary);
+            font-weight: bold;
+            text-decoration: none;
+            background-color: rgba(220, 38, 38, 0.1);
+            padding: 0 4px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            cursor: pointer;
+            font-size: 0.9em;
+            vertical-align: super;
+        }
+        
+        .citation-link:hover {
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+        }
 
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 1rem; }
@@ -257,34 +278,34 @@
             <div class="project-header">
                 <span class="project-badge">Simulation Hybride & IA</span>
                 <h1>EIMLIA-3M-TEU</h1>
-                <p>Étude des Impacts Médico-Financiers, Logistiques de l'IA avec 3 Modèles Triant à l’Entrée des Urgences</p>
+                [cite_start]<p>Étude des Impacts Médico-Financiers, Logistiques de l'IA avec 3 Modèles Triant à l’Entrée des Urgences [cite: 1]</p>
             </div>
             
             <div class="project-content">
                 <h2>Description du Projet</h2>
                 <p class="lead-text">
-                    Le projet EIMLIA-3M-TEU vise à évaluer, par une simulation prospective validée rétrospectivement, les performances multidimensionnelles de trois architectures d'IA (NLP, LLM, JEPA) pour le triage aux urgences. [cite_start]L'étude se distingue par une approche intégrée combinant critères cliniques, organisationnels et économiques sur une cohorte de 600 000 patients du CHU de Lille[cite: 6, 13].
+                    [cite_start]Le projet EIMLIA-3M-TEU vise à évaluer, par une simulation prospective validée rétrospectivement, les performances multidimensionnelles de trois architectures d'IA (NLP, LLM, JEPA) pour le triage aux urgences[cite: 5, 6]. L'étude se distingue par une approche intégrée combinant critères cliniques, organisationnels et économiques sur une cohorte de 600 000 patients du CHU de Lille.
                 </p>
                 
                 <div class="project-info-grid">
                     <div class="info-card">
                         <h3>Objectif Principal</h3>
-                        [cite_start]<p>Identifier l'architecture optimale pour réduire de 25% les temps d'attente et de 20% les hospitalisations inappropriées[cite: 16].</p>
+                        <p>Identifier l'architecture optimale pour réduire de 25% les temps d'attente et de 20% les hospitalisations inappropriées.</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Méthodologie</h3>
-                        [cite_start]<p>Simulation multimodale hybride : Simulation à Événements Discrets (DES) + Systèmes Multi-Agents (SMA) enrichie de Jumeaux Numériques[cite: 12].</p>
+                        [cite_start]<p>Simulation multimodale hybride : Simulation à Événements Discrets (DES) [cite: 10] + [cite_start]Systèmes Multi-Agents (SMA) [cite: 7, 8] [cite_start]enrichie de Jumeaux Numériques[cite: 15].</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Innovation</h3>
-                        [cite_start]<p>Comparaison inédite d'un modèle JEPA (séries temporelles + texte) face aux LLM génératifs et NLP classiques[cite: 8].</p>
+                        [cite_start]<p>Comparaison inédite d'un modèle JEPA (séries temporelles + texte) face aux LLM génératifs et NLP classiques[cite: 18].</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Données</h3>
-                        [cite_start]<p>Entraînement et validation sur 6 ans de données historiques (2018-2023) anonymisées[cite: 13].</p>
+                        [cite_start]<p>Entraînement et validation sur 6 ans de données historiques (2018-2023) anonymisées, valorisées selon les tarifs ATIH[cite: 17].</p>
                     </div>
                 </div>
                 
@@ -293,38 +314,33 @@
                     <div class="info-card">
                         <h3>1. Modèle NLP</h3>
                         <ul class="specs-list">
-                            [cite_start]<li><strong>Tech :</strong> Doc2Vec + Réseau Neuronal Profond[cite: 245].</li>
+                            [cite_start]<li><strong>Tech :</strong> Doc2Vec [cite: 19] + Réseau Neuronal Profond.</li>
                             <li><strong>Force :</strong> Extraction rapide de symptômes critiques, latence très faible (120ms).</li>
-                            [cite_start]<li><strong>Limite :</strong> Compréhension contextuelle limitée des cas complexes[cite: 278].</li>
+                            <li><strong>Limite :</strong> Compréhension contextuelle limitée des cas complexes.</li>
                         </ul>
                     </div>
                     <div class="info-card">
                         <h3>2. Modèle LLM</h3>
                         <ul class="specs-list">
-                            [cite_start]<li><strong>Tech :</strong> FlauBERT Fine-tuné + XGBoost Hybride[cite: 279].</li>
-                            [cite_start]<li><strong>Force :</strong> Raisonnement clinique contextuel, explicabilité via SHAP[cite: 303].</li>
+                            [cite_start]<li><strong>Tech :</strong> FlauBERT Fine-tuné [cite: 23] + XGBoost Hybride.</li>
+                            [cite_start]<li><strong>Force :</strong> Raisonnement clinique contextuel, explicabilité via SHAP[cite: 25].</li>
                             <li><strong>Sécurité :</strong> Module anti-hallucinations basé sur le référentiel FRENCH.</li>
                         </ul>
                     </div>
                     <div class="info-card">
                         <h3>3. Modèle JEPA</h3>
                         <ul class="specs-list">
-                            [cite_start]<li><strong>Tech :</strong> Joint-Embedding Predictive Architecture (LeCun)[cite: 42].</li>
-                            [cite_start]<li><strong>Force :</strong> Encodage conjoint texte/séries temporelles pour prédire la dégradation[cite: 320].</li>
-                            [cite_start]<li><strong>Perf :</strong> Sensibilité >96% sur les urgences vitales (niveaux 1-2)[cite: 360].</li>
+                            <li><strong>Tech :</strong> Joint-Embedding Predictive Architecture.</li>
+                            [cite_start]<li><strong>Force :</strong> Encodage conjoint texte/séries temporelles pour prédire la dégradation[cite: 18].</li>
+                            <li><strong>Perf :</strong> Sensibilité >96% sur les urgences vitales.</li>
                         </ul>
                     </div>
                 </div>
 
                 <h2>Infrastructure de Simulation</h2>
                 <p>
-                    [cite_start]La validation écologique est assurée par une stack technique avancée permettant des stress-tests jusqu'à 200% de charge (scénario de crise)[cite: 14].
+                    La validation écologique est assurée par une stack technique avancée permettant des stress-tests jusqu'à 200% de charge. [cite_start]Le Process Mining [cite: 9] permet une génération réaliste des parcours.
                 </p>
-                <ul class="specs-list" style="margin-top: 1rem;">
-                    [cite_start]<li><strong>Simulation :</strong> Couplage Rockwell Arena (DES) et AnyLogic 8.9 (SMA)[cite: 146].</li>
-                    [cite_start]<li><strong>Calcul :</strong> Cluster GPU NVIDIA A100 avec orchestration Kubernetes pour l'inférence IA[cite: 372].</li>
-                    [cite_start]<li><strong>Process Mining :</strong> Utilisation de Celonis pour la génération réaliste des parcours patients[cite: 203].</li>
-                </ul>
 
                 <h2>Critères d'Évaluation</h2>
                 <table class="metrics-table">
@@ -332,7 +348,7 @@
                         <tr>
                             <th>Axe</th>
                             <th>Indicateurs Clés (KPI)</th>
-                            [cite_start]<th>Cibles [cite: 16, 68-87]</th>
+                            [cite_start]<th>Cibles [cite: 16]</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -349,7 +365,7 @@
                         <tr>
                             <td><strong>Économique</strong></td>
                             <td>Coûts évités (GHS), Examens redondants</td>
-                            <td>-20% hospit. inappropriées, -15% biologie/imagerie</td>
+                            <td>-20% hospit., -15% biologie/imagerie</td>
                         </tr>
                         <tr>
                             <td><strong>Technique</strong></td>
@@ -364,7 +380,68 @@
 
     <footer>
         <p>&copy; 2025 STaR-AI Research Lab - CHU de Lille. Tous droits réservés.</p>
-        [cite_start]<p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Protocole validé sous référence EIMLIA-3M-TEU[cite: 1].</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Protocole validé sous référence EIMLIA-3M-TEU.</p>
     </footer>
+
+    <script>
+        // Dictionnaire des sources extrait de la bibliographie du document EIMLIA-3M-TEU
+        const sources = {
+            "1": "https://link.springer.com/article/10.1057/jos.2009.10",
+            "2": "https://www.sciencedirect.com/science/article/pii/S0360835213003100",
+            "3": "https://www.mdpi.com/2071-1050/15/4/3412",
+            "4": "https://doi.org/10.1080/17477778.2023.2187321",
+            "5": "https://uphf.hal.science/hal-03199182",
+            "6": "http://arxiv.org/abs/2012.01192",
+            "7": "https://ieeexplore.ieee.org/document/5283900",
+            "8": "https://ieeexplore.ieee.org/document/5166148",
+            "9": "https://ieeexplore.ieee.org/document/10129157",
+            "10": "https://www.sciencedirect.com/science/article/pii/S0377221721010894",
+            "11": "https://ebooks.iospress.nl/doi/10.3233/ATDE220192",
+            "12": "https://www.sciencedirect.com/science/article/pii/S0360835203000238",
+            "13": "https://www.sciencedirect.com/science/article/pii/S0166361518303191",
+            "14": "https://www.sciencedirect.com/science/article/pii/S0278612521000054",
+            "15": "https://hal.science/hal-04673684",
+            "16": "https://www.sciencedirect.com/science/article/pii/S1532046422000764",
+            "17": "https://www.atih.sante.fr/tarifs-mco-et-had",
+            "18": "http://arxiv.org/abs/2507.01080",
+            "19": "http://arxiv.org/abs/1301.3781",
+            "20": "http://arxiv.org/abs/1710.05941",
+            "22": "https://aclanthology.org/L16-1040",
+            "23": "https://arxiv.org/abs/1912.05372",
+            "25": "http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf",
+            "27": "https://ieeexplore.ieee.org/document/8737887",
+            "28": "https://doi.org/10.1186/1472-6947-13-59",
+            "29": "https://www.mecs-press.org/ijieeb/ijieeb-v11-n4/v11n4-3.html",
+            "30": "https://www.sciencedirect.com/science/article/pii/S1569190X15000210"
+        };
+
+        function linkifyCitations() {
+            // Cible le contenu principal
+            const container = document.querySelector('.project-detail');
+            if (!container) return;
+
+            [cite_start]// Regex pour trouver [cite: 1] [cite_start]ou [cite: 1, 2, 3]
+            const regex = /\+)\]/g;
+
+            container.innerHTML = container.innerHTML.replace(regex, (match, numbers) => {
+                // Sépare les nombres (ex: "1, 2" devient ["1", "2"])
+                const ids = numbers.split(',').map(s => s.trim());
+                
+                // Construit les liens
+                const links = ids.map(id => {
+                    const url = sources[id];
+                    if (url) {
+                        return `<a href="${url}" class="citation-link" target="_blank" rel="noopener noreferrer" title="Voir la source ${id}">[${id}]</a>`;
+                    }
+                    return `[${id}]`; // Si pas d'URL, garde le texte simple
+                });
+
+                // Retourne la liste jointe par des virgules (ou espaces)
+                return links.join(' '); 
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', linkifyCitations);
+    </script>
 </body>
 </html>
