@@ -50,13 +50,14 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-        
-        .logo {
             text-decoration: none;
-            color: var(--primary);
         }
         
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo-main {
             font-size: 2.5rem;
             font-weight: 800;
@@ -75,12 +76,6 @@
             text-transform: uppercase;
             color: var(--text);
             line-height: 1.2;
-            text-align: center;
-        }
-        
-        .logo-subtitle .line2 {
-            font-size: 0.65rem;
-            color: var(--text-light);
         }
         
         .nav-links {
@@ -99,234 +94,109 @@
         .nav-links a:hover {
             color: var(--accent);
         }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        /* Container */
+
+        /* Container & Sections */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
         
-        /* Section */
-        section {
-            margin-bottom: 5rem;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .project-card {
-            background: white;
-            border: 2px solid var(--border);
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
             border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
         }
         
         .project-badge {
             display: inline-block;
-            background: var(--accent);
+            background: rgba(255,255,255,0.2);
             color: white;
-            padding: 0.3rem 0.8rem;
+            padding: 0.3rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            backdrop-filter: blur(5px);
         }
         
-        .project-card h3 {
-            margin-bottom: 0.5rem;
-        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 2rem; margin: 3rem 0 1.5rem; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text); font-weight: 700; }
         
-        .project-meta {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+        .lead-text {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            text-align: justify;
         }
-        
-        /* Stats Section */
-        .stats {
-            background: var(--bg-light);
-            padding: 3rem;
-            border-radius: 12px;
+
+        /* Grid Layouts */
+        .project-info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         
-        .stat-item h3 {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
         }
-        
-        .stat-item p {
-            color: var(--text-light);
-            font-weight: 500;
-        }
-        
-        /* Publications */
-        .publication-list {
+
+        .info-card:hover { transform: translateY(-3px); }
+
+        .specs-list {
             list-style: none;
         }
-        
-        .publication-item {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
+
+        .specs-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
         }
-        
-        .publication-item strong {
-            color: var(--primary);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .publication-type {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin-right: 0.5rem;
-        }
-        
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .team-member {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-light);
-            border-radius: 12px;
-        }
-        
-        .team-member h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .team-member .role {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .team-member .affiliation {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 5rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        footer h4 {
-            margin-bottom: 1rem;
-        }
-        
-        footer a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        
-        footer a:hover {
-            opacity: 1;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: white;
+
+        .specs-list li::before {
+            content: "•";
             color: var(--accent);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+        /* Table */
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        
-        /* Back button */
+
+        .metrics-table th, .metrics-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .metrics-table th {
+            background: var(--bg-light);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Footer & Buttons */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -338,85 +208,44 @@
             border-radius: 6px;
             margin-bottom: 2rem;
             transition: all 0.3s;
+            font-weight: 500;
         }
         
-        .back-btn:hover {
-            background: var(--border);
-        }
+        .back-btn:hover { background: var(--border); }
         
-        /* Project detail page */
-        .project-detail {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .project-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        footer {
+            background: var(--primary);
             color: white;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
             text-align: center;
-            margin-bottom: 3rem;
-            border-radius: 12px;
         }
-        
-        .project-content {
-            padding: 0 2rem;
-        }
-        
-        .project-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .info-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-        }
-        
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .logo-main {
-                font-size: 2rem;
-            }
-            
-            .logo-subtitle {
-                font-size: 0.6rem;
-            }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .project-header { padding: 2rem 1rem; }
+            h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="/star-ai-research/index.html" class="logo">
+            <a href="/star-ai-research/index.html" class="logo-section">
+                <div class="logo-text-group">
                     <div class="logo-main">STaR-AI</div>
                     <div class="logo-subtitle">
-                        <div class="line1">SYSTEMS FOR TRIAGE</div>
-                        <div class="line2">AND RESPONSE WITH AI</div>
+                        <div>SYSTEMS FOR TRIAGE</div>
+                        <div>AND RESPONSE WITH AI</div>
                     </div>
+                </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="/star-ai-research/index.html#accueil">Accueil</a></li>
                 <li><a href="/star-ai-research/index.html#projets">Projets</a></li>
                 <li><a href="/star-ai-research/index.html#publications">Publications</a></li>
                 <li><a href="/star-ai-research/index.html#equipe">Équipe</a></li>
-                <li><a href="/star-ai-research/index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -426,44 +255,116 @@
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">Intelligence IA</span>
+                <span class="project-badge">Simulation Hybride & IA</span>
                 <h1>EIMLIA-3M-TEU</h1>
-                <p>Évaluation Intelligence Modèles LLM IA pour le Triage aux Urgences</p>
+                <p>Étude des Impacts Médico-Financiers, Logistiques de l'IA avec 3 Modèles Triant à l’Entrée des Urgences</p>
             </div>
             
             <div class="project-content">
                 <h2>Description du Projet</h2>
-                <p>
-                    EIMLIA-3M-TEU est un projet de recherche fondamental visant à développer et évaluer 
-                    des modèles de langage de grande taille (LLM) spécifiquement entraînés pour le triage 
-                    aux urgences en langue française. Ce projet explore les frontières de l'IA générative 
-                    appliquée à la médecine d'urgence.
+                <p class="lead-text">
+                    Le projet EIMLIA-3M-TEU vise à évaluer, par une simulation prospective validée rétrospectivement, les performances multidimensionnelles de trois architectures d'IA (NLP, LLM, JEPA) pour le triage aux urgences. [cite_start]L'étude se distingue par une approche intégrée combinant critères cliniques, organisationnels et économiques sur une cohorte de 600 000 patients du CHU de Lille[cite: 6, 13].
                 </p>
                 
                 <div class="project-info-grid">
                     <div class="info-card">
-                        <h3>Objectifs</h3>
-                        <p>Développer des LLM spécialisés pour le triage médical en français</p>
+                        <h3>Objectif Principal</h3>
+                        [cite_start]<p>Identifier l'architecture optimale pour réduire de 25% les temps d'attente et de 20% les hospitalisations inappropriées[cite: 16].</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Méthodologie</h3>
+                        [cite_start]<p>Simulation multimodale hybride : Simulation à Événements Discrets (DES) + Systèmes Multi-Agents (SMA) enrichie de Jumeaux Numériques[cite: 12].</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Innovation</h3>
-                        <p>Premiers LLM dédiés au triage aux urgences en langue française</p>
+                        [cite_start]<p>Comparaison inédite d'un modèle JEPA (séries temporelles + texte) face aux LLM génératifs et NLP classiques[cite: 8].</p>
                     </div>
                     
                     <div class="info-card">
-                        <h3>Approche</h3>
-                        <p>Fine-tuning de modèles existants sur données médicales françaises</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Application</h3>
-                        <p>Triage conversationnel et analyse de texte libre</p>
+                        <h3>Données</h3>
+                        [cite_start]<p>Entraînement et validation sur 6 ans de données historiques (2018-2023) anonymisées[cite: 13].</p>
                     </div>
                 </div>
                 
-                <h2>Spécifications Techniques</h2>
-                <div class="tech-specs">
-                    <h3>Architecture des Modèles</h3>
-                    <ul style="margin: 1rem 0;">
-                       
+                <h2>Architectures IA Évaluées</h2>
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>1. Modèle NLP</h3>
+                        <ul class="specs-list">
+                            [cite_start]<li><strong>Tech :</strong> Doc2Vec + Réseau Neuronal Profond[cite: 245].</li>
+                            <li><strong>Force :</strong> Extraction rapide de symptômes critiques, latence très faible (120ms).</li>
+                            [cite_start]<li><strong>Limite :</strong> Compréhension contextuelle limitée des cas complexes[cite: 278].</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>2. Modèle LLM</h3>
+                        <ul class="specs-list">
+                            [cite_start]<li><strong>Tech :</strong> FlauBERT Fine-tuné + XGBoost Hybride[cite: 279].</li>
+                            [cite_start]<li><strong>Force :</strong> Raisonnement clinique contextuel, explicabilité via SHAP[cite: 303].</li>
+                            <li><strong>Sécurité :</strong> Module anti-hallucinations basé sur le référentiel FRENCH.</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>3. Modèle JEPA</h3>
+                        <ul class="specs-list">
+                            [cite_start]<li><strong>Tech :</strong> Joint-Embedding Predictive Architecture (LeCun)[cite: 42].</li>
+                            [cite_start]<li><strong>Force :</strong> Encodage conjoint texte/séries temporelles pour prédire la dégradation[cite: 320].</li>
+                            [cite_start]<li><strong>Perf :</strong> Sensibilité >96% sur les urgences vitales (niveaux 1-2)[cite: 360].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Infrastructure de Simulation</h2>
+                <p>
+                    [cite_start]La validation écologique est assurée par une stack technique avancée permettant des stress-tests jusqu'à 200% de charge (scénario de crise)[cite: 14].
+                </p>
+                <ul class="specs-list" style="margin-top: 1rem;">
+                    [cite_start]<li><strong>Simulation :</strong> Couplage Rockwell Arena (DES) et AnyLogic 8.9 (SMA)[cite: 146].</li>
+                    [cite_start]<li><strong>Calcul :</strong> Cluster GPU NVIDIA A100 avec orchestration Kubernetes pour l'inférence IA[cite: 372].</li>
+                    [cite_start]<li><strong>Process Mining :</strong> Utilisation de Celonis pour la génération réaliste des parcours patients[cite: 203].</li>
+                </ul>
+
+                <h2>Critères d'Évaluation</h2>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Axe</th>
+                            <th>Indicateurs Clés (KPI)</th>
+                            [cite_start]<th>Cibles [cite: 16, 68-87]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Clinique</strong></td>
+                            <td>Concordance experts (Kappa), Sensibilité urgences vitales</td>
+                            <td>κ ≥ 0.80, Sensibilité ≥ 95%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Organisationnel</strong></td>
+                            <td>Temps d'attente, Taux d'engorgement (>6h)</td>
+                            <td>-25% attente, Engorgement < 20%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Économique</strong></td>
+                            <td>Coûts évités (GHS), Examens redondants</td>
+                            <td>-20% hospit. inappropriées, -15% biologie/imagerie</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technique</strong></td>
+                            <td>Disponibilité, Latence (P95), Robustesse</td>
+                            <td>Uptime ≥ 99%, Latence < 3s</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 STaR-AI Research Lab - CHU de Lille. Tous droits réservés.</p>
+        [cite_start]<p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Protocole validé sous référence EIMLIA-3M-TEU[cite: 1].</p>
+    </footer>
+</body>
+</html>
