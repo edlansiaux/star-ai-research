@@ -66,6 +66,61 @@
             font-size: 2.5rem;
         }
         
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .logo-main {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .logo-subtitle .line2 {
+            font-size: 0.65rem;
+            color: var(--text-light);
+        }
+        
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -191,7 +246,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="~/index.html" class="logo">
+            <a href="..index.html" class="logo">
                     <div class="logo-main">STaR-AI</div>
                     <div class="logo-subtitle">
                         <div class="line1">SYSTEMS FOR TRIAGE</div>
@@ -199,17 +254,17 @@
                     </div>
             </div>
             <ul class="nav-links">
-                <li><a href="~/index.html#accueil">Accueil</a></li>
-                <li><a href="~/index.html#projets">Projets</a></li>
-                <li><a href="~/index.html#publications">Publications</a></li>
-                <li><a href="~/index.html#equipe">Équipe</a></li>
-                <li><a href="~/index.html#contact">Contact</a></li>
+                <li><a href="..index.html#accueil">Accueil</a></li>
+                <li><a href="..index.html#projets">Projets</a></li>
+                <li><a href="..index.html#publications">Publications</a></li>
+                <li><a href="..index.html#equipe">Équipe</a></li>
+                <li><a href="..index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <a href="~/index.html#projets" class="back-btn">← Retour aux projets</a>
+        <a href="..index.html#projets" class="back-btn">← Retour aux projets</a>
         
         <div class="project-detail">
             <div class="project-header">
