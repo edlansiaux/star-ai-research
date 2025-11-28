@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EIMLIA-3M-TEU - STaR-AI</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* --- RESET & VARIABLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
             --primary: #1e3a8a;
@@ -22,17 +19,17 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: white;
-            padding-bottom: 2rem;
+            padding-bottom: 3rem;
         }
-        
-        /* Navigation */
+
+        /* --- NAVIGATION --- */
         nav {
             background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -50,32 +47,28 @@
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 1rem;
             text-decoration: none;
         }
         
-        .logo-text-group {
-            display: flex;
-            flex-direction: column;
-        }
-
         .logo-main {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             line-height: 1;
-            margin-bottom: 0.2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .logo-subtitle {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             color: var(--text);
+            margin-left: 0.8rem;
+            border-left: 2px solid var(--border);
+            padding-left: 0.8rem;
             line-height: 1.2;
         }
         
@@ -89,80 +82,124 @@
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
         
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+        .nav-links a:hover { color: var(--accent); }
 
-        /* Container & Sections */
+        /* --- LAYOUT --- */
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
         }
         
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-btn:hover { color: var(--accent); }
+
+        /* --- HEADER PROJET --- */
         .project-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 3.5rem 2rem;
+            border-radius: 16px;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
             margin-bottom: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
         }
         
         .project-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            backdrop-filter: blur(5px);
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            display: inline-block;
         }
         
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        h2 { font-size: 2rem; margin: 3rem 0 1.5rem; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
-        h3 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text); font-weight: 700; }
+        .project-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .project-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- CONTENU --- */
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
         
         .lead-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
             text-align: justify;
         }
 
-        /* Grid Layouts */
-        .project-info-grid {
+        /* Cards Grid */
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .info-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--accent);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
+            margin-bottom: 3rem;
         }
 
-        .info-card:hover { transform: translateY(-3px); }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
         .specs-list {
             list-style: none;
+            font-size: 0.95rem;
+            color: var(--text-light);
         }
 
         .specs-list li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
             position: relative;
         }
 
@@ -178,95 +215,88 @@
         .metrics-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .metrics-table th, .metrics-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            margin-top: 1rem;
         }
 
         .metrics-table th {
             background: var(--bg-light);
             color: var(--primary);
             font-weight: 700;
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
         }
 
-        /* Footer & Buttons */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--bg-light);
+        .metrics-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--border);
             color: var(--text);
-            text-decoration: none;
-            border-radius: 6px;
-            margin-bottom: 2rem;
-            transition: all 0.3s;
-            font-weight: 500;
         }
-        
-        .back-btn:hover { background: var(--border); }
-        
+
+        .metrics-table tr:last-child td { border-bottom: none; }
+
+        /* --- FOOTER --- */
         footer {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
             margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
             text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
-        
-        /* Styles pour les liens de citation */
-        
-        /* Style pour [1] simple */
-        .citation-badge {
-            color: var(--secondary);
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 0.8em;
-            vertical-align: super;
-            margin-left: 2px;
-            cursor: pointer;
-        }
-        
-        /* Style pour le texte cliquable comme "Process Mining" */
-        .citation-text-link {
-            color: var(--accent);
+
+        /* --- STYLE DES LIENS CITATIONS --- */
+        /* C'est ici que la magie opère visuellement */
+        a.ref-link {
+            color: var(--accent);         /* Bleu */
+            text-decoration: none;        /* Pas de soulignement par défaut */
             font-weight: 600;
-            text-decoration: none;
-            border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.3); /* Soulignement léger */
             transition: all 0.2s ease;
             cursor: pointer;
         }
 
-        .citation-text-link:hover {
-            background-color: rgba(37, 99, 235, 0.1);
-            border-bottom-color: var(--accent);
+        a.ref-link:hover {
+            background-color: rgba(37, 99, 235, 0.1); /* Fond bleu très clair */
+            border-bottom-color: var(--accent);       /* Soulignement plus fort */
+            color: var(--primary);
+        }
+        
+        /* Pour les références orphelines [12] */
+        a.ref-number {
+            font-size: 0.75em;
+            vertical-align: super;
+            color: var(--secondary);
+            text-decoration: none;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+        
+        a.ref-number:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 1rem; }
-            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            .project-header { padding: 2rem 1rem; }
-            h1 { font-size: 1.8rem; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+            .project-header h1 { font-size: 2rem; }
+            .grid-3 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
     <nav>
         <div class="nav-container">
             <a href="/star-ai-research/index.html" class="logo-section">
                 <div class="logo-text-group">
                     <div class="logo-main">STaR-AI</div>
                     <div class="logo-subtitle">
-                        <div>SYSTEMS FOR TRIAGE</div>
-                        <div>AND RESPONSE WITH AI</div>
+                        Systems for Triage<br>and Response with AI
                     </div>
                 </div>
             </a>
@@ -274,7 +304,6 @@
                 <li><a href="/star-ai-research/index.html#accueil">Accueil</a></li>
                 <li><a href="/star-ai-research/index.html#projets">Projets</a></li>
                 <li><a href="/star-ai-research/index.html#publications">Publications</a></li>
-                <li><a href="/star-ai-research/index.html#equipe">Équipe</a></li>
             </ul>
         </div>
     </nav>
@@ -282,171 +311,145 @@
     <div class="container">
         <a href="/star-ai-research/index.html#projets" class="back-btn">← Retour aux projets</a>
         
-        <div class="project-detail">
-            <div class="project-header">
-                <span class="project-badge">Simulation Hybride & IA</span>
-                <h1>EIMLIA-3M-TEU</h1>
-                <p>Étude des Impacts Médico-Financiers, Logistiques de l'IA avec 3 Modèles Triant à l’Entrée des Urgences [cite_start]EIMLIA-3M-TEU[cite: 1]</p>
-            </div>
+        <div id="project-content-area">
             
-            <div class="project-content">
-                <h2>Description du Projet</h2>
-                <p class="lead-text">
-                    Le projet EIMLIA-3M-TEU vise à évaluer, par une simulation prospective validée rétrospectivement, les performances multidimensionnelles de trois architectures d'IA pour le triage aux urgences. L'étude combine [cite_start]Simulation à Événements Discrets[cite: 98] (DES) et [cite_start]Systèmes Multi-Agents[cite: 102] (SMA).
-                </p>
-                
-                <div class="project-info-grid">
-                    <div class="info-card">
-                        <h3>Objectif Principal</h3>
-                        <p>Identifier l'architecture optimale pour réduire de [cite_start]25% les temps d'attente[cite: 16] et de 20% les hospitalisations inappropriées.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Méthodologie</h3>
-                        <p>Utilisation avancée du [cite_start]Process Mining[cite: 203] via Celonis pour modéliser 127 parcours-types distincts.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Innovation</h3>
-                        <p>Comparaison inédite d'un [cite_start]Modèle JEPA[cite: 320] (Joint-Embedding Predictive Architecture) face aux LLM génératifs.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Données</h3>
-                        <p>Analyse de [cite_start]600 000 patients[cite: 13] du CHU de Lille sur la période 2018-2023.</p>
-                    </div>
-                </div>
-                
-                <h2>Architectures IA Évaluées</h2>
-                <div class="project-info-grid">
-                    <div class="info-card">
-                        <h3>1. Modèle NLP</h3>
-                        <ul class="specs-list">
-                            <li><strong>Tech :</strong> [cite_start]Doc2Vec[cite: 247] + Réseau Neuronal Profond.</li>
-                            <li><strong>Force :</strong> Extraction rapide de symptômes critiques, latence très faible (120ms).</li>
-                            <li><strong>Limite :</strong> [cite_start]Compréhension contextuelle limitée[cite: 38] des cas complexes.</li>
-                        </ul>
-                    </div>
-                    <div class="info-card">
-                        <h3>2. Modèle LLM</h3>
-                        <ul class="specs-list">
-                            <li><strong>Tech :</strong> [cite_start]FlauBERT[cite: 281] Fine-tuné + XGBoost Hybride.</li>
-                            <li><strong>Force :</strong> Raisonnement clinique contextuel, explicabilité via [cite_start]valeurs SHAP[cite: 304].</li>
-                            <li><strong>Sécurité :</strong> Module anti-hallucinations basé sur le référentiel FRENCH.</li>
-                        </ul>
-                    </div>
-                    <div class="info-card">
-                        <h3>3. Modèle JEPA</h3>
-                        <ul class="specs-list">
-                            <li><strong>Tech :</strong> [cite_start]Joint-Embedding Predictive Architecture[cite: 126].</li>
-                            <li><strong>Force :</strong> Encodage conjoint texte/séries temporelles pour prédire la dégradation.</li>
-                            <li><strong>Perf :</strong> Sensibilité >96% sur les urgences vitales.</li>
-                        </ul>
-                    </div>
-                </div>
+            <header class="project-header">
+                <span class="project-badge">Protocole EIMLIA-3M-TEU</span>
+                <h1>Intelligence Artificielle & Triage aux Urgences</h1>
+                <p>Étude comparative multidimensionnelle : NLP vs LLM vs JEPA</p>
+            </header>
+            
+            <p class="lead-text">
+                Le projet <strong>EIMLIA-3M-TEU</strong> propose une évaluation rigoureuse de trois architectures d'IA. 
+                Nous utilisons le [cite_start]Process Mining[cite: 203] pour modéliser les flux patients réels, 
+                ce qui permet de générer des jumeaux numériques fidèles. L'étude compare notamment les 
+                performances des modèles de langage comme [cite_start]FlauBERT[cite: 281] face aux approches 
+                plus récentes comme l'architecture [cite_start]JEPA[cite: 320] proposée par Yann LeCun.
+            </p>
 
-                <h2>Infrastructure de Simulation</h2>
-                <p>
-                    La validation écologique est assurée par une stack technique avancée permettant des stress-tests. L'infrastructure repose sur un [cite_start]Cluster GPU NVIDIA A100[cite: 372] orchestré par Kubernetes.
-                </p>
-
-                <h2>Critères d'Évaluation</h2>
-                <table class="metrics-table">
-                    <thead>
-                        <tr>
-                            <th>Axe</th>
-                            <th>Indicateurs Clés (KPI)</th>
-                            <th>Cibles</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Clinique</strong></td>
-                            <td>Concordance experts (Kappa), Sensibilité urgences vitales</td>
-                            <td>κ ≥ 0.80, Sensibilité ≥ 95%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Organisationnel</strong></td>
-                            <td>Temps d'attente, Taux d'engorgement (>6h)</td>
-                            <td>[cite_start]-25% attente[cite: 74], Engorgement < 20%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Économique</strong></td>
-                            <td>Coûts évités (GHS), Examens redondants</td>
-                            <td>[cite_start]-20% hospit.[cite: 79], -15% biologie/imagerie</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Technique</strong></td>
-                            <td>Disponibilité, Latence (P95), Robustesse</td>
-                            <td>Uptime ≥ 99%, [cite_start]Latence < 3s[cite: 85]</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>1. Modèle NLP</h3>
+                    <ul class="specs-list">
+                        <li>Basé sur [cite_start]Doc2Vec[cite: 247]</li>
+                        <li>Latence ultra-faible (120ms)</li>
+                        <li>Extraction de symptômes clés</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>2. Modèle LLM</h3>
+                    <ul class="specs-list">
+                        <li>Architecture [cite_start]Transformer[cite: 281]</li>
+                        <li>Compréhension contextuelle</li>
+                        <li>Explicabilité via [cite_start]SHAP[cite: 304]</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>3. Modèle JEPA</h3>
+                    <ul class="specs-list">
+                        <li>Encodage conjoint Texte + Séries Temporelles</li>
+                        [cite_start]<li>Prédiction de dégradation [cite: 126]</li>
+                        <li>Haute sensibilité urgences vitales</li>
+                    </ul>
+                </div>
             </div>
+
+            <h2>Méthodologie & Simulation</h2>
+            <p>
+                Pour valider ces modèles avant tout déploiement clinique, nous avons mis en place une simulation hybride. 
+                Celle-ci combine la [cite_start]Simulation à Événements Discrets (DES)[cite: 98] pour les flux logistiques 
+                et les [cite_start]Systèmes Multi-Agents (SMA)[cite: 102] pour simuler les comportements humains complexes.
+                L'infrastructure repose sur un [cite_start]cluster GPU[cite: 372] permettant de simuler 6 mois d'activité en quelques heures.
+            </p>
+
+            <h2>Résultats Attendus</h2>
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th>Axe</th>
+                        <th>Indicateur</th>
+                        <th>Cible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Clinique</strong></td>
+                        <td>Concordance Experts (Kappa)</td>
+                        <td>> 0.80</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Logistique</strong></td>
+                        <td>Réduction temps d'attente</td>
+                        [cite_start]<td>-25% [cite: 74]</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Économique</strong></td>
+                        <td>Coûts évités ([cite_start]Tarifs ATIH[cite: 79])</td>
+                        <td>-20% hospit. inappropriées</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 STaR-AI Research Lab - CHU de Lille. Tous droits réservés.</p>
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Protocole validé sous référence EIMLIA-3M-TEU.</p>
+        <p>&copy; 2025 STaR-AI Research Lab - CHU de Lille.</p>
     </footer>
 
     <script>
-        const sources = {
+        // 1. BASE DE DONNÉES DES URLS (Mappage ID -> Lien réel)
+        const references = {
             "1": "https://link.springer.com/article/10.1057/jos.2009.10",
-            "13": "http://arxiv.org/abs/2012.01192", 
-            "16": "http://arxiv.org/abs/2012.01192",
-            "38": "https://doi.org/10.1186/1472-6947-13-59",
+            "9": "https://ieeexplore.ieee.org/document/10129157",
+            "16": "https://www.sciencedirect.com/science/article/pii/S1532046422000764",
             "74": "https://doi.org/10.1080/17477778.2023.2187321",
             "79": "https://www.atih.sante.fr/tarifs-mco-et-had",
-            "85": "https://hal.science/hal-04673684",
             "98": "https://link.springer.com/article/10.1057/jos.2009.10",
             "102": "https://ieeexplore.ieee.org/document/5166148",
-            "126": "https://ieeexplore.ieee.org/document/8737887", 
-            "203": "https://www.sciencedirect.com/science/article/pii/S1532046422000764", // Process Mining
-            "247": "http://arxiv.org/abs/1301.3781", // Doc2Vec
-            "281": "https://arxiv.org/abs/1912.05372", // FlauBERT
-            "304": "http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf", // SHAP
-            "320": "https://ieeexplore.ieee.org/document/8737887", // JEPA
-            "372": "https://hal.science/hal-04673684" // Infrastructure
-            // Note: J'ai mappé les ID du texte vers les sources les plus pertinentes de votre biblio
+            "126": "https://ieeexplore.ieee.org/document/8737887",
+            "203": "https://www.sciencedirect.com/science/article/pii/S1532046422000764",
+            "247": "http://arxiv.org/abs/1301.3781",
+            "281": "https://arxiv.org/abs/1912.05372",
+            "304": "http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf",
+            "320": "https://ieeexplore.ieee.org/document/8737887",
+            "372": "https://hal.science/hal-04673684"
         };
 
-        function linkifyCitations() {
-            const container = document.querySelector('.project-detail');
-            if (!container) return;
+        function processCitations() {
+            const contentArea = document.getElementById('project-content-area');
+            if (!contentArea) return;
 
-            // 1. GESTION DU FORMAT Texte
-            // Cette regex cherche : (contenu)
-            const regexWrapped = /\[cite_start\](.*?)\/g;
+            let html = contentArea.innerHTML;
 
-            container.innerHTML = container.innerHTML.replace(regexWrapped, (match, text, id) => {
-                const url = sources[id];
+            // CAS 1 : Texte enrobé Texte
+            // Remplacement : <a href="url">Texte</a>
+            // Regex expliquée : \[cite_start\] = cherche le tag de début
+            // ([\s\S]*?) = capture tout le texte au milieu (groupe 1)
+            // \ = cherche le tag de fin avec l'ID (groupe 2)
+            html = html.replace(/\[cite_start\]([\s\S]*?)\/gi, (match, text, id) => {
+                const url = references[id];
                 if (url) {
-                    // Si URL existe : on crée un lien sur le texte
-                    return `<a href="${url}" class="citation-text-link" target="_blank" rel="noopener noreferrer" title="Voir la source ${id}">${text}</a>`;
+                    return `<a href="${url}" class="ref-link" target="_blank" rel="noopener noreferrer" title="Voir la source ${id}">${text}</a>`;
                 }
-                // Si pas d'URL : on retourne juste le texte propre sans les balises
-                return text; 
+                return text; // Si pas d'URL, on garde juste le texte sans balises
             });
 
-            // 2. GESTION DU FORMAT SIMPLE (Nettoyage restant)
-            const regexSimple = /\+)\]/g;
-            
-            container.innerHTML = container.innerHTML.replace(regexSimple, (match, numbers) => {
-                const ids = numbers.split(',').map(s => s.trim());
-                const links = ids.map(id => {
-                    const url = sources[id];
-                    if (url) {
-                        return `<a href="${url}" class="citation-badge" target="_blank" rel="noopener noreferrer">[${id}]</a>`;
-                    }
-                    return `[${id}]`;
-                });
-                return links.join(' '); 
+            // CAS 2 : Citation simple (non enrobée)
+            // Remplacement : <sup>[ID]</sup> en lien discret
+            html = html.replace(/\/gi, (match, id) => {
+                const url = references[id];
+                if (url) {
+                    return `<a href="${url}" class="ref-number" target="_blank" rel="noopener noreferrer" title="Source ${id}">[${id}]</a>`;
+                }
+                return `[${id}]`;
             });
+
+            contentArea.innerHTML = html;
         }
 
-        document.addEventListener('DOMContentLoaded', linkifyCitations);
+        // Exécution au chargement de la page
+        document.addEventListener('DOMContentLoaded', processCitations);
     </script>
 </body>
 </html>
