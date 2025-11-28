@@ -23,7 +23,6 @@
             line-height: 1.6;
             color: var(--text);
             background: white;
-            padding-bottom: 3rem;
         }
 
         /* --- NAVIGATION --- */
@@ -45,31 +44,34 @@
         }
         
         .logo-section {
-            display: flex;
-            align-items: center;
             text-decoration: none;
+            color: var(--primary);
         }
         
         .logo-main {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             line-height: 1;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .logo-subtitle {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text);
-            margin-left: 0.8rem;
-            border-left: 2px solid var(--border);
-            padding-left: 0.8rem;
             line-height: 1.2;
+            text-align: center;
+        }
+        
+        .logo-subtitle .line2 {
+            font-size: 0.65rem;
+            color: var(--text-light);
         }
         
         .nav-links {
@@ -186,9 +188,6 @@
             color: var(--primary);
             font-size: 1.2rem;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .specs-list {
@@ -239,45 +238,20 @@
 
         .metrics-table tr:last-child td { border-bottom: none; }
 
-        /* --- FOOTER --- */
-        footer {
-            margin-top: 5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* --- STYLE DES LIENS CITATIONS --- */
-        /* C'est ici que la magie opère visuellement */
+        /* --- LIENS CITATIONS --- */
         a.ref-link {
-            color: var(--accent);         /* Bleu */
-            text-decoration: none;        /* Pas de soulignement par défaut */
+            color: var(--accent);
+            text-decoration: none;
             font-weight: 600;
-            border-bottom: 1px solid rgba(37, 99, 235, 0.3); /* Soulignement léger */
+            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
             transition: all 0.2s ease;
             cursor: pointer;
         }
 
         a.ref-link:hover {
-            background-color: rgba(37, 99, 235, 0.1); /* Fond bleu très clair */
-            border-bottom-color: var(--accent);       /* Soulignement plus fort */
+            background-color: rgba(37, 99, 235, 0.1);
+            border-bottom-color: var(--accent);
             color: var(--primary);
-        }
-        
-        /* Pour les références orphelines [12] */
-        a.ref-number {
-            font-size: 0.75em;
-            vertical-align: super;
-            color: var(--secondary);
-            text-decoration: none;
-            margin-left: 2px;
-            font-weight: bold;
-        }
-        
-        a.ref-number:hover {
-            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -285,6 +259,12 @@
             .nav-links { gap: 1rem; font-size: 0.9rem; }
             .project-header h1 { font-size: 2rem; }
             .grid-3 { grid-template-columns: 1fr; }
+            .logo-main {
+                font-size: 2rem;
+            }
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
         }
     </style>
 </head>
@@ -292,63 +272,67 @@
 
     <nav>
         <div class="nav-container">
-            <a href="/star-ai-research/index.html" class="logo-section">
-                <div class="logo-text-group">
-                    <div class="logo-main">STaR-AI</div>
-                    <div class="logo-subtitle">
-                        Systems for Triage<br>and Response with AI
-                    </div>
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle">
+                    <div class="line1">SYSTEMS FOR TRIAGE</div>
+                    <div class="line2">AND RESPONSE WITH AI</div>
                 </div>
             </a>
             <ul class="nav-links">
-                <li><a href="/star-ai-research/index.html#accueil">Accueil</a></li>
-                <li><a href="/star-ai-research/index.html#projets">Projets</a></li>
-                <li><a href="/star-ai-research/index.html#publications">Publications</a></li>
+                <li><a href="../index.html#accueil">Accueil</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#equipe">Équipe</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <a href="/star-ai-research/index.html#projets" class="back-btn">← Retour aux projets</a>
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
         
         <div id="project-content-area">
             
             <header class="project-header">
-                <span class="project-badge">Protocole EIMLIA-3M-TEU</span>
-                <h1>Intelligence Artificielle & Triage aux Urgences</h1>
-                <p>Étude comparative multidimensionnelle : NLP vs LLM vs JEPA</p>
+                <span class="project-badge">Recherche fondamentale</span>
+                <h1>EIMLIA-3M-TEU</h1>
+                <p>Évaluation Intelligence Modèles LLM IA pour le Triage aux Urgences</p>
             </header>
             
             <p class="lead-text">
-                Le projet <strong>EIMLIA-3M-TEU</strong> propose une évaluation rigoureuse de trois architectures d'IA. 
-                Nous utilisons le [cite_start]Process Mining[cite: 203] pour modéliser les flux patients réels, 
-                ce qui permet de générer des jumeaux numériques fidèles. L'étude compare notamment les 
-                performances des modèles de langage comme [cite_start]FlauBERT[cite: 281] face aux approches 
-                plus récentes comme l'architecture [cite_start]JEPA[cite: 320] proposée par Yann LeCun.
+                Le projet <strong>EIMLIA-3M-TEU</strong> propose une évaluation rigoureuse de trois architectures d'IA 
+                pour le triage aux urgences. Nous utilisons le [cite_start]Process Mining[cite:203] pour modéliser 
+                les flux patients réels, permettant de générer des jumeaux numériques fidèles. L'étude compare notamment 
+                les performances des modèles de langage comme [cite_start]FlauBERT[cite:281] face aux approches 
+                plus récentes comme l'architecture [cite_start]JEPA[cite:320] proposée par Yann LeCun.
             </p>
 
             <div class="grid-3">
                 <div class="card">
-                    <h3>1. Modèle NLP</h3>
+                    <h3>1. Modèle NLP (TRIAGEMASTER)</h3>
                     <ul class="specs-list">
-                        <li>Basé sur [cite_start]Doc2Vec[cite: 247]</li>
+                        <li>Basé sur [cite_start]Doc2Vec[cite:247]</li>
                         <li>Latence ultra-faible (120ms)</li>
                         <li>Extraction de symptômes clés</li>
+                        <li>Vecteurs de paragraphes 200 dimensions</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>2. Modèle LLM</h3>
+                    <h3>2. Modèle LLM (URGENTIAPARSE)</h3>
                     <ul class="specs-list">
-                        <li>Architecture [cite_start]Transformer[cite: 281]</li>
-                        <li>Compréhension contextuelle</li>
-                        <li>Explicabilité via [cite_start]SHAP[cite: 304]</li>
+                        <li>Architecture [cite_start]Transformer[cite:281]</li>
+                        <li>Modèle BERT francophone</li>
+                        <li>Fusion texte + constantes vitales</li>
+                        <li>Explicabilité via [cite_start]SHAP[cite:304]</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>3. Modèle JEPA</h3>
+                    <h3>3. Modèle JEPA (EMERGINET)</h3>
                     <ul class="specs-list">
+                        <li>Joint Embedding Predictive Architecture</li>
                         <li>Encodage conjoint Texte + Séries Temporelles</li>
-                        [cite_start]<li>Prédiction de dégradation [cite: 126]</li>
+                        <li>[cite_start]Prédiction de dégradation[cite:126]</li>
                         <li>Haute sensibilité urgences vitales</li>
                     </ul>
                 </div>
@@ -357,9 +341,10 @@
             <h2>Méthodologie & Simulation</h2>
             <p>
                 Pour valider ces modèles avant tout déploiement clinique, nous avons mis en place une simulation hybride. 
-                Celle-ci combine la [cite_start]Simulation à Événements Discrets (DES)[cite: 98] pour les flux logistiques 
-                et les [cite_start]Systèmes Multi-Agents (SMA)[cite: 102] pour simuler les comportements humains complexes.
-                L'infrastructure repose sur un [cite_start]cluster GPU[cite: 372] permettant de simuler 6 mois d'activité en quelques heures.
+                Celle-ci combine la [cite_start]Simulation à Événements Discrets (DES)[cite:98] pour les flux logistiques 
+                et les [cite_start]Systèmes Multi-Agents (SMA)[cite:102] pour simuler les comportements humains complexes. 
+                L'infrastructure repose sur un [cite_start]cluster GPU[cite:372] permettant de simuler 6 mois d'activité 
+                en quelques heures.
             </p>
 
             <h2>Résultats Attendus</h2>
@@ -375,34 +360,46 @@
                     <tr>
                         <td><strong>Clinique</strong></td>
                         <td>Concordance Experts (Kappa)</td>
-                        <td>> 0.80</td>
+                        <td>&gt; 0.80</td>
                     </tr>
                     <tr>
                         <td><strong>Logistique</strong></td>
                         <td>Réduction temps d'attente</td>
-                        [cite_start]<td>-25% [cite: 74]</td>
+                        <td>[cite_start]-25%[cite:74]</td>
                     </tr>
                     <tr>
                         <td><strong>Économique</strong></td>
-                        <td>Coûts évités ([cite_start]Tarifs ATIH[cite: 79])</td>
+                        <td>Coûts évités ([cite_start]Tarifs ATIH[cite:79])</td>
                         <td>-20% hospit. inappropriées</td>
                     </tr>
                 </tbody>
             </table>
 
+            <h2>Équipe du Projet</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Investigateur Principal</h3>
+                    <p><strong>Dr Edouard Lansiaux</strong></p>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">Médecin Urgentiste & Ingénieur IA<br>CHU de Lille</p>
+                </div>
+                <div class="card">
+                    <h3>Direction Scientifique</h3>
+                    <p><strong>Pr Hayfa Zgaya-Biau</strong></p>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">CRIStAL UMR CNRS 9189<br>Équipe OSL, Université de Lille</p>
+                </div>
+                <div class="card">
+                    <h3>Co-direction</h3>
+                    <p><strong>Pr Mehdi Ammi</strong></p>
+                    <p style="color: var(--text-light); font-size: 0.9rem;">LIASD<br>Université Paris 8</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 STaR-AI Research Lab - CHU de Lille.</p>
-    </footer>
-
     <script>
-        // 1. BASE DE DONNÉES DES URLS (Mappage ID -> Lien réel)
+        // BASE DE DONNÉES DES URLS
         const references = {
-            "1": "https://link.springer.com/article/10.1057/jos.2009.10",
-            "9": "https://ieeexplore.ieee.org/document/10129157",
-            "16": "https://www.sciencedirect.com/science/article/pii/S1532046422000764",
             "74": "https://doi.org/10.1080/17477778.2023.2187321",
             "79": "https://www.atih.sante.fr/tarifs-mco-et-had",
             "98": "https://link.springer.com/article/10.1057/jos.2009.10",
@@ -422,33 +419,19 @@
 
             let html = contentArea.innerHTML;
 
-            // CAS 1 : Texte enrobé Texte
-            // Remplacement : <a href="url">Texte</a>
-            // Regex expliquée : \[cite_start\] = cherche le tag de début
-            // ([\s\S]*?) = capture tout le texte au milieu (groupe 1)
-            // \ = cherche le tag de fin avec l'ID (groupe 2)
-            html = html.replace(/\[cite_start\]([\s\S]*?)\/gi, (match, text, id) => {
+            // Remplace [cite_start]Texte[cite:ID] par <a href="url">Texte</a>
+            html = html.replace(/\[cite_start\]([\s\S]*?)\[cite:(\d+)\]/gi, (match, text, id) => {
                 const url = references[id];
                 if (url) {
                     return `<a href="${url}" class="ref-link" target="_blank" rel="noopener noreferrer" title="Voir la source ${id}">${text}</a>`;
                 }
-                return text; // Si pas d'URL, on garde juste le texte sans balises
-            });
-
-            // CAS 2 : Citation simple (non enrobée)
-            // Remplacement : <sup>[ID]</sup> en lien discret
-            html = html.replace(/\/gi, (match, id) => {
-                const url = references[id];
-                if (url) {
-                    return `<a href="${url}" class="ref-number" target="_blank" rel="noopener noreferrer" title="Source ${id}">[${id}]</a>`;
-                }
-                return `[${id}]`;
+                return text;
             });
 
             contentArea.innerHTML = html;
         }
 
-        // Exécution au chargement de la page
+        // Exécution au chargement
         document.addEventListener('DOMContentLoaded', processCitations);
     </script>
 </body>
