@@ -47,23 +47,34 @@
         }
         
         .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             text-decoration: none;
+            color: var(--primary);
         }
         
-        .logo-icon {
+        .logo-main {
             font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .logo-subtitle .line2 {
+            font-size: 0.65rem;
+            color: var(--text-light);
         }
         
         .nav-links {
@@ -83,14 +94,12 @@
             color: var(--accent);
         }
         
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
         
-        /* Back button */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -108,7 +117,6 @@
             background: var(--border);
         }
         
-        /* Project detail page */
         .project-detail {
             max-width: 900px;
             margin: 0 auto;
@@ -178,48 +186,75 @@
             text-align: center;
         }
         
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .team-member h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .affiliation {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
         @media (max-width: 768px) {
-            .logo-text {
-                font-size: 1.5rem;
-            }
-            
-            .logo-icon {
+            .logo-main {
                 font-size: 2rem;
             }
-            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo-section">
-                <a href="index.html" class="logo-text">
-                    <span class="logo-icon">🧠</span>
-                    STaR-AI
-                </a>
-            </div>
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle">
+                    <div class="line1">SYSTEMS FOR TRIAGE</div>
+                    <div class="line2">AND RESPONSE WITH AI</div>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#publications">Publications</a></li>
-                <li><a href="index.html#equipe">Équipe</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="../index.html#accueil">Accueil</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#equipe">Équipe</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <a href="index.html#projets" class="back-btn">← Retour aux projets</a>
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">Validation multicentrique</span>
+                <span class="project-badge">Validation multicentrique - En cours</span>
                 <h1>TIAEU-2</h1>
                 <p>Extension multicentrique prospective</p>
             </div>
@@ -228,30 +263,31 @@
                 <h2>Description du Projet</h2>
                 <p>
                     TIAEU-2 est l'extension multicentrique prospective du projet TIAEU, visant à valider 
-                    les modèles d'IA développés dans l'étude pilote sur une plus large échelle. 
-                    Cette étude inclut 6 centres hospitaliers et plusieurs milliers de patients pour 
-                    une validation externe robuste.
+                    les modèles d'IA développés dans l'étude pilote sur une plus large échelle et dans 
+                    différents contextes hospitaliers. Cette étude inclut 5 centres hospitaliers (CHU et CH) 
+                    répartis dans les Hauts-de-France et l'Île-de-France, avec un objectif de plusieurs 
+                    milliers de patients pour une validation externe robuste.
                 </p>
                 
                 <div class="project-info-grid">
                     <div class="info-card">
-                        <h3>Objectifs</h3>
-                        <p>Validation externe des modèles d'IA sur une cohorte multicentrique prospective</p>
+                        <h3>Objectif Principal</h3>
+                        <p>Comparer les performances de différentes méthodes de triage via score composite (MAE, RMSE, Kappa, F1, Spearman)</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Méthodologie</h3>
-                        <p>Étude prospective observationnelle multicentrique</p>
+                        <p>Étude prospective observationnelle multicentrique non-interventionnelle (MR-004)</p>
                     </div>
                     
                     <div class="info-card">
-                        <h3>Période</h3>
-                        <p>Janvier - Mars 2026</p>
+                        <h3>Période d'inclusion</h3>
+                        <p>Janvier - Février 2026<br>(1 mois de recrutement prospectif)</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Échantillon</h3>
-                        <p>Plusieurs milliers de patients sur 6 centres</p>
+                        <p>Plusieurs milliers de patients<br>sur 5 centres participants</p>
                     </div>
                 </div>
                 
@@ -259,43 +295,139 @@
                 <div class="centers-grid">
                     <div class="center-card">
                         <strong>CHU Lille</strong>
-                        <p>Centre coordinateur</p>
+                        <p>Hôpital Roger Salengro<br>Centre coordinateur</p>
                     </div>
                     <div class="center-card">
                         <strong>CH Douai</strong>
-                        <p>Centre partenaire</p>
+                        <p>Centre partenaire<br>Hauts-de-France</p>
                     </div>
                     <div class="center-card">
                         <strong>CH Denain</strong>
-                        <p>Centre partenaire</p>
+                        <p>Centre partenaire<br>Hauts-de-France</p>
                     </div>
                     <div class="center-card">
                         <strong>CH Maubeuge</strong>
-                        <p>Centre partenaire</p>
+                        <p>Centre partenaire<br>Hauts-de-France</p>
                     </div>
                     <div class="center-card">
-                        <strong>CH Eaubonne</strong>
-                        <p>Centre partenaire</p>
-                    </div>
-                    <div class="center-card">
-                        <strong>Hôpital Tenon AP-HP</strong>
-                        <p>Centre partenaire</p>
+                        <strong>Hôpital Tenon</strong>
+                        <p>AP-HP Paris<br>Île-de-France</p>
                     </div>
                 </div>
                 
-                <h2>Détails Techniques</h2>
+                <h2>Modèles Évalués</h2>
                 <p>
-                    L'étude TIAEU-2 reprend les trois modèles d'IA validés dans l'étude pilote 
-                    (Random Forest, XGBoost et réseau de neurones profond) et les évalue en conditions 
-                    réelles sur des données prospectives. L'objectif est de confirmer la performance 
-                    de ces modèles dans différents contextes hospitaliers.
+                    L'étude TIAEU-2 compare 5 méthodes de triage différentes :
                 </p>
+                <ul style="margin: 1rem 0 2rem 2rem;">
+                    <li><strong>Triage infirmier actuel</strong> : Échelle FRENCH appliquée par les IDE</li>
+                    <li><strong>Recommandations FRENCH experts</strong> : Algorithme arbre décisionnel SFMU v1.2</li>
+                    <li><strong>NLP-TRIAGEMASTER</strong> : Vecteurs Doc2Vec + régression neuronale</li>
+                    <li><strong>LLM-URGENTIAPARSE</strong> : BERT (FlauBERT) + fusion constantes vitales</li>
+                    <li><strong>JEPA-EMERGINET</strong> : Joint Embedding Predictive Architecture</li>
+                </ul>
+                
+                <h2>Objectifs Secondaires</h2>
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Entraînement</h3>
+                        <p>Analyser les différences selon l'entraînement (notes tri vs verbatims patients)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Devenir Patient</h3>
+                        <p>Évaluer la prédiction du code GEMSA (admission/hospitalisation/ambulatoire/réorientation)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Apprentissage IA</h3>
+                        <p>Comparer rapidité et qualité d'apprentissage des modèles IA</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Analyses Détaillées</h3>
+                        <p>Désaccords par classe, gestion erreurs, score F1 par classe, taux mortalité et admission</p>
+                    </div>
+                </div>
+                
+                <h2>Collecte des Données</h2>
+                <p>
+                    <strong>Enregistrements vocaux :</strong> Microphones 32Go par box de tri (1 infirmier/poste 8h) 
+                    avec transfert quotidien vers serveurs sécurisés CHU Lille. Retranscription par transcripteurs 
+                    humains préservant le maximum d'informations.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Données structurées :</strong> Extraction depuis outils métiers (Résurgences CHU Lille, 
+                    HM prod CH Douai, DXcare autres centres). Variables : démographie, constantes vitales, antécédents, 
+                    traitements, motif de recours, codages FRENCH/GEMSA.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Transmission inter-centres :</strong> Plateforme REDCAP sécurisée avec table d'appariement 
+                    chiffrée GnuPG. Pseudonymisation par numéro de passage généré aléatoirement.
+                </p>
+                
+                <h2>Équipe du Projet TIAEU-2</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4>Dr Edouard Lansiaux</h4>
+                        <div class="role">Investigateur Principal</div>
+                        <div class="affiliation">Médecin d'Urgence<br>Étudiant M2 IA en Santé<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Dr Ramy Azzouz</h4>
+                        <div class="role">Co-directeur</div>
+                        <div class="affiliation">PH Médecine d'Urgence<br>Centre Antipoison<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Mehdi Ammi</h4>
+                        <div class="role">Co-directeur</div>
+                        <div class="affiliation">Professeur Sciences Informatiques<br>LIASD<br>Université Paris 8</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Emmanuel Chazard</h4>
+                        <div class="role">Comité Scientifique</div>
+                        <div class="affiliation">PU-PH Santé Publique<br>Biostatistiques<br>METRICS ULR 2694</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Eric Wiel</h4>
+                        <div class="role">Comité Scientifique</div>
+                        <div class="affiliation">PU-PH Urgentiste<br>Pôle de l'Urgence<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Comité Exécutif</h4>
+                        <div class="role">Co-investigateurs</div>
+                        <div class="affiliation">Dr Marion Dulas (Douai)<br>Dr Hélène Goulet (Tenon)<br>Dr Maxime Gautier (Eaubonne)<br>Dr Jean-Christophe Reynaert (Denain)<br>Dr Rachid Dris (Maubeuge)</div>
+                    </div>
+                </div>
                 
                 <h2>Impact et Perspectives</h2>
                 <p>
                     La validation multicentrique est une étape cruciale avant le déploiement en routine 
-                    des outils d'IA. TIAEU-2 permettra de démontrer la généralisabilité des modèles 
-                    et de préparer l'essai contrôlé randomisé TRIADE.
+                    des outils d'IA. TIAEU-2 permettra de démontrer la généralisabilité des modèles dans 
+                    différents contextes (CHU tertiaire, CH périphériques, urbain/semi-urbain) et de 
+                    s'affranchir des limites de validité externe de l'étude pilote monocentrique.
+                </p>
+                
+                <p style="margin-top: 1rem;">
+                    Cette étude prospective préparera l'essai contrôlé randomisé TRIADE qui évaluera 
+                    l'assistance IA en conditions réelles d'utilisation avec mesure de l'acceptabilité 
+                    professionnelle et de l'impact sur les workflows cliniques.
+                </p>
+
+                <h2>Gouvernance et Éthique</h2>
+                <p>
+                    <strong>Protection des données :</strong> Conformité RGPD avec information collective 
+                    (affichage + notice), droit d'opposition respecté, données pseudonymisées, conservation 
+                    15 ans conformément réglementation RIPH hors produits de santé.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Gouvernance scientifique indépendante :</strong> Comité scientifique (Pr Chazard, Pr Wiel) 
+                    garantissant intégrité et qualité des études. Publication revue à comité de lecture assurée.
                 </p>
             </div>
         </div>
