@@ -15,6 +15,7 @@
             --primary: #1e3a8a;
             --secondary: #dc2626;
             --accent: #2563eb;
+            --success: #059669;
             --text: #1f2937;
             --text-light: #6b7280;
             --bg-light: #f9fafb;
@@ -28,7 +29,6 @@
             background: white;
         }
         
-        /* Navigation */
         nav {
             background: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -47,23 +47,34 @@
         }
         
         .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             text-decoration: none;
+            color: var(--primary);
         }
         
-        .logo-icon {
+        .logo-main {
             font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .logo-subtitle .line2 {
+            font-size: 0.65rem;
+            color: var(--text-light);
         }
         
         .nav-links {
@@ -83,14 +94,12 @@
             color: var(--accent);
         }
         
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
         
-        /* Back button */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -108,7 +117,6 @@
             background: var(--border);
         }
         
-        /* Project detail page */
         .project-detail {
             max-width: 900px;
             margin: 0 auto;
@@ -132,6 +140,17 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
+        }
+        
+        .funding-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 1rem 0;
+            font-size: 1rem;
         }
         
         .project-content {
@@ -164,122 +183,316 @@
             color: var(--primary);
         }
         
-        .funding-badge {
-            display: inline-block;
-            background: #059669;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            margin: 1rem 0;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .team-member h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .affiliation {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(30, 58, 138, 0.05) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
         }
         
         @media (max-width: 768px) {
-            .logo-text {
-                font-size: 1.5rem;
-            }
-            
-            .logo-icon {
+            .logo-main {
                 font-size: 2rem;
             }
-            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo-section">
-                <a href="index.html" class="logo-text">
-                    <span class="logo-icon">🧠</span>
-                    STaR-AI
-                </a>
-            </div>
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle">
+                    <div class="line1">SYSTEMS FOR TRIAGE</div>
+                    <div class="line2">AND RESPONSE WITH AI</div>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#publications">Publications</a></li>
-                <li><a href="index.html#equipe">Équipe</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="../index.html#accueil">Accueil</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#equipe">Équipe</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <a href="index.html#projets" class="back-btn">← Retour aux projets</a>
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">Essai contrôlé</span>
+                <span class="project-badge">Essai contrôlé randomisé</span>
                 <h1>TRIADE</h1>
                 <p>Triage par IA et Décision Éclairée</p>
-                <div class="funding-badge">Financement PHRC-I 300 000€</div>
+                <div class="funding-badge">💰 Financement PHRC-I : 300 000€</div>
             </div>
             
             <div class="project-content">
-                <h2>Description du Projet</h2>
+                <h2>Vue d'Ensemble</h2>
                 <p>
-                    TRIADE est un essai prospectif randomisé en cluster évaluant l'assistance par IA 
-                    en conditions réelles aux urgences. Cet essai vise à démontrer l'efficacité et 
-                    l'acceptabilité de l'IA comme outil d'aide à la décision pour le triage infirmier.
+                    TRIADE est un essai prospectif randomisé en cluster bicentrique qui évalue pour la première 
+                    fois l'assistance par IA en conditions réelles d'utilisation aux urgences. L'étude vise à 
+                    démontrer que l'IA peut améliorer significativement la concordance du triage infirmier avec 
+                    les recommandations FRENCH, tout en maintenant une acceptabilité professionnelle élevée et 
+                    sans allonger les délais de prise en charge.
                 </p>
+                
+                <div class="highlight-box">
+                    <h3 style="margin-bottom: 1rem;">Hypothèse Centrale</h3>
+                    <p>
+                        Le triage infirmier assisté par l'IA (module TRIADE-IA) permet d'augmenter le taux de 
+                        concordance avec l'échelle FRENCH de <strong>68% à 76%</strong> (amélioration de 8 points, 
+                        soit 80% de la différence observée dans l'étude TIAEU), sans altérer l'acceptabilité 
+                        professionnelle ni allonger les délais.
+                    </p>
+                </div>
                 
                 <div class="project-info-grid">
                     <div class="info-card">
                         <h3>Objectif Principal</h3>
-                        <p>Améliorer la concordance du triage de 68% à 76% avec acceptabilité professionnelle</p>
+                        <p>Évaluer si le triage infirmier avec TRIADE-IA améliore la concordance avec le gold standard médical</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Design</h3>
-                        <p>Essai randomisé en cluster avec crossover</p>
+                        <p>Essai prospectif randomisé en cluster (défini par jour d'admission), simple aveugle</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Financement</h3>
-                        <p>PHRC-I 300 000€</p>
+                        <p>PHRC-I 300 000€<br>+ Fondation Avenir 40 000€<br>+ Bourse SFMU 25 000€</p>
                     </div>
                     
                     <div class="info-card">
-                        <h3>Durée</h3>
-                        <p>24 mois (recrutement + suivi)</p>
+                        <h3>Durée & Centres</h3>
+                        <p>40 jours de recrutement intensif<br>CHU Lille + CH Maubeuge<br>≈2000 patients</p>
                     </div>
                 </div>
                 
-                <h2>Méthodologie</h2>
+                <h2>Méthodologie Détaillée</h2>
+                
+                <h3>Randomisation et Groupes</h3>
                 <p>
-                    L'essai TRIADE utilise un design en cluster randomisé avec période de crossover. 
-                    Les services d'urgences participants seront randomisés pour utiliser soit le triage 
-                    standard, soit le triage assisté par IA pendant des périodes déterminées, 
-                    puis inverseront les bras d'étude.
+                    <strong>Randomisation par cluster (jour d'admission) :</strong> Pour minimiser le biais de 
+                    contamination, chaque jour est randomisé soit en "triage standard" soit en "triage avec TRIADE-IA". 
+                    Les patients admis ce jour-là sont donc tous dans le même bras d'étude.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Groupe expérimental :</strong> L'IDE effectue le triage habituel, saisit les données, 
+                    puis consulte la recommandation TRIADE-IA (niveau + 3 facteurs SHAP explicatifs) avant de valider 
+                    sa décision finale. La décision reste entièrement humaine.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Groupe contrôle :</strong> Triage standard FRENCH sans accès à l'IA. Formation FRENCH 
+                    initiale uniquement.
                 </p>
                 
-                <h3>Critères d'évaluation principaux :</h3>
+                <h3>Gold Standard</h3>
+                <p>
+                    Pour limiter l'absence de double aveugle, l'échelle FRENCH est évaluée à <strong>J+7</strong> 
+                    par un consensus entre <strong>deux médecins urgentistes seniors en aveugle</strong> (ne connaissant 
+                    pas le groupe d'allocation). Cette évaluation rétrospective constitue le gold standard pour mesurer 
+                    le succès ou l'échec du triage infirmier.
+                </p>
+                
+                <h2>Critères d'Évaluation</h2>
+                
+                <h3>Critère Principal</h3>
+                <p>
+                    <strong>Taux de patients avec succès du triage</strong>, défini par la concordance exacte sur 
+                    l'échelle FRENCH entre le triage infirmier (avec ou sans IA) et le gold standard médical établi à J+7.
+                </p>
+                
+                <h3>Objectifs Secondaires</h3>
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>OS1 - Performances</h3>
+                        <p>Concordance ±1 classe, AUC-ROC par niveau, sensibilité/spécificité niveaux 1-2, F1-score, 
+                        calibration</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>OS2 - Impact Délais</h3>
+                        <p>Temps de triage (objectif <10 min), délai premier contact médical par niveau selon cibles 
+                        FRENCH, durée de passage</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>OS3 - Sécurité</h3>
+                        <p>Taux de sous/sur-triage vs gold standard, événements indésirables graves imputables au triage 
+                        (décès <24h, ACR salle d'attente)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>OS4 - Acceptabilité</h3>
+                        <p>TAM ≥4/5, Trust in Automation ≥3.5/5, charge mentale NASA-TLX, analyse qualitative 
+                        (30 IDE), NPS patients</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>OS5 - Médico-économique</h3>
+                        <p>Coût-efficacité (€/triage correct, €/QALY <50k€), coûts évités, impact budgétaire 5 ans, 
+                        analyses sensibilité Monte-Carlo</p>
+                    </div>
+                </div>
+                
+                <h2>Architecture TRIADE-IA</h2>
+                
+                <h3>Modèle Hybride</h3>
+                <p>
+                    TRIADE-IA utilise l'architecture <strong>URGENTIAPARSE</strong> développée dans TIAEU : 
+                    modèle BERT francophone (FlauBERT) fusionnant verbatims patients et constantes vitales structurées. 
+                    Cette architecture hybride a obtenu les meilleures performances (78% concordance, AUC 0.84).
+                </p>
+                
+                <h3>Interopérabilité via MCP</h3>
+                <p>
+                    Premier usage en santé du protocole <strong>Model Context Protocol (MCP)</strong> open-source, 
+                    assurant intégration plug-and-play avec tout dossier patient. Architecture développée par 
+                    l'équipe CRIStAL (projets ANR HOST, OIILH).
+                </p>
+                
+                <h3>Interface Centrée Utilisateur</h3>
+                <p>
+                    Design supervisé par le Pr Ammi (LIASD, Paris 8) avec explicabilité via <strong>SHAP</strong> 
+                    indiquant les 3 facteurs décisionnels clés. Suggestion IA fournie en <5 secondes. Formation 
+                    préalable obligatoire : e-learning + simulation.
+                </p>
+                
+                <h2>Calcul de Puissance</h2>
+                <p>
+                    Pour détecter un gain de <strong>8 points</strong> (68% → 76%) avec test bilatéral α=5%, 
+                    puissance 90%, moyenne 50 patients/jour/cluster, ICC=0.01, il faut randomiser <strong>40 jours</strong> 
+                    soit minimum <strong>2000 patients</strong>.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Recrutement différencié : CHU Lille 40 patients/jour (1600 total), CH Maubeuge 10 patients/jour 
+                    (400 total). Période intensive sur <strong>2 mois</strong> de recrutement pour atteindre l'effectif cible.
+                </p>
+                
+                <h2>Équipe du Projet TRIADE</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4>Dr Edouard Lansiaux</h4>
+                        <div class="role">Investigateur Principal</div>
+                        <div class="affiliation">Médecin Urgentiste & Ingénieur IA<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Dr Romain Dewilde</h4>
+                        <div class="role">Co-investigateur</div>
+                        <div class="affiliation">Praticien Hospitalier<br>Médecine d'Urgence<br>CH Maubeuge</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Mehdi Ammi</h4>
+                        <div class="role">Direction Interface</div>
+                        <div class="affiliation">Professeur Sciences Informatiques<br>LIASD<br>Université Paris 8</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Hayfa Zgaya-Biau</h4>
+                        <div class="role">Direction Technique</div>
+                        <div class="affiliation">Professeure Informatique en Santé<br>CRIStAL UMR CNRS 9189<br>Université de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Julien Labreuche</h4>
+                        <div class="role">Méthodologiste</div>
+                        <div class="affiliation">Biostatisticien<br>METRICS ULR 2694<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Benoît Dervaux</h4>
+                        <div class="role">Économiste de la Santé</div>
+                        <div class="affiliation">METRICS ULR 2694<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Eric Wiel</h4>
+                        <div class="role">Comité Scientifique</div>
+                        <div class="affiliation">PU-PH Urgentiste<br>Pôle de l'Urgence<br>CHU de Lille</div>
+                    </div>
+                </div>
+                
+                <h2>Innovation et Perspectives</h2>
+                <p>
+                    TRIADE représente <strong>la première évaluation rigoureuse de l'IA pour le triage aux urgences 
+                    dans un cadre contrôlé randomisé</strong>. L'étude ne mesure pas seulement l'efficacité clinique, 
+                    mais intègre une évaluation multidimensionnelle :
+                </p>
                 <ul style="margin: 1rem 0 2rem 2rem;">
-                    <li>Concordance avec la décision médicale finale</li>
-                    <li>Temps de prise en charge</li>
-                    <li>Taux de sous-triage et sur-triage</li>
-                    <li>Acceptabilité par le personnel soignant</li>
-                    <li>Impact sur la satisfaction des patients</li>
+                    <li><strong>Clinique</strong> : concordance, sécurité, sous/sur-triage</li>
+                    <li><strong>Organisationnelle</strong> : impact sur les délais et workflows</li>
+                    <li><strong>Humaine</strong> : acceptabilité professionnelle, confiance, charge mentale</li>
+                    <li><strong>Économique</strong> : coût-efficacité, impact budgétaire, ROI</li>
+                    <li><strong>Technologique</strong> : interopérabilité MCP, explicabilité SHAP</li>
                 </ul>
                 
-                <h2>Innovation</h2>
+                <h2>Impact Attendu</h2>
                 <p>
-                    TRIADE représente la première évaluation rigoureuse de l'IA pour le triage aux urgences 
-                    dans un cadre contrôlé. L'étude inclut non seulement des mesures d'efficacité, 
-                    mais aussi des évaluations d'acceptabilité et d'impact sur le workflow.
+                    Si les résultats confirment l'hypothèse, TRIADE permettra de définir les conditions optimales 
+                    pour l'intégration de l'IA dans la pratique clinique de routine aux urgences. Le projet servira 
+                    de référence pour les futurs déploiements à l'échelle nationale (650 services d'urgences France, 
+                    20M patients/an).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Économies estimées :</strong> 15 000 événements indésirables évités/an, 50-80 M€/an 
+                    d'économies pour le système de santé. Extension rapide francophonie possible (1200 centres 
+                    Belgique/Suisse/Québec/Afrique).
                 </p>
                 
-                <h2>Perspectives</h2>
+                <h2>Gouvernance et Conformité</h2>
                 <p>
-                    Les résultats de TRIADE permettront de définir les conditions optimales pour 
-                    l'intégration de l'IA dans la pratique clinique routine aux urgences et 
-                    serviront de référence pour les futurs déploiements à l'échelle nationale.
+                    <strong>Dispositif médical :</strong> DMDIV classe IIa selon Règlement UE 2017/745 (règle 11). 
+                    Investigation clinique conforme article 62. Marquage CE prévu post-étude (juin 2027).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>COPIL & DSMB :</strong> Comité de pilotage, comité scientifique indépendant, Data Safety 
+                    Monitoring Board. Gouvernance garantissant intégrité, qualité et sécurité. Transparence processus 
+                    évaluation.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Protection des données :</strong> Conformité RGPD, serveurs HDS, plateforme technologique 
+                    homologuée référentiel sécurité SNDS. Information/non-opposition patients, droit opposition respecté.
                 </p>
             </div>
         </div>
