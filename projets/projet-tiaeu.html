@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIAEU - STaR-AI</title>
     <style>
-        /* Copier le même CSS que dans index.html */
         * {
             margin: 0;
             padding: 0;
@@ -48,23 +47,34 @@
         }
         
         .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             text-decoration: none;
+            color: var(--primary);
         }
         
-        .logo-icon {
+        .logo-main {
             font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .logo-subtitle .line2 {
+            font-size: 0.65rem;
+            color: var(--text-light);
         }
         
         .nav-links {
@@ -165,18 +175,47 @@
             color: var(--primary);
         }
         
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .team-member h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .affiliation {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
         @media (max-width: 768px) {
-            .logo-text {
-                font-size: 1.5rem;
-            }
-            
-            .logo-icon {
+            .logo-main {
                 font-size: 2rem;
             }
             
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+            
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
         }
     </style>
@@ -185,28 +224,29 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo-section">
-                <a href="index.html" class="logo-text">
-                    <span class="logo-icon">🧠</span>
-                    STaR-AI
-                </a>
-            </div>
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle">
+                    <div class="line1">SYSTEMS FOR TRIAGE</div>
+                    <div class="line2">AND RESPONSE WITH AI</div>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#publications">Publications</a></li>
-                <li><a href="index.html#equipe">Équipe</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="../index.html#accueil">Accueil</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#equipe">Équipe</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <a href="index.html#projets" class="back-btn">← Retour aux projets</a>
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">Étude pilote</span>
+                <span class="project-badge">Étude pilote - Publié</span>
                 <h1>TIAEU</h1>
                 <p>Triage Intelligent à l'Entrée des Urgences</p>
             </div>
@@ -215,44 +255,125 @@
                 <h2>Description du Projet</h2>
                 <p>
                     TIAEU (Triage Intelligent à l'Entrée des Urgences) est une étude rétrospective monocentrique 
-                    ayant inclus 657 patients et démontré la supériorité de 3 modèles d'IA sur le triage infirmier standard. 
-                    La concordance avec la décision médicale finale a atteint 78% pour l'IA contre 68% pour le triage infirmier standard (p<0.001).
+                    ayant inclus 657 patients au CHU de Lille sur 7 mois (2024). Cette étude a démontré la supériorité 
+                    de 3 modèles d'IA (NLP-TRIAGEMASTER, LLM-URGENTIAPARSE, JEPA-EMERGINET) sur le triage infirmier standard. 
+                    La concordance avec la décision médicale finale (échelle FRENCH) a atteint 78% pour l'IA contre 68% 
+                    pour le triage infirmier standard (p<0.001).
                 </p>
                 
                 <div class="project-info-grid">
                     <div class="info-card">
                         <h3>Objectifs</h3>
-                        <p>Évaluer la performance de modèles d'IA pour le triage aux urgences comparé au triage infirmier standard</p>
+                        <p>Évaluer la performance de modèles d'IA pour le triage aux urgences comparé au triage infirmier standard selon l'échelle FRENCH</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Méthodologie</h3>
-                        <p>Étude rétrospective monocentrique incluant 657 patients avec validation croisée</p>
+                        <p>Étude rétrospective monocentrique (CHU Lille) incluant 657 patients avec validation croisée 10-fold</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Résultats</h3>
-                        <p>Concordance IA: 78% vs Infirmier: 68% (p<0.001)</p>
+                        <p>Concordance IA: 78% vs Infirmier: 68% (p<0.001)<br>Sous-triage: 11% vs 18% (RR=0.61)</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Publication</h3>
-                        <p>IEEE/ACM BDCAT 2025</p>
+                        <p>IEEE/ACM BDCAT 2025<br>Nantes, France<br>Décembre 2025</p>
                     </div>
                 </div>
                 
                 <h2>Détails Techniques</h2>
                 <p>
-                    Trois modèles d'apprentissage automatique ont été développés et évalués : 
-                    Random Forest, XGBoost et un réseau de neurones profond. Les modèles ont été 
-                    entraînés sur des données démographiques, les motifs de recours et les constantes vitales.
+                    Trois modèles d'apprentissage automatique aux architectures différentes ont été développés et évalués :
                 </p>
+                <ul style="margin: 1rem 0 2rem 2rem;">
+                    <li><strong>TRIAGEMASTER (NLP)</strong> : Basé sur Doc2Vec avec régression neuronale, analyse des vecteurs de paragraphes</li>
+                    <li><strong>URGENTIAPARSE (LLM)</strong> : Modèle BERT pré-entraîné (FlauBERT) fusionnant texte et constantes vitales</li>
+                    <li><strong>EMERGINET (JEPA)</strong> : Joint Embedding Predictive Architecture avec encodage dual (verbatims + constantes)</li>
+                </ul>
+                
+                <p>
+                    Les modèles ont été entraînés sur des données démographiques, verbatims patients-infirmiers, 
+                    constantes vitales et antécédents médicaux. Le gold standard était l'application stricto sensu 
+                    de l'échelle FRENCH (recommandations SFMU v1.2).
+                </p>
+
+                <h2>Résultats Clés</h2>
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Performance Globale</h3>
+                        <p>Concordance exacte: 78%<br>Concordance ±1 classe: 96%<br>Kappa pondéré: 0.84</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Sécurité</h3>
+                        <p>Réduction sous-triage: -39%<br>Sensibilité urgences vitales: 94%<br>Sur-triage: 28% (vs 26%)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Meilleur Modèle</h3>
+                        <p>URGENTIAPARSE (LLM)<br>AUC-ROC: 0.84<br>F1-score macro: 0.76</p>
+                    </div>
+                </div>
+                
+                <h2>Équipe du Projet TIAEU</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4>Dr Edouard Lansiaux</h4>
+                        <div class="role">Investigateur Principal</div>
+                        <div class="affiliation">Interne Médecine d'Urgence<br>Étudiant M2 IA en Santé<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Dr Ramy Azzouz</h4>
+                        <div class="role">Co-directeur</div>
+                        <div class="affiliation">PH Médecine d'Urgence<br>Centre Antipoison<br>Directeur DU IA en Santé</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Emmanuel Chazard</h4>
+                        <div class="role">Comité Scientifique</div>
+                        <div class="affiliation">PU-PH Santé Publique<br>Biostatistiques<br>METRICS ULR 2694</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Amélie Vromant</h4>
+                        <div class="role">Biostatisticienne</div>
+                        <div class="affiliation">Data Manager<br>METRICS ULR 2694<br>CHU de Lille</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Pr Eric Wiel</h4>
+                        <div class="role">Comité Scientifique</div>
+                        <div class="affiliation">PU-PH Urgentiste<br>Pôle de l'Urgence<br>CHU de Lille</div>
+                    </div>
+                </div>
                 
                 <h2>Impact et Perspectives</h2>
                 <p>
-                    Cette étude pilote a démontré la faisabilité et la supériorité potentielle de l'IA 
-                    pour le triage aux urgences. Elle a ouvert la voie à l'étude multicentrique TIAEU-2 
-                    et à l'essai contrôlé randomisé TRIADE.
+                    Cette étude pilote a démontré pour la première fois la faisabilité et la supériorité potentielle 
+                    de l'IA pour le triage aux urgences dans un contexte francophone. Les résultats montrent qu'une 
+                    amélioration significative de la sécurité des patients est possible grâce à la réduction du sous-triage.
+                </p>
+                
+                <p style="margin-top: 1rem;">
+                    TIAEU a ouvert la voie à deux projets majeurs : l'étude multicentrique TIAEU-2 pour la validation 
+                    externe des modèles, et l'essai contrôlé randomisé TRIADE pour évaluer l'assistance IA en conditions 
+                    réelles d'utilisation.
+                </p>
+
+                <h2>Publication</h2>
+                <p>
+                    <strong>Titre complet :</strong> Development and Comparative Evaluation of Three Artificial Intelligence 
+                    Models (NLP, LLM, JEPA) for Predicting Triage in Emergency Departments: A 7-Month Retrospective Proof-of-Concept
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Conférence :</strong> IEEE/ACM 12th International Conference on Big Data Computing, Applications 
+                    and Technologies (BDCAT '25), December 2025, Nantes, France
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>DOI :</strong> <a href="https://doi.org/10.1145/3773276.3774289" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">10.1145/3773276.3774289</a>
                 </p>
             </div>
         </div>
