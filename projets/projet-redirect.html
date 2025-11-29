@@ -28,7 +28,6 @@
             background: white;
         }
         
-        /* Navigation */
         nav {
             background: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -47,23 +46,34 @@
         }
         
         .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             text-decoration: none;
+            color: var(--primary);
         }
         
-        .logo-icon {
+        .logo-main {
             font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .logo-subtitle .line2 {
+            font-size: 0.65rem;
+            color: var(--text-light);
         }
         
         .nav-links {
@@ -83,14 +93,12 @@
             color: var(--accent);
         }
         
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
         
-        /* Back button */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -108,7 +116,6 @@
             background: var(--border);
         }
         
-        /* Project detail page */
         .project-detail {
             max-width: 900px;
             margin: 0 auto;
@@ -167,15 +174,16 @@
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
             margin: 1.5rem 0;
         }
         
         .partner-card {
             background: var(--bg-light);
-            padding: 1rem;
-            border-radius: 6px;
+            padding: 1.5rem;
+            border-radius: 8px;
             text-align: center;
+            border: 1px solid var(--border);
         }
         
         .app-features {
@@ -187,148 +195,339 @@
         
         .feature-card {
             background: white;
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             padding: 1.5rem;
             border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .team-member h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .affiliation {
+            font-size: 0.85rem;
+            color: var(--text-light);
         }
         
         @media (max-width: 768px) {
-            .logo-text {
-                font-size: 1.5rem;
-            }
-            
-            .logo-icon {
+            .logo-main {
                 font-size: 2rem;
             }
-            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
             .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo-section">
-                <a href="index.html" class="logo-text">
-                    <span class="logo-icon">🧠</span>
-                    STaR-AI
-                </a>
-            </div>
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle">
+                    <div class="line1">SYSTEMS FOR TRIAGE</div>
+                    <div class="line2">AND RESPONSE WITH AI</div>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#publications">Publications</a></li>
-                <li><a href="index.html#equipe">Équipe</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="../index.html#accueil">Accueil</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#equipe">Équipe</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <a href="index.html#projets" class="back-btn">← Retour aux projets</a>
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">Réorientation</span>
+                <span class="project-badge">Collaboration internationale</span>
                 <h1>REDIRECT-IA</h1>
-                <p>Réorientation assistée par IA</p>
+                <p>Réorientation assistée par Intelligence Artificielle</p>
             </div>
             
             <div class="project-content">
-                <h2>Description du Projet</h2>
+                <h2>Contexte et Problématique</h2>
                 <p>
-                    REDIRECT-IA vise à développer une application de réorientation intelligente intégrant 
-                    l'IA pour identifier les patients pouvant être pris en charge de manière appropriée 
-                    en soins primaires plutôt qu'aux urgences. Ce projet adresse directement le problème 
-                    de la congestion des services d'urgence.
+                    La congestion des urgences au Canada atteint des niveaux inégalés, avec des conséquences 
+                    dramatiques : jusqu'à <strong>15 000 décès annuels</strong> potentiellement liés à ce phénomène 
+                    (extrapolation UK). La clientèle ambulatoire représente jusqu'à <strong>60% des cas aux urgences</strong>, 
+                    dont 10-30% seraient des visites évitables pouvant être prises en charge en soins primaires.
+                </p>
+                
+                <p style="margin-top: 1rem;">
+                    REDIRECT-IA vise à développer une application intelligente intégrant l'IA pour identifier 
+                    les patients pouvant être réorientés de manière appropriée et sécuritaire vers les soins 
+                    primaires, réduisant ainsi la congestion des urgences tout en améliorant l'expérience patient.
                 </p>
                 
                 <div class="project-info-grid">
                     <div class="info-card">
                         <h3>Objectif Principal</h3>
-                        <p>Réduire la congestion aux urgences par une réorientation appropriée</p>
+                        <p>Développer les bases scientifiques d'une application de réorientation intégrant l'IA</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Cible</h3>
-                        <p>Patients non-urgents pouvant être pris en charge en soins primaires</p>
+                        <p>Patients ambulatoires non-urgents pouvant être pris en charge en soins primaires</p>
                     </div>
                     
                     <div class="info-card">
-                        <h3>Impact</h3>
-                        <p>Réduction estimée de 15-20% de l'afflux aux urgences</p>
+                        <h3>Impact Attendu</h3>
+                        <p>Réduction estimée de 10-30% des visites évitables aux urgences</p>
                     </div>
                     
                     <div class="info-card">
                         <h3>Innovation</h3>
-                        <p>Première application de réorientation basée sur l'IA en France</p>
+                        <p>Première application de réorientation basée sur l'IA avec référencement élargi (non-médical)</p>
                     </div>
                 </div>
+                
+                <h2>Cadre Conceptuel : Value-Based Healthcare</h2>
+                <p>
+                    REDIRECT-IA s'inscrit dans un cadre de <strong>valeur des soins</strong> (Porter & Teisberg) : 
+                    orienter les cas ambulatoires vers les ressources les plus appropriées pour obtenir les meilleurs 
+                    résultats de santé au moindre coût. Les données probantes montrent que :
+                </p>
+                <ul style="margin: 1rem 0 2rem 2rem;">
+                    <li>Une visite aux urgences coûte <strong>2x plus cher</strong> qu'en clinique sans rendez-vous</li>
+                    <li>Les urgences génèrent <strong>2.7x plus</strong> de consultations de suivi à 7 jours</li>
+                    <li>Les cliniques offrent un <strong>meilleur soulagement des symptômes</strong> à 7 jours (PROM-ED)</li>
+                    <li><strong>12% plus de patients</strong> recommanderaient les cliniques vs urgences</li>
+                    <li>Coût additionnel patient : <strong>564$ par visite urgence</strong> (pertes revenus, attente)</li>
+                </ul>
                 
                 <h2>Partenaires Internationaux</h2>
                 <div class="partners-grid">
                     <div class="partner-card">
-                        <strong>CHU Québec</strong>
-                        <p>Expertise en gestion des flux patients</p>
+                        <strong>CHU Québec-Université Laval</strong>
+                        <p>Centre coordinateur<br>240 000 visites/an<br>5 hôpitaux académiques</p>
                     </div>
                     <div class="partner-card">
                         <strong>Mila</strong>
-                        <p>Institut d'IA québécois - Recherche fondamentale</p>
+                        <p>Institut québécois d'IA<br>Recherche fondamentale<br>Développement modèles</p>
                     </div>
                     <div class="partner-card">
                         <strong>IVADO</strong>
-                        <p>Institut de valorisation des données - Applications</p>
+                        <p>Institut valorisation données<br>Consortium recherche IA<br>Applications santé</p>
+                    </div>
+                    <div class="partner-card">
+                        <strong>Hôpital pour enfants Montréal</strong>
+                        <p>Évaluation externe<br>Population pédiatrique<br>65 000 visites/an</p>
+                    </div>
+                    <div class="partner-card">
+                        <strong>St. Michael's Hospital</strong>
+                        <p>Unity Health Toronto<br>Population adulte<br>75 000 visites/an</p>
                     </div>
                 </div>
+                
+                <h2>Plan de Travail (3.5 ans)</h2>
+                
+                <h3>Phase 1 : Apprentissage des Modèles Prédictifs</h3>
+                <p>
+                    <strong>Objectif :</strong> Entraîner des modèles d'apprentissage automatique pour identifier 
+                    les cas qu'il serait sécuritaire de réorienter au triage.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Données :</strong> Données clinico-administratives CHU Québec (année financière complète, 
+                    240 000 visites/an). Source : SCIENTA (centre valorisation données).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Résultats prédits :</strong> Admissions/décès, radiographies, imagerie avancée, tests sanguins, 
+                    traitements IV, consultations spécialités (dans les 72h).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Approches :</strong> Régression logistique, forêts aléatoires, Explainable Boosting Machines (EBM), 
+                    réseaux neurones. Validation croisée 10-fold. Librairies : Scikit-learn, Interpret-ML, PyTorch.
+                </p>
+                
+                <h3>Phase 2 : Évaluation Externe & Raffinement</h3>
+                <p>
+                    <strong>Établissements :</strong> Hôpital pour enfants Montréal, St. Michael's Toronto, CHU Lille (France).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Raffinement :</strong> Fusion données 2 études (Valeur n=3000, FACS n=1391) avec informations 
+                    fiables sur genre, race, orientation sexuelle, niveau socio-économique. Jumelage Institut statistique 
+                    Québec / ICES. Évaluation équité modèles, ajustement variables si nécessaire.
+                </p>
+                
+                <h3>Phase 3 : Étude par Consensus d'Experts</h3>
+                <p>
+                    <strong>Méthode :</strong> RAND/UCLA Appropriateness Method (RAM) avec panel multidisciplinaire de 
+                    <strong>60 personnes</strong> représentatives (provinces, ethnies, genres, professions).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Objectifs :</strong> Définir seuils probabilité éligibilité réorientation (0%, <1%, <5%, <10%), 
+                    identifier raisons consultation réorientables, déterminer ressources professionnelles appropriées 
+                    (médecins, IPS, physiothérapeutes, pharmaciens).
+                </p>
                 
                 <h2>Fonctionnalités de l'Application</h2>
                 <div class="app-features">
                     <div class="feature-card">
-                        <h4>Évaluation Intelligente</h4>
-                        <p>Algorithme d'IA pour identifier les cas appropriés pour la réorientation</p>
+                        <h4>🤖 Évaluation Intelligente</h4>
+                        <p>Modèles prédictifs pour identifier les cas appropriés pour réorientation sécuritaire 
+                        (admission/décès/investigations <1-5%)</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Interface Patient</h4>
-                        <p>Application mobile conviviale pour l'auto-évaluation guidée</p>
+                        <h4>📱 Interface Patient</h4>
+                        <p>Application mobile/web conviviale pour auto-évaluation guidée, accessible à distance 
+                        avant présentation à l'urgence</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Coordination des Soins</h4>
-                        <p>Système de prise de rendez-vous automatique avec les médecins généralistes</p>
+                        <h4>🏥 Coordination des Soins</h4>
+                        <p>Système prise rendez-vous automatique avec ressources appropriées (médecins généralistes, 
+                        IPS, physiothérapeutes) en temps opportun</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Suivi et Feedback</h4>
-                        <p>Monitoring des patients réorientés et évaluation des résultats</p>
+                        <h4>📊 Suivi & Monitoring</h4>
+                        <p>Surveillance patients réorientés, évaluation résultats, tableaux bord temps réel pour pilotage</p>
                     </div>
                 </div>
                 
-                <h2>Algorithme de Décision</h2>
+                <h2>Algorithme de Décision Hybride</h2>
                 <p>
-                    L'IA de REDIRECT-IA utilise un modèle hybride combinant :
+                    L'IA de REDIRECT-IA combine plusieurs approches complémentaires :
                 </p>
                 <ul style="margin: 1rem 0 2rem 2rem;">
-                    <li>Règles cliniques validées (guidelines internationales)</li>
-                    <li>Apprentissage automatique sur données historiques</li>
-                    <li>Analyse en temps réel de la disponibilité des soins primaires</li>
-                    <li>Facteurs contextuels (heure, jour, ressources disponibles)</li>
+                    <li><strong>Règles cliniques validées</strong> : Guidelines internationales, consensus experts</li>
+                    <li><strong>Apprentissage automatique</strong> : Sur données historiques (admissions, complications, reconsultations)</li>
+                    <li><strong>Analyse temps réel</strong> : Disponibilité soins primaires, rendez-vous opportuns</li>
+                    <li><strong>Facteurs contextuels</strong> : Heure, jour, ressources disponibles, distance domicile</li>
+                    <li><strong>Méthodes prédictions conformes</strong> : Ajustement incertitude au vrai taux d'erreur</li>
                 </ul>
                 
+                <h2>Équipe Canadienne REDIRECT-IA</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4>Dr Simon Berthelot</h4>
+                        <div class="role">Chercheur Principal</div>
+                        <div class="affiliation">Urgentologue pédiatrique & adulte<br>Professeur Université Laval<br>CHU Québec</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Dr Alain Benhamed</h4>
+                        <div class="role">Co-chercheur Principal</div>
+                        <div class="affiliation">Médecin d'urgence<br>Professeur Université Laval<br>Recherche visites évitables</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Prof. Audrey Durand</h4>
+                        <div class="role">Co-chercheuse Principale</div>
+                        <div class="affiliation">Professeure Sciences & Génie<br>Membre associée Mila<br>Apprentissage par renforcement</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Dr Alexis Turgeon</h4>
+                        <div class="role">Co-chercheur Principal</div>
+                        <div class="affiliation">Anesthésiologue-intensiviste<br>Chaire Canada soins intensifs<br>Co-directeur SCIENTA</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Prof. Christian Gagné</h4>
+                        <div class="role">Expert IA</div>
+                        <div class="affiliation">Chercheur Université Laval<br>Affilié Mila<br>Regroupement Système Santé IVADO</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Prof. Nadia Lahrichi</h4>
+                        <div class="role">Experte IA</div>
+                        <div class="affiliation">Chercheuse Polytechnique Montréal<br>Affiliée Mila<br>Co-responsable IVADO Santé</div>
+                    </div>
+                </div>
+                
                 <h2>Impact Potentiel</h2>
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Patients</h3>
+                        <p>Meilleure expérience soins, réduction temps attente, soulagement symptômes supérieur, 
+                        accès ressource appropriée</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Personnel Urgences</h3>
+                        <p>Soutien décisionnel sous pression, réduction charge cognitive, priorisation cas graves, 
+                        diminution blessures morales</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Système Santé</h3>
+                        <p>Économies substantielles (coûts évités), meilleure allocation ressources, intégration 
+                        urgences-soins primaires</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Santé Publique</h3>
+                        <p>Réduction 10-30% visites évitables, amélioration quintuple objectif (expérience, résultats, 
+                        équité, coûts)</p>
+                    </div>
+                </div>
+                
+                <h2>Perspectives Futures</h2>
                 <p>
-                    REDIRECT-IA pourrait générer des économies substantielles pour le système de santé 
-                    tout en améliorant l'expérience patient. Les patients non-urgents bénéficieraient 
-                    d'une prise en charge plus rapide et plus adaptée, tandis que les urgences pourraient 
-                    se concentrer sur les cas les plus graves.
+                    <strong>Parrainage Conseil Innovation Québec :</strong> Recherche partenaires industriels pour 
+                    développement rapide concept scientifique → application utilisable.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Application patient à distance :</strong> Permettre auto-évaluation en ligne avant 
+                    présentation urgence, orientation directe vers ressource adaptée. Vision patients partenaires : 
+                    utilisation la plus prometteuse.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Déploiement progressif :</strong> Hauts-de-France et Île-de-France pilotes, extension 
+                    nationale conditionnée aux résultats. Transférabilité 650 urgences France, 1200 centres francophonie 
+                    (Belgique/Suisse/Québec/Afrique).
                 </p>
                 
-                <h2>Déploiement</h2>
+                <h2>Financement et Calendrier</h2>
                 <p>
-                    Le projet prévoit un déploiement progressif commençant par les régions 
-                    Hauts-de-France et Île-de-France, avec une extension nationale conditionnée 
-                    aux résultats de l'étude pilote.
+                    <strong>Durée :</strong> 3.5 ans (phases 1-3 séquentielles)
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Budget :</strong> Demande subvention majeure en cours (IRSC, FRQS). Soutien confirmé MSSS, 
+                    Mila, IVADO.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Collaboration France-Québec :</strong> Expertise complémentaire (urgences Lille, IA Québec), 
+                    partage données, validation croisée modèles, déploiement bilatéral.
                 </p>
             </div>
         </div>
