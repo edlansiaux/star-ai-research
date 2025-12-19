@@ -1,12 +1,15 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIMLIA-3M-TEU - STaR-AI</title>
+    <title>REDIRECT-IA - STaR-AI</title>
     <style>
-        /* --- RESET & VARIABLES --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         :root {
             --primary: #1e3a8a;
@@ -19,16 +22,15 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: white;
         }
-
-        /* --- NAVIGATION --- */
+        
         nav {
             background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -84,192 +86,175 @@
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            transition: color 0.3s;
         }
         
-        .nav-links a:hover { color: var(--accent); }
-
-        /* --- LAYOUT --- */
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
         }
         
         .back-btn {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--text-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--text);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
         }
-        .back-btn:hover { color: var(--accent); }
-
-        /* --- HEADER PROJET --- */
+        
+        .back-btn:hover {
+            background: var(--border);
+        }
+        
+        .project-detail {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
         .project-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
-            padding: 3.5rem 2rem;
-            border-radius: 16px;
+            padding: 4rem 2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
             margin-bottom: 3rem;
+            border-radius: 12px;
         }
         
         .project-badge {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
             display: inline-block;
-        }
-        
-        .project-header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            line-height: 1.2;
         }
         
-        .project-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* --- CONTENU --- */
-        h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin: 3rem 0 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
+        .project-content {
+            padding: 0 2rem;
         }
         
-        .lead-text {
-            font-size: 1.15rem;
-            color: var(--text);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        /* Cards Grid */
-        .grid-3 {
+        .project-info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
-
-        .card {
-            background: white;
+        
+        .info-card {
+            background: var(--bg-light);
             padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
-            border-color: var(--accent);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            font-size: 1.2rem;
+        
+        h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--primary);
         }
-
-        .specs-list {
-            list-style: none;
-            font-size: 0.95rem;
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .partner-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .team-member h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .affiliation {
+            font-size: 0.85rem;
             color: var(--text-light);
         }
-
-        .specs-list li {
-            margin-bottom: 0.6rem;
-            padding-left: 1.2rem;
-            position: relative;
-        }
-
-        .specs-list li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Table */
-        .metrics-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            margin-top: 1rem;
-        }
-
-        .metrics-table th {
-            background: var(--bg-light);
-            color: var(--primary);
-            font-weight: 700;
-            padding: 1.2rem;
-            text-align: left;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .metrics-table td {
-            padding: 1.2rem;
-            border-bottom: 1px solid var(--border);
-            color: var(--text);
-        }
-
-        .metrics-table tr:last-child td { border-bottom: none; }
-
-        /* --- LIENS CITATIONS --- */
-        a.ref-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        a.ref-link:hover {
-            background-color: rgba(37, 99, 235, 0.1);
-            border-bottom-color: var(--accent);
-            color: var(--primary);
-        }
-
+        
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 1rem; }
-            .nav-links { gap: 1rem; font-size: 0.9rem; }
-            .project-header h1 { font-size: 2rem; }
-            .grid-3 { grid-template-columns: 1fr; }
             .logo-main {
                 font-size: 2rem;
             }
             .logo-subtitle {
                 font-size: 0.6rem;
             }
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="nav-container">
             <a href="../index.html" class="logo-section">
@@ -292,147 +277,260 @@
     <div class="container">
         <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
         
-        <div id="project-content-area">
-            
-            <header class="project-header">
-                <span class="project-badge">Recherche fondamentale</span>
-                <h1>EIMLIA-3M-TEU</h1>
-                <p>Évaluation Intelligence Modèles LLM IA pour le Triage aux Urgences</p>
-            </header>
-            
-            <p class="lead-text">
-                Le projet <strong>EIMLIA-3M-TEU</strong> propose une évaluation rigoureuse de trois architectures d'IA 
-                pour le triage aux urgences. Nous utilisons le [cite_start]Process Mining[cite:203] pour modéliser 
-                les flux patients réels, permettant de générer des jumeaux numériques fidèles. L'étude compare notamment 
-                les performances des modèles de langage comme [cite_start]FlauBERT[cite:281] face aux approches 
-                plus récentes comme l'architecture [cite_start]JEPA[cite:320] proposée par Yann LeCun.
-            </p>
-
-            <div class="grid-3">
-                <div class="card">
-                    <h3>1. Modèle NLP (TRIAGEMASTER)</h3>
-                    <ul class="specs-list">
-                        <li>Basé sur [cite_start]Doc2Vec[cite:247]</li>
-                        <li>Latence ultra-faible (120ms)</li>
-                        <li>Extraction de symptômes clés</li>
-                        <li>Vecteurs de paragraphes 200 dimensions</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>2. Modèle LLM (URGENTIAPARSE)</h3>
-                    <ul class="specs-list">
-                        <li>Architecture [cite_start]Transformer[cite:281]</li>
-                        <li>Modèle BERT francophone</li>
-                        <li>Fusion texte + constantes vitales</li>
-                        <li>Explicabilité via [cite_start]SHAP[cite:304]</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>3. Modèle JEPA (EMERGINET)</h3>
-                    <ul class="specs-list">
-                        <li>Joint Embedding Predictive Architecture</li>
-                        <li>Encodage conjoint Texte + Séries Temporelles</li>
-                        <li>[cite_start]Prédiction de dégradation[cite:126]</li>
-                        <li>Haute sensibilité urgences vitales</li>
-                    </ul>
-                </div>
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Collaboration internationale</span>
+                <h1>REDIRECT-IA</h1>
+                <p>Réorientation assistée par Intelligence Artificielle</p>
             </div>
-
-            <h2>Méthodologie & Simulation</h2>
-            <p>
-                Pour valider ces modèles avant tout déploiement clinique, nous avons mis en place une simulation hybride. 
-                Celle-ci combine la [cite_start]Simulation à Événements Discrets (DES)[cite:98] pour les flux logistiques 
-                et les [cite_start]Systèmes Multi-Agents (SMA)[cite:102] pour simuler les comportements humains complexes. 
-                L'infrastructure repose sur un [cite_start]cluster GPU[cite:372] permettant de simuler 6 mois d'activité 
-                en quelques heures.
-            </p>
-
-            <h2>Résultats Attendus</h2>
-            <table class="metrics-table">
-                <thead>
-                    <tr>
-                        <th>Axe</th>
-                        <th>Indicateur</th>
-                        <th>Cible</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Clinique</strong></td>
-                        <td>Concordance Experts (Kappa)</td>
-                        <td>&gt; 0.80</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Logistique</strong></td>
-                        <td>Réduction temps d'attente</td>
-                        <td>[cite_start]-25%[cite:74]</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Économique</strong></td>
-                        <td>Coûts évités ([cite_start]Tarifs ATIH[cite:79])</td>
-                        <td>-20% hospit. inappropriées</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Équipe du Projet</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>Investigateur Principal</h3>
-                    <p><strong>Dr Edouard Lansiaux</strong></p>
-                    <p style="color: var(--text-light); font-size: 0.9rem;">Médecin Urgentiste & Ingénieur IA<br>CHU de Lille</p>
+            
+            <div class="project-content">
+                <h2>Contexte et Problématique</h2>
+                <p>
+                    La congestion des urgences au Canada atteint des niveaux inégalés, avec des conséquences 
+                    dramatiques : jusqu'à <strong>15 000 décès annuels</strong> potentiellement liés à ce phénomène 
+                    (extrapolation UK). La clientèle ambulatoire représente jusqu'à <strong>60% des cas aux urgences</strong>, 
+                    dont 10-30% seraient des visites évitables pouvant être prises en charge en soins primaires.
+                </p>
+                
+                <p style="margin-top: 1rem;">
+                    REDIRECT-IA vise à développer une application intelligente intégrant l'IA pour identifier 
+                    les patients pouvant être réorientés de manière appropriée et sécuritaire vers les soins 
+                    primaires, réduisant ainsi la congestion des urgences tout en améliorant l'expérience patient.
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Objectif Principal</h3>
+                        <p>Développer les bases scientifiques d'une application de réorientation intégrant l'IA</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Cible</h3>
+                        <p>Patients ambulatoires non-urgents pouvant être pris en charge en soins primaires</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Impact Attendu</h3>
+                        <p>Réduction estimée de 10-30% des visites évitables aux urgences</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Innovation</h3>
+                        <p>Première application de réorientation basée sur l'IA avec référencement élargi (non-médical)</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Direction Scientifique</h3>
-                    <p><strong>Pr Hayfa Zgaya-Biau</strong></p>
-                    <p style="color: var(--text-light); font-size: 0.9rem;">CRIStAL UMR CNRS 9189<br>Équipe OSL, Université de Lille</p>
+                
+                <h2>Cadre Conceptuel : Value-Based Healthcare</h2>
+                <p>
+                    REDIRECT-IA s'inscrit dans un cadre de <strong>valeur des soins</strong> (Porter & Teisberg) : 
+                    orienter les cas ambulatoires vers les ressources les plus appropriées pour obtenir les meilleurs 
+                    résultats de santé au moindre coût. Les données probantes montrent que :
+                </p>
+                <ul style="margin: 1rem 0 2rem 2rem;">
+                    <li>Une visite aux urgences coûte <strong>2x plus cher</strong> qu'en clinique sans rendez-vous</li>
+                    <li>Les urgences génèrent <strong>2.7x plus</strong> de consultations de suivi à 7 jours</li>
+                    <li>Les cliniques offrent un <strong>meilleur soulagement des symptômes</strong> à 7 jours (PROM-ED)</li>
+                    <li><strong>12% plus de patients</strong> recommanderaient les cliniques vs urgences</li>
+                    <li>Coût additionnel patient : <strong>564$ par visite urgence</strong> (pertes revenus, attente)</li>
+                </ul>
+                
+                <h2>Partenaires Internationaux</h2>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <strong>CHU Québec-Université Laval</strong>
+                        <p>Centre coordinateur<br>240 000 visites/an<br>5 hôpitaux académiques</p>
+                    </div>
+                    <div class="partner-card">
+                        <strong>Mila</strong>
+                        <p>Institut québécois d'IA<br>Recherche fondamentale<br>Développement modèles</p>
+                    </div>
+                    <div class="partner-card">
+                        <strong>IVADO</strong>
+                        <p>Institut valorisation données<br>Consortium recherche IA<br>Applications santé</p>
+                    </div>
+                    <div class="partner-card">
+                        <strong>Hôpital pour enfants Montréal</strong>
+                        <p>Évaluation externe<br>Population pédiatrique<br>65 000 visites/an</p>
+                    </div>
+                    <div class="partner-card">
+                        <strong>St. Michael's Hospital</strong>
+                        <p>Unity Health Toronto<br>Population adulte<br>75 000 visites/an</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Co-direction</h3>
-                    <p><strong>Pr Mehdi Ammi</strong></p>
-                    <p style="color: var(--text-light); font-size: 0.9rem;">LIASD<br>Université Paris 8</p>
+                
+                <h2>Plan de Travail (3.5 ans)</h2>
+                
+                <h3>Phase 1 : Apprentissage des Modèles Prédictifs</h3>
+                <p>
+                    <strong>Objectif :</strong> Entraîner des modèles d'apprentissage automatique pour identifier 
+                    les cas qu'il serait sécuritaire de réorienter au triage.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Données :</strong> Données clinico-administratives CHU Québec (année financière complète, 
+                    240 000 visites/an). Source : SCIENTA (centre valorisation données).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Résultats prédits :</strong> Admissions/décès, radiographies, imagerie avancée, tests sanguins, 
+                    traitements IV, consultations spécialités (dans les 72h).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Approches :</strong> Régression logistique, forêts aléatoires, Explainable Boosting Machines (EBM), 
+                    réseaux neurones. Validation croisée 10-fold. Librairies : Scikit-learn, Interpret-ML, PyTorch.
+                </p>
+                
+                <h3>Phase 2 : Évaluation Externe & Raffinement</h3>
+                <p>
+                    <strong>Établissements :</strong> Hôpital pour enfants Montréal, St. Michael's Toronto, CHU Lille (France).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Raffinement :</strong> Fusion données 2 études (Valeur n=3000, FACS n=1391) avec informations 
+                    fiables sur genre, race, orientation sexuelle, niveau socio-économique. Jumelage Institut statistique 
+                    Québec / ICES. Évaluation équité modèles, ajustement variables si nécessaire.
+                </p>
+                
+                <h3>Phase 3 : Étude par Consensus d'Experts</h3>
+                <p>
+                    <strong>Méthode :</strong> RAND/UCLA Appropriateness Method (RAM) avec panel multidisciplinaire de 
+                    <strong>60 personnes</strong> représentatives (provinces, ethnies, genres, professions).
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Objectifs :</strong> Définir seuils probabilité éligibilité réorientation (0%, <1%, <5%, <10%), 
+                    identifier raisons consultation réorientables, déterminer ressources professionnelles appropriées 
+                    (médecins, IPS, physiothérapeutes, pharmaciens).
+                </p>
+                
+                <h2>Fonctionnalités de l'Application</h2>
+                <div class="app-features">
+                    <div class="feature-card">
+                        <h4>🤖 Évaluation Intelligente</h4>
+                        <p>Modèles prédictifs pour identifier les cas appropriés pour réorientation sécuritaire 
+                        (admission/décès/investigations <1-5%)</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📱 Interface Patient</h4>
+                        <p>Application mobile/web conviviale pour auto-évaluation guidée, accessible à distance 
+                        avant présentation à l'urgence</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🏥 Coordination des Soins</h4>
+                        <p>Système prise rendez-vous automatique avec ressources appropriées (médecins généralistes, 
+                        IPS, physiothérapeutes) en temps opportun</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📊 Suivi & Monitoring</h4>
+                        <p>Surveillance patients réorientés, évaluation résultats, tableaux bord temps réel pour pilotage</p>
+                    </div>
                 </div>
+                
+                <h2>Algorithme de Décision Hybride</h2>
+                <p>
+                    L'IA de REDIRECT-IA combine plusieurs approches complémentaires :
+                </p>
+                <ul style="margin: 1rem 0 2rem 2rem;">
+                    <li><strong>Règles cliniques validées</strong> : Guidelines internationales, consensus experts</li>
+                    <li><strong>Apprentissage automatique</strong> : Sur données historiques (admissions, complications, reconsultations)</li>
+                    <li><strong>Analyse temps réel</strong> : Disponibilité soins primaires, rendez-vous opportuns</li>
+                    <li><strong>Facteurs contextuels</strong> : Heure, jour, ressources disponibles, distance domicile</li>
+                    <li><strong>Méthodes prédictions conformes</strong> : Ajustement incertitude au vrai taux d'erreur</li>
+                </ul>
+                
+                <h2>Équipe Canadienne REDIRECT-IA</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4>Dr Simon Berthelot</h4>
+                        <div class="role">Chercheur Principal</div>
+                        <div class="affiliation">Urgentologue pédiatrique & adulte<br>Professeur Université Laval<br>CHU Québec</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Dr Axel Benhamed</h4>
+                        <div class="role">Co-chercheur Principal</div>
+                        <div class="affiliation">Médecin d'urgence<br>Professeur Université Laval<br>Recherche visites évitables</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Prof. Audrey Durand</h4>
+                        <div class="role">Co-chercheuse Principale</div>
+                        <div class="affiliation">Professeure Sciences & Génie<br>Membre associée Mila<br>Apprentissage par renforcement</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Dr Alexis Turgeon</h4>
+                        <div class="role">Co-chercheur Principal</div>
+                        <div class="affiliation">Anesthésiologue-intensiviste<br>Chaire Canada soins intensifs<br>Co-directeur SCIENTA</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Prof. Christian Gagné</h4>
+                        <div class="role">Expert IA</div>
+                        <div class="affiliation">Chercheur Université Laval<br>Affilié Mila<br>Regroupement Système Santé IVADO</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h4>Prof. Nadia Lahrichi</h4>
+                        <div class="role">Experte IA</div>
+                        <div class="affiliation">Chercheuse Polytechnique Montréal<br>Affiliée Mila<br>Co-responsable IVADO Santé</div>
+                    </div>
+                </div>
+                
+                <h2>Impact Potentiel</h2>
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Patients</h3>
+                        <p>Meilleure expérience soins, réduction temps attente, soulagement symptômes supérieur, 
+                        accès ressource appropriée</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Personnel Urgences</h3>
+                        <p>Soutien décisionnel sous pression, réduction charge cognitive, priorisation cas graves, 
+                        diminution blessures morales</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Système Santé</h3>
+                        <p>Économies substantielles (coûts évités), meilleure allocation ressources, intégration 
+                        urgences-soins primaires</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Santé Publique</h3>
+                        <p>Réduction 10-30% visites évitables, amélioration quintuple objectif (expérience, résultats, 
+                        équité, coûts)</p>
+                    </div>
+                </div>
+                
+                <h2>Perspectives Futures</h2>
+                <p>
+                    <strong>Parrainage Conseil Innovation Québec :</strong> Recherche partenaires industriels pour 
+                    développement rapide concept scientifique → application utilisable.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Application patient à distance :</strong> Permettre auto-évaluation en ligne avant 
+                    présentation urgence, orientation directe vers ressource adaptée. Vision patients partenaires : 
+                    utilisation la plus prometteuse.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Déploiement progressif :</strong> Hauts-de-France et Île-de-France pilotes, extension 
+                    nationale conditionnée aux résultats. Transférabilité 650 urgences France, 1200 centres francophonie 
+                    (Belgique/Suisse/Québec/Afrique).
+                </p>
+                
+                <h2>Financement et Calendrier</h2>
+                <p>
+                    <strong>Durée :</strong> 3.5 ans (phases 1-3 séquentielles)
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Budget :</strong> Demande subvention majeure en cours (IRSC, FRQS). Soutien confirmé MSSS, 
+                    Mila, IVADO.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Collaboration France-Québec :</strong> Expertise complémentaire (urgences Lille, IA Québec), 
+                    partage données, validation croisée modèles, déploiement bilatéral.
+                </p>
             </div>
-
         </div>
     </div>
-
-    <script>
-        // BASE DE DONNÉES DES URLS
-        const references = {
-            "74": "https://doi.org/10.1080/17477778.2023.2187321",
-            "79": "https://www.atih.sante.fr/tarifs-mco-et-had",
-            "98": "https://link.springer.com/article/10.1057/jos.2009.10",
-            "102": "https://ieeexplore.ieee.org/document/5166148",
-            "126": "https://ieeexplore.ieee.org/document/8737887",
-            "203": "https://www.sciencedirect.com/science/article/pii/S1532046422000764",
-            "247": "http://arxiv.org/abs/1301.3781",
-            "281": "https://arxiv.org/abs/1912.05372",
-            "304": "http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf",
-            "320": "https://ieeexplore.ieee.org/document/8737887",
-            "372": "https://hal.science/hal-04673684"
-        };
-
-        function processCitations() {
-            const contentArea = document.getElementById('project-content-area');
-            if (!contentArea) return;
-
-            let html = contentArea.innerHTML;
-
-            // Remplace [cite_start]Texte[cite:ID] par <a href="url">Texte</a>
-            html = html.replace(/\[cite_start\]([\s\S]*?)\[cite:(\d+)\]/gi, (match, text, id) => {
-                const url = references[id];
-                if (url) {
-                    return `<a href="${url}" class="ref-link" target="_blank" rel="noopener noreferrer" title="Voir la source ${id}">${text}</a>`;
-                }
-                return text;
-            });
-
-            contentArea.innerHTML = html;
-        }
-
-        // Exécution au chargement
-        document.addEventListener('DOMContentLoaded', processCitations);
-    </script>
 </body>
 </html>
