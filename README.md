@@ -51,6 +51,7 @@ star-ai-github/
 - **Dr Edouard Lansiaux** - Investigateur Principal, CHU de Lille
 - **Dr Ramy Azzouz** - Co-directeur, CHU de Lille
 - **Pr Emmanuel Chazard** - Méthodologie, METRICS ULR 2694
+- **Dr Roch Joly** - Direction Clinique, CHU de Lille
 - **Pr Eric Wiel** - Direction Scientifique, CHU de Lille
 
 ## 📧 Contact
