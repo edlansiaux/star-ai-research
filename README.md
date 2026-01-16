@@ -4,27 +4,6 @@
 
 🌐 **Site bilingue** : Français / English
 
-## 🚀 Déploiement GitHub Pages
-
-### Option 1 : Déploiement automatique (recommandé)
-
-1. **Fork** ce repository ou **push** vers votre compte GitHub
-2. Allez dans **Settings** > **Pages**
-3. Sous "Source", sélectionnez **Deploy from a branch**
-4. Choisissez la branche `main` et le dossier `/ (root)`
-5. Cliquez sur **Save**
-
-Votre site sera accessible à : `https://[votre-username].github.io/[nom-du-repo]/`
-
-### Option 2 : Avec un domaine personnalisé
-
-1. Suivez l'Option 1
-2. Dans **Settings** > **Pages** > **Custom domain**, entrez votre domaine
-3. Créez un fichier `CNAME` à la racine contenant votre domaine :
-   ```
-   www.star-ai.fr
-   ```
-4. Configurez les DNS de votre domaine (voir [documentation GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site))
 
 ## 📁 Structure du projet
 
