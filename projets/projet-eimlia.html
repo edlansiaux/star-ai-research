@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIMLIA-3M-TEU - STaR-AI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Équipe</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="projet-eimlia.html" class="active">FR</a>
+                    <a href="../en/projets/projet-eimlia.html">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">En cours - Simulation hybride</span>
+                <h1>EIMLIA-3M-TEU</h1>
+                <p>Évaluation Intelligence Modèles LLM IA - 3 Modèles pour le Triage aux Urgences</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    EIMLIA-3M-TEU est une étude d'évaluation comparative multidimensionnelle des trois architectures 
+                    d'IA développées dans TIAEU. Ce projet combine Process Mining, simulation à événements discrets (DES) 
+                    et systèmes multi-agents pour créer un jumeau numérique du service des urgences.
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Approche</h3><p>Simulation hybride DES + Systèmes Multi-Agents</p></div>
+                    <div class="info-card"><h3>Process Mining</h3><p>Extraction automatisée des parcours patients</p></div>
+                    <div class="info-card"><h3>Modèles</h3><p>TRIAGEMASTER (NLP)<br>URGENTIAPARSE (LLM)<br>EMERGINET (JEPA)</p></div>
+                    <div class="info-card"><h3>Indicateurs</h3><p>Temps de passage, mortalité, allocation ressources</p></div>
+                </div>
+                
+                <h2>Modèles d'IA Évalués</h2>
+                <div class="model-card"><h4>NLP-TRIAGEMASTER</h4><span class="tech-badge">Doc2Vec</span><span class="tech-badge">Régression Neuronale</span><p style="margin-top: 0.5rem;">Analyse de texte non supervisée avec représentations vectorielles des verbatims.</p></div>
+                <div class="model-card"><h4>LLM-URGENTIAPARSE</h4><span class="tech-badge">FlauBERT</span><span class="tech-badge">Fine-tuning</span><span class="tech-badge">Fusion Multimodale</span><p style="margin-top: 0.5rem;">LLM pré-entraîné avec fusion des embeddings textuels et constantes vitales.</p></div>
+                <div class="model-card"><h4>JEPA-EMERGINET</h4><span class="tech-badge">Joint Embedding</span><span class="tech-badge">Predictive Architecture</span><p style="margin-top: 0.5rem;">Architecture JEPA avec encodeurs spécialisés et apprentissage dans l'espace latent.</p></div>
+
+                <h2>Dimensions d'Évaluation</h2>
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Performance Technique</h3><p>Exactitude, sensibilité, spécificité, AUC-ROC, F1-score</p></div>
+                    <div class="info-card"><h3>Impact Organisationnel</h3><p>Temps de passage, durée d'attente, occupation des box</p></div>
+                    <div class="info-card"><h3>Sécurité Patient</h3><p>Taux de sous-triage, mortalité simulée</p></div>
+                    <div class="info-card"><h3>Efficience</h3><p>Coût par patient, optimisation des ressources</p></div>
+                </div>
+                
+                <h2>Équipe du Projet</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Investigateur Principal</div><div class="affiliation">CHU de Lille</div></div>
+                    <div class="team-member"><h4>Pr Emmanuel Chazard</h4><div class="role">Expert Process Mining</div><div class="affiliation">METRICS ULR 2694</div></div>
+                    <div class="team-member"><h4>Dr Ramy Azzouz</h4><div class="role">Expertise IA Santé</div><div class="affiliation">CHU de Lille</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

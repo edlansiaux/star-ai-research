@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIAEU - STaR-AI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Équipe</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="projet-tiaeu.html" class="active">FR</a>
+                    <a href="../en/projets/projet-tiaeu.html">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Étude pilote - Publié</span>
+                <h1>TIAEU</h1>
+                <p>Triage Intelligent à l'Entrée des Urgences</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    TIAEU (Triage Intelligent à l'Entrée des Urgences) est une étude rétrospective monocentrique 
+                    ayant inclus 657 patients au CHU de Lille sur 7 mois (2024). Cette étude a démontré la supériorité 
+                    de 3 modèles d'IA (NLP-TRIAGEMASTER, LLM-URGENTIAPARSE, JEPA-EMERGINET) sur le triage infirmier standard. 
+                    La concordance avec la décision médicale finale (échelle FRENCH) a atteint 90% pour la meilleure IA contre 30% 
+                    pour le triage infirmier standard (p<0.001).
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Objectifs</h3>
+                        <p>Évaluer la performance de modèles d'IA pour le triage aux urgences comparé au triage infirmier standard selon l'échelle FRENCH</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Méthodologie</h3>
+                        <p>Étude rétrospective monocentrique (CHU Lille) incluant 657 patients avec validation croisée 10-fold</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Résultats</h3>
+                        <p>Concordance IA: 78% vs Infirmier: 30% (p<0.001)<br>Sous-triage: 11% vs 18% (RR=0.61)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Publication</h3>
+                        <p>IEEE/ACM BDCAT 2025<br>Nantes, France<br>Décembre 2025</p>
+                    </div>
+                </div>
+                
+                <h2>Détails Techniques</h2>
+                <p>Trois modèles d'apprentissage automatique aux architectures différentes ont été développés et évalués :</p>
+                <ul style="margin: 1rem 0 2rem 2rem;">
+                    <li><strong>TRIAGEMASTER (NLP)</strong> : Basé sur Doc2Vec avec régression neuronale, analyse des vecteurs de paragraphes</li>
+                    <li><strong>URGENTIAPARSE (LLM)</strong> : Modèle BERT pré-entraîné (FlauBERT) fusionnant texte et constantes vitales</li>
+                    <li><strong>EMERGINET (JEPA)</strong> : Joint Embedding Predictive Architecture avec encodage dual (verbatims + constantes)</li>
+                </ul>
+
+                <h2>Résultats Clés</h2>
+                <div class="project-info-grid">
+                    <div class="info-card">
+                        <h3>Performance Globale</h3>
+                        <p>Concordance exacte: 90%<br>Concordance ±1 classe: 89%<br>Kappa pondéré: 0.80</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Meilleur Modèle</h3>
+                        <p>URGENTIAPARSE (LLM)<br>AUC-ROC: 0.879<br>F1-score macro: 0.894</p>
+                    </div>
+                </div>
+                
+                <h2>Équipe du Projet TIAEU</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Investigateur Principal</div><div class="affiliation">Interne Médecine d'Urgence<br>Étudiant M2 IA en Santé<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Ramy Azzouz</h4><div class="role">Co-directeur</div><div class="affiliation">PH Médecine d'Urgence<br>Centre Antipoison<br>Directeur DU IA en Santé</div></div>
+                    <div class="team-member"><h4>Dr Amélie Vromant</h4><div class="role">Co-directrice</div><div class="affiliation">PH Médecine d'Urgence<br>Hôpital Pitié-Salpêtrière<br>AP-HP</div></div>
+                    <div class="team-member"><h4>Pr Emmanuel Chazard</h4><div class="role">Comité Scientifique</div><div class="affiliation">PU-PH Santé Publique<br>Biostatistiques<br>METRICS ULR 2694</div></div>
+                </div>
+
+                <h2>Publications</h2>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        <span class="publication-type">Journal</span>
+                        <strong>Artificial Intelligence models for predicting triage in Emergency Departments</strong>
+                        <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
+                        <p style="color: var(--text-light);"><a href="https://doi.org/10.2196/83318" target="_blank" style="color: var(--accent);">JMIR Medical Informatics</a></p>
+                    </li>
+                    <li class="publication-item">
+                        <span class="publication-type">Conférence</span>
+                        <strong>Development and Comparative Evaluation of Three AI Models for Predicting Triage</strong>
+                        <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
+                        <p style="color: var(--text-light);"><a href="https://dl.acm.org/doi/10.1145/3773276.3774289" target="_blank" style="color: var(--accent);">IEEE/ACM BDCAT '25, December 2025, Nantes</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
