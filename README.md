@@ -56,7 +56,7 @@ star-ai-github/
 
 ## 📧 Contact
 
-- Email : edouard.lansiaux@chu-lille.fr
+- Email : edouard1.lansiaux@chu-lille.fr
 - Institution : CHU de Lille, Pôle de l'Urgence
 
 ## 📄 Licence
