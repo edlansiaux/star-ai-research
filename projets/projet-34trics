@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3/4trics - STaR-AI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Équipe</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="projet-34trics.html" class="active">FR</a>
+                    <a href="../en/projets/projet-34trics.html">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Collaboration internationale 🇫🇷 🇸🇪 🇺🇸</span>
+                <h1>3/4trics</h1>
+                <p>Évaluation internationale de métriques d'efficacité du triage aux urgences</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    3/4trics est un projet de recherche international multicentrique visant à évaluer une métrique 
+                    innovante d'efficacité du triage aux urgences, développée par André Johansson (Université de Lund, Suède). 
+                    Ce projet repose sur une analyse fédérée : chaque site réalise l'analyse au niveau individuel 
+                    localement, puis partage uniquement les données agrégées. Le code d'analyse primaire est 
+                    déjà développé, nécessitant un travail de mapping conceptuel et d'extraction de données au niveau de chaque site.
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Design</h3><p>Étude multicentrique internationale fédérée</p></div>
+                    <div class="info-card"><h3>Approche</h3><p>Analyse fédérée : données individuelles traitées localement, agrégation partagée</p></div>
+                    <div class="info-card"><h3>Code d'analyse</h3><p>Prêt pour l'analyse primaire<br>~20-30h de travail d'analyste par site</p></div>
+                    <div class="info-card"><h3>Portée</h3><p>Services d'urgences internationaux<br>France, Suède, États-Unis</p></div>
+                </div>
+                
+                <h2>Objectifs</h2>
+                <p><strong>Principal :</strong> Évaluer et valider une métrique d'efficacité du triage aux urgences sur des données multi-sites internationales.</p>
+                <p style="margin-top: 1rem;"><strong>Secondaires :</strong></p>
+                <ul style="margin: 0.5rem 0 2rem 2rem;">
+                    <li>Comparer l'efficacité du triage entre centres de différents pays et systèmes de santé</li>
+                    <li>Valider la généralisabilité de la métrique sur des populations diversifiées</li>
+                    <li>Identifier les facteurs contribuant aux variations d'efficacité du triage</li>
+                </ul>
+
+                <h2>Méthodologie Fédérée</h2>
+                <p>
+                    L'approche fédérée garantit la souveraineté des données de chaque site. Toute l'analyse au 
+                    niveau individuel (row-level) est réalisée sur le site primaire avec le code d'analyse fourni. 
+                    Seules les données agrégées sont partagées entre les partenaires pour l'analyse comparative. 
+                    Ce design permet une collaboration internationale tout en respectant les contraintes 
+                    réglementaires locales (RGPD, HIPAA).
+                </p>
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Étape 1</h3><p>Mapping des concepts et variables locales vers le schéma commun</p></div>
+                    <div class="info-card"><h3>Étape 2</h3><p>Extraction des données locales selon le protocole standardisé</p></div>
+                    <div class="info-card"><h3>Étape 3</h3><p>Exécution du code d'analyse primaire sur chaque site</p></div>
+                    <div class="info-card"><h3>Étape 4</h3><p>Partage des résultats agrégés et analyse comparative internationale</p></div>
+                </div>
+
+                <h2>Partenaires Internationaux</h2>
+                <div class="partner-grid">
+                    <div class="partner-card"><div class="flag-badge">🇸🇪</div><h4>Université de Lund</h4><p>Coordination internationale<br>Développeur de la métrique</p></div>
+                    <div class="partner-card"><div class="flag-badge">🇺🇸</div><h4>Yale New Haven Hospital</h4><p>Yale School of Medicine<br>Service des Urgences</p></div>
+                    <div class="partner-card"><div class="flag-badge">🇺🇸</div><h4>University of Virginia</h4><p>UVA Health<br>Département de Médecine d'Urgence</p></div>
+                    <div class="partner-card"><div class="flag-badge">🇫🇷</div><h4>CHU de Lille</h4><p>Partenaire France<br>Pôle de l'Urgence</p></div>
+                </div>
+
+                <h2>Confidentialité</h2>
+                <p>
+                    Un accord de non-divulgation (NDA) a été établi entre les parties prenantes concernant 
+                    les informations partagées dans le cadre de ce projet. L'analyse fédérée garantit que 
+                    les données individuelles ne quittent jamais le site d'origine.
+                </p>
+                
+                <h2>Équipe du Projet</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>André Johansson</h4><div class="role">Coordinateur International</div><div class="affiliation">Université de Lund<br>Suède</div></div>
+                    <div class="team-member"><h4>Pr Ulf Ekelund</h4><div class="role">Co-investigateur</div><div class="affiliation">Université de Lund<br>Suède</div></div>
+                    <div class="team-member"><h4>Pr R. Andrew Taylor</h4><div class="role">Co-investigateur</div><div class="affiliation">Vice Chair of Research<br>Dept. of Emergency Medicine<br>University of Virginia</div></div>
+                    <div class="team-member"><h4>Dr Rohit B. Sangal</h4><div class="role">Co-investigateur</div><div class="affiliation">Associate Medical Director<br>Adult Emergency Dept.<br>Yale New Haven Hospital</div></div>
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Coordinateur France</div><div class="affiliation">CHU de Lille<br>Pôle de l'Urgence</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
