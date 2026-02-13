@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARMONIA - STaR-AI</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#team">Team</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="../../projets/projet-harmonia.html">FR</a>
+                    <a href="projet-harmonia.html" class="active">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projects" class="back-btn">← Back to projects</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Ongoing - Prospective simulated study</span>
+                <h1>HARMONIA</h1>
+                <p>Humans (Call Dispatchers + Physicians) vs AI in Emergency Medical Dispatch, One-to-one Impact Analysis</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Project Description</h2>
+                <p>
+                    HARMONIA is a prospective cohort study with continuous enrollment, evaluating the performance 
+                    of a GPT model compared to Medical Regulation Assistants (ARM) and dispatch physicians 
+                    at the SAS-Centre 15 of Lille University Hospital. The study uses 60 simulated call scenarios, 
+                    managed by ARM–physician pairs and simultaneously analyzed by AI. The goal is to determine 
+                    whether AI can match or exceed human performance in telephone triage 
+                    using the ARM triage scale.
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Design</h3><p>Prospective cohort with continuous enrollment, double-blind and intra-protocol randomization</p></div>
+                    <div class="info-card"><h3>Population</h3><p>60 simulated scenarios<br>13 dispatch physicians<br>10 volunteer ARMs</p></div>
+                    <div class="info-card"><h3>Period</h3><p>January - March 2026<br>(3-month enrollment)</p></div>
+                    <div class="info-card"><h3>Center</h3><p>SAS-Centre 15<br>Lille University Hospital</p></div>
+                </div>
+                
+                <h2>Objectives</h2>
+                <p><strong>Primary:</strong> Compare GPT algorithm performance with actual ARM triage at the SAS-Centre 15 of CHU Lille against the gold-standard ARM triage scale.</p>
+                <p style="margin-top: 1rem;"><strong>Secondary:</strong></p>
+                <ul style="margin: 0.5rem 0 2rem 2rem;">
+                    <li>Concordance with medical regulation decision (final regulation decision)</li>
+                    <li>Participant experience analysis (ARMs + physicians) via NASA-TLX questionnaire</li>
+                    <li>Reliability and speed of GPT algorithm transcription</li>
+                    <li>Reliability of semantic analysis and predicted resource deployment by GPT</li>
+                </ul>
+
+                <h2>Methodology</h2>
+                <p>
+                    Each scenario is managed by an ARM–physician pair, formed interchangeably from a volunteer pool. 
+                    Matching follows a double-blind scheme with intra-protocol randomization. Each volunteer is exposed 
+                    to all simulated cases, ensuring a complete crossover evaluation.
+                </p>
+                <p style="margin-top: 1rem;">
+                    The gold standard is composite: strict application of the ARM triage scale to call data 
+                    and expert opinion (panel of 3 blinded physicians).
+                </p>
+
+                <h2>Statistical Analyses</h2>
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Primary Metrics</h3><p>MAE, RMSE, weighted Kappa, exact agreement and ±1 class, AUC-ROC</p></div>
+                    <div class="info-card"><h3>Composite Score</h3><p>F1 micro/macro, Spearman correlation, multiclass Brier score</p></div>
+                    <div class="info-card"><h3>Secondary Analyses</h3><p>Bland-Altman plots, confusion matrices, reliability diagrams</p></div>
+                    <div class="info-card"><h3>Tools</h3><p>R® (v4.2.2+)<br>α = 5% threshold, Bonferroni correction</p></div>
+                </div>
+
+                <h2>Ethics and Data</h2>
+                <p>
+                    The study does not modify patient care in any way. It relies exclusively on simulated data 
+                    (anonymized by default, AES-256 encrypted). AI models do not store or archive audio recordings. 
+                    Signed consent from participating ARMs and physicians. Analysis conducted on the secured 
+                    CHU Lille platform (SNDS security framework).
+                </p>
+
+                <h2>Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>December 2025</h4><p>Protocol writing, scientific council validation, DPO declaration</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>January 2026</h4><p>Start of enrollment</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>March 2026</h4><p>End of enrollment</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>April 2026</h4><p>End of data extraction</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>June 2026</h4><p>Analysis and results validation</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>October 2026</h4><p>Final report</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>2026-2027</h4><p>Peer-reviewed journal publication</p></div></div>
+                </div>
+                
+                <h2>Project Team</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>André Filipe Gomes Botelho</h4><div class="role">Principal Investigator</div><div class="affiliation">Emergency Medicine Resident<br>Lille University Hospital</div></div>
+                    <div class="team-member"><h4>Dr Flavie Vanbrugge</h4><div class="role">Thesis Director</div><div class="affiliation">Head of SAMU Unit<br>Lille University Hospital</div></div>
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Scientific Committee</div><div class="affiliation">Junior Doctor, Emergency Medicine<br>AI Engineer<br>Lille University Hospital</div></div>
+                    <div class="team-member"><h4>Dr Jonathan Hennache</h4><div class="role">Scientific Committee</div><div class="affiliation">SAMU Unit<br>Lille University Hospital</div></div>
+                    <div class="team-member"><h4>Dr Roch Joly</h4><div class="role">Scientific Committee</div><div class="affiliation">Head of Emergency Department<br>Lille University Hospital</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
