@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARMONIA - STaR-AI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Équipe</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="projet-harmonia.html" class="active">FR</a>
+                    <a href="../en/projets/projet-harmonia.html">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
+        
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">En cours - Étude prospective simulée</span>
+                <h1>HARMONIA</h1>
+                <p>Humains (ARM + médecins) vs IA en Régulation Médicale, ONe-to-one Impact Analysis</p>
+            </div>
+            
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    HARMONIA est une étude de cohorte prospective avec inclusion continue, évaluant la performance 
+                    d'un modèle GPT par rapport aux Assistants de Régulation Médicale (ARM) et aux médecins régulateurs 
+                    du SAS-Centre 15 du CHU de Lille. L'étude repose sur 60 scénarios d'appels simulés, pris en charge 
+                    par des binômes ARM–médecin régulateur et analysés simultanément par l'IA. L'objectif est de déterminer 
+                    si l'IA peut atteindre, voire surpasser, la performance humaine en matière de triage téléphonique 
+                    selon l'échelle de tri ARM.
+                </p>
+                
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Design</h3><p>Cohorte prospective avec inclusion continue, double insu et randomisation intra-protocole</p></div>
+                    <div class="info-card"><h3>Population</h3><p>60 scénarios simulés<br>13 médecins régulateurs<br>10 ARMs volontaires</p></div>
+                    <div class="info-card"><h3>Période</h3><p>Janvier - Mars 2026<br>(3 mois d'inclusion)</p></div>
+                    <div class="info-card"><h3>Centre</h3><p>SAS-Centre 15<br>CHU de Lille</p></div>
+                </div>
+                
+                <h2>Objectifs</h2>
+                <p><strong>Principal :</strong> Comparer la performance de l'algorithme GPT avec le triage effectif des ARMs du SAS-Centre 15 du CHU de Lille par rapport au gold-standard de l'échelle de tri ARM.</p>
+                <p style="margin-top: 1rem;"><strong>Secondaires :</strong></p>
+                <ul style="margin: 0.5rem 0 2rem 2rem;">
+                    <li>Concordance avec la décision médicale de régulation (selon décision finale de régulation)</li>
+                    <li>Analyse de ressenti sur les cas (ARMs + médecins) via questionnaire NASA-TLX</li>
+                    <li>Fiabilité et rapidité de la transcription par les algorithmes GPT</li>
+                    <li>Fiabilité de l'analyse sémantique et des moyens à engager prédits par GPT</li>
+                </ul>
+
+                <h2>Méthodologie</h2>
+                <p>
+                    Chaque scénario est pris en charge par un binôme ARM–médecin régulateur, constitué de manière 
+                    interchangeable à partir d'un pool de volontaires. L'appariement est réalisé selon un schéma de 
+                    double insu et une randomisation intra-protocole. Chaque volontaire est exposé à l'ensemble 
+                    des cas simulés, assurant une évaluation croisée complète.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Le gold-standard est mixte : application stricto sensu de l'échelle de tri ARM sur les données 
+                    de l'appel et avis d'experts (consortium de 3 médecins en aveugle).
+                </p>
+
+                <h2>Analyses Statistiques</h2>
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Métriques principales</h3><p>MAE, RMSE, Kappa pondéré, accord exact et ±1 classe, AUC-ROC</p></div>
+                    <div class="info-card"><h3>Score composite</h3><p>F1 micro/macro, corrélation de Spearman, score de Brier multiclasse</p></div>
+                    <div class="info-card"><h3>Analyses secondaires</h3><p>Graphiques de Bland-Altman, matrices de confusion, diagrammes de fiabilité</p></div>
+                    <div class="info-card"><h3>Outils</h3><p>R® (v4.2.2+)<br>Seuil α = 5%, correction de Bonferroni</p></div>
+                </div>
+
+                <h2>Éthique et Données</h2>
+                <p>
+                    L'étude ne modifie aucunement la prise en charge des patients. Elle repose exclusivement sur des 
+                    données simulées (anonymisées par défaut, chiffrées AES-256). Les modèles d'IA ne stockent ni 
+                    n'archivent les bandes sonores. Consentement signé par les ARM et médecins participants. 
+                    Analyse sur plateforme sécurisée du CHU de Lille (référentiel SNDS).
+                </p>
+
+                <h2>Calendrier Prévisionnel</h2>
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Décembre 2025</h4><p>Rédaction protocole, validation conseil scientifique, déclaration DPO</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Janvier 2026</h4><p>Début des inclusions</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Mars 2026</h4><p>Fin des inclusions</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Avril 2026</h4><p>Fin d'extraction des données</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Juin 2026</h4><p>Analyse et validation des résultats</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Octobre 2026</h4><p>Rapport final</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>2026-2027</h4><p>Publication dans revue à comité de relecture</p></div></div>
+                </div>
+                
+                <h2>Équipe du Projet</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>André Filipe Gomes Botelho</h4><div class="role">Investigateur Principal</div><div class="affiliation">Interne en Médecine d'Urgence<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Flavie Vanbrugge</h4><div class="role">Directrice de thèse</div><div class="affiliation">Responsable UF SAMU<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Comité Scientifique</div><div class="affiliation">Docteur Junior Médecine d'Urgence<br>Ingénieur IA<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Jonathan Hennache</h4><div class="role">Comité Scientifique</div><div class="affiliation">UF SAMU<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Roch Joly</h4><div class="role">Comité Scientifique</div><div class="affiliation">Responsable Pôle Urgences<br>CHU de Lille</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
