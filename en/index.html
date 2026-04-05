@@ -7,6 +7,153 @@
     <meta name="keywords" content="triage, emergency, artificial intelligence, AI, healthcare, Lille University Hospital">
     <title>STaR-AI - Systems for Triage and Response with AI</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* ── Publications Filter System ── */
+        .pub-section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .pub-section-header h2 { margin-bottom: 0; }
+        .pub-total-badge {
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .pub-filters {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .filter-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            white-space: nowrap;
+            min-width: 55px;
+        }
+        .filter-pills {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+        .pill {
+            padding: 0.28rem 0.85rem;
+            border: 1.5px solid var(--border);
+            background: white;
+            color: var(--text);
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        .pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(37,99,235,0.05);
+        }
+        .pill.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+        }
+        .filter-row-bottom {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 0.25rem;
+            border-top: 1px solid var(--border);
+        }
+        .pub-count-live {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-style: italic;
+            transition: color 0.2s;
+        }
+        .pub-count-live.updated { color: var(--accent); }
+
+        .pub-scroll-wrap { position: relative; }
+        .pub-scroll-container {
+            max-height: 580px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem;
+            background: white;
+            scroll-behavior: smooth;
+        }
+        .pub-scroll-container::-webkit-scrollbar { width: 5px; }
+        .pub-scroll-container::-webkit-scrollbar-track { background: var(--bg-light); border-radius: 3px; }
+        .pub-scroll-container::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+        .pub-scroll-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 48px;
+            border-radius: 0 0 12px 12px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.9));
+            pointer-events: none;
+        }
+
+        .publication-item { transition: opacity 0.18s ease, transform 0.18s ease; }
+        .publication-item.pub-hidden { display: none; }
+        .publication-item.pub-fade-in { animation: pubFadeIn 0.22s ease forwards; }
+        @keyframes pubFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .pub-empty { display: none; text-align: center; padding: 3rem 1rem; color: var(--text-light); }
+        .pub-empty .empty-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .pub-empty p { font-size: 0.95rem; }
+
+        .btn-reset-filters {
+            background: none; border: none; color: var(--text-light);
+            font-size: 0.78rem; cursor: pointer; text-decoration: underline;
+            font-family: inherit; padding: 0;
+        }
+        .btn-reset-filters:hover { color: var(--accent); }
+
+        .pub-year-chip {
+            display: inline-block;
+            font-size: 0.7rem; font-weight: 600;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 600px) {
+            .filter-row { gap: 0.5rem; }
+            .pill { font-size: 0.73rem; padding: 0.25rem 0.7rem; }
+            .pub-scroll-container { max-height: 450px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -47,22 +194,10 @@
 
     <div class="container">
         <div class="stats">
-            <div class="stat-item">
-                <h3>7</h3>
-                <p>Research projects</p>
-            </div>
-            <div class="stat-item">
-                <h3>2000+</h3>
-                <p>Patients enrolled</p>
-            </div>
-            <div class="stat-item">
-                <h3>90%</h3>
-                <p>AI concordance</p>
-            </div>
-            <div class="stat-item">
-                <h3>10</h3>
-                <p>Partner centers</p>
-            </div>
+            <div class="stat-item"><h3>7</h3><p>Research projects</p></div>
+            <div class="stat-item"><h3>2000+</h3><p>Patients enrolled</p></div>
+            <div class="stat-item"><h3>90%</h3><p>AI concordance</p></div>
+            <div class="stat-item"><h3>10</h3><p>Partner centers</p></div>
         </div>
     </div>
 
@@ -72,290 +207,277 @@
             <p style="margin-bottom: 2rem; color: var(--text-light);">
                 A progressive and complementary approach to revolutionize emergency triage
             </p>
-            
             <div class="projects-grid">
                 <a href="projets/projet-tiaeu.html" class="project-card">
                     <span class="project-badge">Pilot study - Published</span>
                     <h3>TIAEU</h3>
                     <div class="project-meta">Intelligent Triage at Emergency Entry</div>
-                    <p>
-                        Single-center retrospective study (n=657, Lille University Hospital) demonstrating superiority of 3 AI models 
-                        (NLP, LLM, JEPA) over standard nursing triage. Concordance of 90% vs 30% (p&lt;0.001).
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Publication:</strong> IEEE BDCAT 2025, JMIR Medical Informatics
-                    </p>
+                    <p>Single-center retrospective study (n=657, Lille University Hospital) demonstrating superiority of 3 AI models (NLP, LLM, JEPA) over standard nursing triage. Concordance of 90% vs 30% (p&lt;0.001).</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Publication:</strong> IEEE BDCAT 2025, JMIR Medical Informatics</p>
                 </a>
-                
                 <a href="projets/projet-tiaeu-2.html" class="project-card">
                     <span class="project-badge">Ongoing</span>
                     <h3>TIAEU-2</h3>
                     <div class="project-meta">Prospective multicenter extension</div>
-                    <p>
-                        External validation across 5 centers (CHU Lille, CH Douai, Denain, Maubeuge, Tenon AP-HP) 
-                        with several thousand patients. Period: January-February 2026.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Type:</strong> Prospective observational study
-                    </p>
+                    <p>External validation across 5 centers (CHU Lille, CH Douai, Denain, Maubeuge, Tenon AP-HP) with several thousand patients. Period: January-February 2026.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Type:</strong> Prospective observational study</p>
                 </a>
-                
                 <a href="projets/projet-triade.html" class="project-card">
                     <span class="project-badge">Funding pending</span>
                     <h3>TRIADE</h3>
                     <div class="project-meta">AI-Assisted Triage for Informed Decision-Making</div>
-                    <p>
-                        Prospective cluster-randomized bicentric trial (CHU Lille, CH Maubeuge) evaluating AI assistance 
-                        under real-world conditions. Objective: concordance increase from 68% to 76%.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Funding requested:</strong> PHRC-I & doctoral grant
-                    </p>
+                    <p>Prospective cluster-randomized bicentric trial (CHU Lille, CH Maubeuge) evaluating AI assistance under real-world conditions. Objective: concordance increase from 68% to 76%.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Funding requested:</strong> PHRC-I &amp; doctoral grant</p>
                 </a>
-                
                 <a href="projets/projet-eimlia.html" class="project-card">
                     <span class="project-badge">Ongoing</span>
                     <h3>EIMLIA-3M-TEU</h3>
                     <div class="project-meta">AI Model Intelligence Evaluation</div>
-                    <p>
-                        Multidimensional comparative evaluation of three AI architectures (NLP, LLM, JEPA) for 
-                        emergency triage, with hybrid Process Mining simulation and digital twins.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Approach:</strong> DES Simulation + Multi-Agent Systems
-                    </p>
+                    <p>Multidimensional comparative evaluation of three AI architectures (NLP, LLM, JEPA) for emergency triage, with hybrid Process Mining simulation and digital twins.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Approach:</strong> DES Simulation + Multi-Agent Systems</p>
                 </a>
-                
                 <a href="projets/projet-redirect.html" class="project-card">
                     <span class="project-badge">International collaboration</span>
                     <h3>REDIRECT-AI</h3>
                     <div class="project-meta">AI-assisted patient redirection</div>
-                    <p>
-                        Redirection application integrating AI to identify cases suitable for primary care. 
-                        Estimated 15-20% reduction in emergency department overcrowding.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Partners:</strong> CHU Quebec, Mila, IVADO
-                    </p>
+                    <p>Redirection application integrating AI to identify cases suitable for primary care. Estimated 15-20% reduction in emergency department overcrowding.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Partners:</strong> CHU Quebec, Mila, IVADO</p>
                 </a>
-
                 <a href="projets/projet-harmonia.html" class="project-card">
                     <span class="project-badge">Ongoing</span>
                     <h3>HARMONIA</h3>
                     <div class="project-meta">Humans vs AI in Emergency Medical Dispatch</div>
-                    <p>
-                        Prospective study comparing a GPT model against call dispatchers and dispatch physicians 
-                        at the SAS-Centre 15 on 60 simulated scenarios. Double-blind design with complete crossover evaluation.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Center:</strong> SAS-Centre 15, Lille University Hospital
-                    </p>
+                    <p>Prospective study comparing a GPT model against call dispatchers and dispatch physicians at the SAS-Centre 15 on 60 simulated scenarios. Double-blind design with complete crossover evaluation.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Center:</strong> SAS-Centre 15, Lille University Hospital</p>
                 </a>
-
                 <a href="projets/projet-34trics.html" class="project-card">
                     <span class="project-badge">International collaboration</span>
                     <h3>3/4trics</h3>
                     <div class="project-meta">Triage effectiveness metrics</div>
-                    <p>
-                        International multicenter federated study evaluating an innovative triage effectiveness metric 
-                        in emergency departments. Federated analysis with row-level data processed locally.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>Partners:</strong> Lund Univ. 🇸🇪, Yale 🇺🇸, UVA 🇺🇸
-                    </p>
+                    <p>International multicenter federated study evaluating an innovative triage effectiveness metric in emergency departments. Federated analysis with row-level data processed locally.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Partners:</strong> Lund Univ. 🇸🇪, Yale 🇺🇸, UVA 🇺🇸</p>
                 </a>
             </div>
         </section>
 
+        <!-- ════════════════════════════════════
+             PUBLICATIONS — FILTERED SECTION
+        ════════════════════════════════════ -->
         <section id="publications">
-            <h2>Publications & Communications</h2>
-            
-            <h3 style="margin-top: 2rem;">Scientific Articles</h3>
-            <ul class="publication-list">
-                <li class="publication-item">
-                    <span class="publication-type">Preprint</span>
-                    <strong>OrthoAI v2: From Single-Agent Segmentation to Dual-Agent Treatment Planning for Clear Aligners</strong>
-                    <p>Lansiaux E,Leman M.</p>
-                    <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.15663" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        arXiv</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Preprint</span>
-                    <strong>A Hybrid Tsallis-Polarization Impurity Measure for Decision Trees: Theoretical Foundations and Empirical Evaluation</strong>
-                    <p>Lansiaux E, Jairi I, Zgaya-Biau H.</p>
-                    <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.13241" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        arXiv</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Article</span>
-                    <strong>Simulation-Based Training for Emergency Department Flow Management: A Dual-Site Experience With GridlockED in France</strong>
-                    <p>Lansiaux E,  Guerif Dubreucq E, Chan T.</p>
-                    <p style="color: var(--text-light);"><a href="https://www.cureus.com/articles/467893-simulation-based-training-for-emergency-department-flow-management-a-dual-site-experience-with-gridlocked-in-france#!/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        Cureus 18(3): e105250</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Preprint</span>
-                    <strong>Zero-Knowledge Federated Learning with Lattice-Based Hybrid Encryption for Quantum-Resilient Medical AI</strong>
-                    <p>Lansiaux E.</p>
-                    <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.03398" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        arXiv</a></p>
-                </li> 
-                
-                <li class="publication-item">
-                    <span class="publication-type">Preprint</span>
-                    <strong>OrthoAI: A Lightweight Deep Learning Framework for Automated Biomechanical Analysis in Clear Aligner Orthodontics -- A Methodological Proof-of-Concept</strong>
-                    <p>Lansiaux E, Leman M, Ammi M.</p>
-                    <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.00124" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        arXiv</a></p>
-                </li>
+            <div class="pub-section-header">
+                <h2>Publications &amp; Communications</h2>
+                <span class="pub-total-badge" id="pub-total-badge">17 entries</span>
+            </div>
 
-                <li class="publication-item">
-                    <span class="publication-type">Journal</span>
-                    <strong>ADVERSARIAL AI IN MEDICINE: A COUNTER-TERRORISM MEDICINE PERSPECTIVE </strong>
-                    <p>Lansiaux E, Marx J, Tataru G.</p>
-                    <p style="color: var(--text-light);"><a href="https://static1.squarespace.com/static/67649ebe3a5ebf7bb97f68cb/t/69a35adc37125a6a0112d1eb/1772313308440/ASPISMEDICAL+-+February+2026+V6.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        ASPIS MEDICAL</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Preprint</span>
-                    <strong>SwiftEmbed: Ultra-Fast Text Embeddings via Static Token Lookup for Real-Time Applications</strong>
-                    <p>Lansiaux E, Simonet A, Wiel E.</p>
-                    <p style="color: var(--text-light);"><a href="https://doi.org/10.48550/arXiv.2510.24793" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        arXiv</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Article</span>
-                    <strong>Artificial Intelligence models for predicting triage in Emergency Departments : a 7 months retrospective comparative study of NLP, LLM, and JEPA architectures</strong>
-                    <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
-                    <p style="color: var(--text-light);"><a href="https://doi.org/10.2196/83318" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        JMIR Medical Informatics</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Conference</span>
-                    <strong>Development and Comparative Evaluation of Three Artificial Intelligence Models (NLP, LLM, JEPA) for Predicting Triage in Emergency Departments</strong>
-                    <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
-                    <p style="color: var(--text-light);"><a href="https://dl.acm.org/doi/10.1145/3773276.3774289" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        IEEE/ACM 12th International Conference on Big Data Computing, Applications and Technologies (BDCAT '25), 
-                        December 2025, Nantes, France</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Article</span>
-                    <strong>L’intelligence artificielle en médecine d’urgence par le Board Innovation de la Société française de médecine d’urgence</strong>
-                    <p>Lansiaux E, Arnaud E, Arrouy L, Auboiroux PH, Balaz PA, Baron, MA, Depil-Duval A, Dubreucq-Guérif E, Dumontier T, Ellouze S, Gil-Jardine C, Gilbert A, Heidet M, Mpela AG, Lemaitre EL, Vromant A, Violeau M.</p>
-                    <p style="color: var(--text-light);"><a href="https://doi.org/10.1684/afmu.2025.0637" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        Annales françaises de médecine d’urgence, . 15(4), 259-267.
-                    </a></p>
-                </li>
+            <!-- Filters -->
+            <div class="pub-filters">
+                <div class="filter-row">
+                    <span class="filter-label">Type</span>
+                    <div class="filter-pills" id="filter-type">
+                        <button class="pill active" data-filter="all">All</button>
+                        <button class="pill" data-filter="Preprint">Preprint</button>
+                        <button class="pill" data-filter="Article">Article</button>
+                        <button class="pill" data-filter="Conference">Conference</button>
+                        <button class="pill" data-filter="Journal">Journal</button>
+                        <button class="pill" data-filter="YouTube">YouTube</button>
+                        <button class="pill" data-filter="Press">Press</button>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <span class="filter-label">Year</span>
+                    <div class="filter-pills" id="filter-year">
+                        <button class="pill active" data-filter="all">All</button>
+                        <button class="pill" data-filter="2026">2026</button>
+                        <button class="pill" data-filter="2025">2025</button>
+                        <button class="pill" data-filter="2024">2024</button>
+                    </div>
+                </div>
+                <div class="filter-row-bottom">
+                    <span class="pub-count-live" id="pub-count-live">17 results</span>
+                    &nbsp;·&nbsp;
+                    <button class="btn-reset-filters" id="btn-reset">Reset filters</button>
+                </div>
+            </div>
 
-                <li class="publication-item">
-                    <span class="publication-type">Conference</span>
-                    <strong>AI bias: Issues and precautions for ethical and reliable decision-making in health</strong>
-                    <p>Lansiaux E</p>
-                    <p style="color: var(--text-light);"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1279847925000163" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        Médecine de Catastrophe - Urgences Collectives, Volume 9, Issue 2, June 2025, Pages 96-100
-                    </a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type">Article</span>
-                    <strong>Navigating the landscape of medical triage: Unveiling the potential and challenges of large language models and beyond</strong>
-                    <p>Lansiaux E, Baron MA, Vromant A.</p>
-                    <p style="color: var(--text-light);"><a href="https://doi.org/10.1016/j.ajem.2024.02.013" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        American Journal of Emergency Medicine, 2024 Apr;78:224
-                    </a></p>
-                </li>
-            </ul>
+            <!-- Scrollable container -->
+            <div class="pub-scroll-wrap">
+                <div class="pub-scroll-container">
+                    <ul class="publication-list" id="pub-list">
 
-            <h3 style="margin-top: 3rem;">YouTube Videos - AI & Triage</h3>
-            <p style="margin-bottom: 1rem; color: var(--text-light);">
-                Watch our video presentations on artificial intelligence applied to emergency triage on Dr Edouard Lansiaux's YouTube channel:
-            </p>
-            <ul class="publication-list">
-                <li class="publication-item">
-                    <span class="publication-type" style="background: #ff0000;">YouTube</span>
-                    <strong>EUSEM 2025 - Wien - AI-enhanced Nurse Triage : revolutionizing the Emergency Room entry point</strong>
-                    <p>At the EUSEM 2025 congress in Vienna, this session explores how artificial intelligence is transforming patient reception and triage in emergency departments. 
-                        By combining nursing expertise with the power of AI, emergency care could become more efficient, safer, and better adapted to current challenges.</p>
-                    <p style="color: var(--text-light);"><a href="https://www.youtube.com/watch?v=iB0j0fKY_JU&t=35s" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        See the YouTube Video</a></p>
-                </li>
-                
-                <li class="publication-item">
-                    <span class="publication-type" style="background: #ff0000;">YouTube</span>
-                    <strong>URGENCES 2025 / Réflexions autour du tri des patients en IOA / L'IA peut-elle remplacer l'IOA?</strong>
-                    <p>Faced with increased activity in emergency departments, patient triage by the triage nurse is more than ever a strategic and human challenge.
-But with the emergence of artificial intelligence, a question arises: can AI one day supplement, or even replace, nursing expertise at the emergency department entrance?</p>
-                    <p style="color: var(--text-light);"><a href="https://www.youtube.com/watch?v=7gp7Po9Huak&t=2s" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        See the YouTube Video</a></p>
-                </li>
+                        <li class="publication-item" data-type="Preprint" data-year="2026">
+                            <span class="publication-type">Preprint</span>
+                            <span class="pub-year-chip">2026</span>
+                            <strong>OrthoAI v2: From Single-Agent Segmentation to Dual-Agent Treatment Planning for Clear Aligners</strong>
+                            <p>Lansiaux E, Leman M.</p>
+                            <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.15663" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">arXiv:2603.15663</a></p>
+                        </li>
 
-                <li class="publication-item">
-                    <span class="publication-type" style="background: #ff0000;">YouTube</span>
-                    <strong>URGENCES 2025 / Les nouvelles technologies : de la régulation au terrain / L'IA a-t-elle sa place ?</strong>
-                    <p>In a constantly evolving medical world, emergency services are at a crossroads. Between technological innovations, operational pressures, and ethical challenges, this video explores the growing role of artificial intelligence in emergency services in 2025.</p>
-                    <p style="color: var(--text-light);"><a href="https://www.youtube.com/watch?v=VzlxUANjNsA&t=3s" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">
-                        See the YouTube Video</a></p>
-                </li>
-            </ul>
-            
-            <h3 style="margin-top: 3rem;">Media Coverage</h3>
-            <ul class="publication-list">
-                <li class="publication-item">
-                    <span class="publication-type" style="background: #059669;">Press</span>
-                    <strong>TIAEU: AI listening to triage, between clinical promise and field reality</strong>
-                    <p style="color: var(--text-light);"><a href="https://www.healthandtech.eu/post_ci/tiaeu-lia-qui-ecoute-le-triage-entre-promesse-clinique-et-realite-du-terrain/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Health & Tech Intelligence</a></p>
-                </li>
-                <li class="publication-item">
-                    <span class="publication-type" style="background: #059669;">Press</span>
-                    <strong>Hospital emergencies: securing diagnoses through digital technology</strong>
-                    <p style="color: var(--text-light);"><a href="https://www.sante-future.com/actualites-sante/61631-urgences-a-l-hopital-securiser-les-diagnostics-grace-au-numerique.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Santé Future</a></p>
-                </li>
-            </ul>
+                        <li class="publication-item" data-type="Preprint" data-year="2026">
+                            <span class="publication-type">Preprint</span>
+                            <span class="pub-year-chip">2026</span>
+                            <strong>A Hybrid Tsallis-Polarization Impurity Measure for Decision Trees: Theoretical Foundations and Empirical Evaluation</strong>
+                            <p>Lansiaux E, Jairi I, Zgaya-Biau H.</p>
+                            <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.13241" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">arXiv:2603.13241</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Preprint" data-year="2026">
+                            <span class="publication-type">Preprint</span>
+                            <span class="pub-year-chip">2026</span>
+                            <strong>Zero-Knowledge Federated Learning with Lattice-Based Hybrid Encryption for Quantum-Resilient Medical AI</strong>
+                            <p>Lansiaux E.</p>
+                            <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.03398" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">arXiv:2603.03398</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Preprint" data-year="2026">
+                            <span class="publication-type">Preprint</span>
+                            <span class="pub-year-chip">2026</span>
+                            <strong>OrthoAI: A Lightweight Deep Learning Framework for Automated Biomechanical Analysis in Clear Aligner Orthodontics — A Methodological Proof-of-Concept</strong>
+                            <p>Lansiaux E, Leman M, Ammi M.</p>
+                            <p style="color: var(--text-light);"><a href="https://arxiv.org/abs/2603.00124" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">arXiv:2603.00124</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Journal" data-year="2026">
+                            <span class="publication-type">Journal</span>
+                            <span class="pub-year-chip">2026</span>
+                            <strong>ADVERSARIAL AI IN MEDICINE: A COUNTER-TERRORISM MEDICINE PERSPECTIVE</strong>
+                            <p>Lansiaux E, Marx J, Tataru G.</p>
+                            <p style="color: var(--text-light);"><a href="https://static1.squarespace.com/static/67649ebe3a5ebf7bb97f68cb/t/69a35adc37125a6a0112d1eb/1772313308440/ASPISMEDICAL+-+February+2026+V6.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">ASPIS MEDICAL, February 2026</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Article" data-year="2025">
+                            <span class="publication-type">Article</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>Simulation-Based Training for Emergency Department Flow Management: A Dual-Site Experience With GridlockED in France</strong>
+                            <p>Lansiaux E, Guerif Dubreucq E, Chan T.</p>
+                            <p style="color: var(--text-light);"><a href="https://www.cureus.com/articles/467893-simulation-based-training-for-emergency-department-flow-management-a-dual-site-experience-with-gridlocked-in-france#!/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Cureus 18(3): e105250</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Preprint" data-year="2025">
+                            <span class="publication-type">Preprint</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>SwiftEmbed: Ultra-Fast Text Embeddings via Static Token Lookup for Real-Time Applications</strong>
+                            <p>Lansiaux E, Simonet A, Wiel E.</p>
+                            <p style="color: var(--text-light);"><a href="https://doi.org/10.48550/arXiv.2510.24793" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">arXiv:2510.24793</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Article" data-year="2025">
+                            <span class="publication-type">Article</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>Artificial Intelligence models for predicting triage in Emergency Departments: a 7 months retrospective comparative study of NLP, LLM, and JEPA architectures</strong>
+                            <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
+                            <p style="color: var(--text-light);"><a href="https://doi.org/10.2196/83318" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">JMIR Medical Informatics</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Conference" data-year="2025">
+                            <span class="publication-type">Conference</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>Development and Comparative Evaluation of Three Artificial Intelligence Models (NLP, LLM, JEPA) for Predicting Triage in Emergency Departments</strong>
+                            <p>Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.</p>
+                            <p style="color: var(--text-light);"><a href="https://dl.acm.org/doi/10.1145/3773276.3774289" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">IEEE/ACM BDCAT '25, December 2025, Nantes</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Article" data-year="2025">
+                            <span class="publication-type">Article</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>L'intelligence artificielle en médecine d'urgence par le Board Innovation de la Société française de médecine d'urgence</strong>
+                            <p>Lansiaux E, Arnaud E, Arrouy L, Auboiroux PH, Balaz PA, Baron MA, Depil-Duval A, Dubreucq-Guérif E, Dumontier T, Ellouze S, Gil-Jardine C, Gilbert A, Heidet M, Mpela AG, Lemaitre EL, Vromant A, Violeau M.</p>
+                            <p style="color: var(--text-light);"><a href="https://doi.org/10.1684/afmu.2025.0637" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Annales françaises de médecine d'urgence, 15(4), 259-267</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Conference" data-year="2025">
+                            <span class="publication-type">Conference</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>AI bias: Issues and precautions for ethical and reliable decision-making in health</strong>
+                            <p>Lansiaux E.</p>
+                            <p style="color: var(--text-light);"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1279847925000163" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Médecine de Catastrophe - Urgences Collectives, 9(2), 96-100</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Article" data-year="2024">
+                            <span class="publication-type">Article</span>
+                            <span class="pub-year-chip">2024</span>
+                            <strong>Navigating the landscape of medical triage: Unveiling the potential and challenges of large language models and beyond</strong>
+                            <p>Lansiaux E, Baron MA, Vromant A.</p>
+                            <p style="color: var(--text-light);"><a href="https://doi.org/10.1016/j.ajem.2024.02.013" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">American Journal of Emergency Medicine, 2024 Apr;78:224</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="YouTube" data-year="2025">
+                            <span class="publication-type" style="background:#ff0000;">YouTube</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>EUSEM 2025 - Wien — AI-enhanced Nurse Triage: revolutionizing the Emergency Room entry point</strong>
+                            <p>At EUSEM 2025 in Vienna, this session explores how AI is transforming patient reception and triage in emergency departments.</p>
+                            <p style="color: var(--text-light);"><a href="https://www.youtube.com/watch?v=iB0j0fKY_JU&t=35s" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Watch on YouTube</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="YouTube" data-year="2025">
+                            <span class="publication-type" style="background:#ff0000;">YouTube</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>URGENCES 2025 — Can AI replace the triage nurse?</strong>
+                            <p>Faced with increased ED activity, can AI one day supplement nursing expertise at the emergency department entrance?</p>
+                            <p style="color: var(--text-light);"><a href="https://www.youtube.com/watch?v=7gp7Po9Huak&t=2s" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Watch on YouTube</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="YouTube" data-year="2025">
+                            <span class="publication-type" style="background:#ff0000;">YouTube</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>URGENCES 2025 — New technologies: from dispatch to the field / Does AI have a role?</strong>
+                            <p>Between technological innovation, operational pressure, and ethical challenges — the growing role of AI in emergency services in 2025.</p>
+                            <p style="color: var(--text-light);"><a href="https://www.youtube.com/watch?v=VzlxUANjNsA&t=3s" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Watch on YouTube</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Press" data-year="2025">
+                            <span class="publication-type" style="background:#059669;">Press</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>TIAEU: AI listening to triage, between clinical promise and field reality</strong>
+                            <p style="color: var(--text-light);"><a href="https://www.healthandtech.eu/post_ci/tiaeu-lia-qui-ecoute-le-triage-entre-promesse-clinique-et-realite-du-terrain/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Health &amp; Tech Intelligence</a></p>
+                        </li>
+
+                        <li class="publication-item" data-type="Press" data-year="2025">
+                            <span class="publication-type" style="background:#059669;">Press</span>
+                            <span class="pub-year-chip">2025</span>
+                            <strong>Hospital emergencies: securing diagnoses through digital technology</strong>
+                            <p style="color: var(--text-light);"><a href="https://www.sante-future.com/actualites-sante/61631-urgences-a-l-hopital-securiser-les-diagnostics-grace-au-numerique.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Santé Future</a></p>
+                        </li>
+
+                    </ul>
+                    <div class="pub-empty" id="pub-empty">
+                        <div class="empty-icon">🔍</div>
+                        <p>No publications match this filter combination.</p>
+                        <button class="btn-reset-filters" onclick="resetFilters()">Reset filters</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="team">
             <h2>Our Team</h2>
-            
             <div class="team-grid">
                 <div class="team-member">
                     <h4>Dr Edouard Lansiaux</h4>
                     <div class="role">Principal Investigator</div>
                     <div class="affiliation">Emergency Physician<br>AI Engineer<br>Lille University Hospital</div>
                 </div>
-                
                 <div class="team-member">
                     <h4>Dr Ramy Azzouz</h4>
                     <div class="role">Co-director</div>
                     <div class="affiliation">Hospital Practitioner<br>Poison Control Center CHU Lille<br>AI in Healthcare Director</div>
                 </div>
-
                 <div class="team-member">
                     <h4>Dr Roch Joly</h4>
                     <div class="role">Clinical Director</div>
                     <div class="affiliation">Department Head<br>Emergency Department<br>Lille University Hospital</div>
                 </div>
-                
                 <div class="team-member">
                     <h4>Pr Eric Wiel</h4>
                     <div class="role">Scientific Director</div>
                     <div class="affiliation">Professor of Emergency Medicine<br>Lille University Hospital</div>
                 </div>
-                
                 <div class="team-member">
                     <h4>Pr Emmanuel Chazard</h4>
-                    <div class="role">Methodology & Biostatistics</div>
+                    <div class="role">Methodology &amp; Biostatistics</div>
                     <div class="affiliation">Professor of Public Health<br>METRICS ULR 2694<br>Lille University Hospital</div>
                 </div>
-                
-                <div class="team-member"><h4>Pr Daniel Balouek</h4><div class="role">Cloud Computing & Edge AI Expert</div><div class="affiliation">IMT Atlantique</div></div>
-                <div class="team-member"><h4>Pr Hayfa Zgaya-Biau</h4><div class="role">Process Mining Expert</div><div class="affiliation">METRICS ULR 2694 & CRIStAL UMR 9189</div></div>
+                <div class="team-member"><h4>Pr Daniel Balouek</h4><div class="role">Cloud Computing &amp; Edge AI Expert</div><div class="affiliation">IMT Atlantique</div></div>
+                <div class="team-member"><h4>Pr Hayfa Zgaya-Biau</h4><div class="role">Process Mining Expert</div><div class="affiliation">METRICS ULR 2694 &amp; CRIStAL UMR 9189</div></div>
                 <div class="team-member"><h4>Pr Mehdi Ammi</h4><div class="role">Man-Machine Interface Expert</div><div class="affiliation">LIASD</div></div>
             </div>
         </section>
@@ -365,22 +487,10 @@ But with the emergence of artificial intelligence, a question arises: can AI one
         <div class="container">
             <h2>Our Impact</h2>
             <div class="impact-grid">
-                <div class="impact-item">
-                    <h3>🎯</h3>
-                    <p>Triage accuracy improvement from 30% to 90%</p>
-                </div>
-                <div class="impact-item">
-                    <h3>⏱️</h3>
-                    <p>Reduction of dangerous under-triage for patients</p>
-                </div>
-                <div class="impact-item">
-                    <h3>🏥</h3>
-                    <p>Optimization of hospital resources</p>
-                </div>
-                <div class="impact-item">
-                    <h3>🌍</h3>
-                    <p>International collaborations France-Canada-Sweden-USA</p>
-                </div>
+                <div class="impact-item"><h3>🎯</h3><p>Triage accuracy improvement from 30% to 90%</p></div>
+                <div class="impact-item"><h3>⏱️</h3><p>Reduction of dangerous under-triage for patients</p></div>
+                <div class="impact-item"><h3>🏥</h3><p>Optimization of hospital resources</p></div>
+                <div class="impact-item"><h3>🌍</h3><p>International collaborations France-Canada-Sweden-USA</p></div>
             </div>
         </div>
     </div>
@@ -392,7 +502,6 @@ But with the emergence of artificial intelligence, a question arises: can AI one
                 <p>Systems for Triage and Response with AI</p>
                 <p style="margin-top: 1rem; opacity: 0.8;">Research group in Artificial Intelligence applied to emergency medicine</p>
             </div>
-            
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <a href="#projects">Our Projects</a>
@@ -402,7 +511,6 @@ But with the emergence of artificial intelligence, a question arises: can AI one
                 <a href="https://www.linkedin.com/company/str-ai/?viewAsMember=true">LinkedIn</a>
                 <a href="../index.html">Version Française</a>
             </div>
-            
             <div class="footer-section">
                 <h4>Contact</h4>
                 <p>📧 edouard1.lansiaux@chu-lille.fr</p>
@@ -414,5 +522,75 @@ But with the emergence of artificial intelligence, a question arises: can AI one
             <p>© 2024-2026 STaR-AI Research Group. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    (function () {
+        var activeType = 'all';
+        var activeYear = 'all';
+
+        function countVisible() {
+            return document.querySelectorAll('#pub-list .publication-item:not(.pub-hidden)').length;
+        }
+
+        function updateCount() {
+            var n = countVisible();
+            var el = document.getElementById('pub-count-live');
+            var badge = document.getElementById('pub-total-badge');
+            el.textContent = n + ' result' + (n !== 1 ? 's' : '');
+            badge.textContent = n + ' entr' + (n !== 1 ? 'ies' : 'y');
+            el.classList.add('updated');
+            setTimeout(function () { el.classList.remove('updated'); }, 600);
+            var empty = document.getElementById('pub-empty');
+            empty.style.display = n === 0 ? 'block' : 'none';
+        }
+
+        function applyFilters() {
+            var items = document.querySelectorAll('#pub-list .publication-item');
+            items.forEach(function (item) {
+                var typeOk = activeType === 'all' || item.dataset.type === activeType;
+                var yearOk = activeYear === 'all' || item.dataset.year === activeYear;
+                if (typeOk && yearOk) {
+                    item.classList.remove('pub-hidden');
+                    item.classList.add('pub-fade-in');
+                    setTimeout(function () { item.classList.remove('pub-fade-in'); }, 250);
+                } else {
+                    item.classList.add('pub-hidden');
+                }
+            });
+            updateCount();
+        }
+
+        document.querySelectorAll('#filter-type .pill').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('#filter-type .pill').forEach(function (b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                activeType = this.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        document.querySelectorAll('#filter-year .pill').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('#filter-year .pill').forEach(function (b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                activeYear = this.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        window.resetFilters = function () {
+            activeType = 'all';
+            activeYear = 'all';
+            document.querySelectorAll('.pill').forEach(function (b) { b.classList.remove('active'); });
+            document.querySelector('#filter-type .pill[data-filter="all"]').classList.add('active');
+            document.querySelector('#filter-year .pill[data-filter="all"]').classList.add('active');
+            applyFilters();
+        };
+
+        document.getElementById('btn-reset').addEventListener('click', window.resetFilters);
+
+        updateCount();
+    })();
+    </script>
 </body>
 </html>
