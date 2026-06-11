@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HARMONIA - STaR-AI</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .results-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem; }
+        .results-table th, .results-table td { padding: 0.6rem 0.8rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .results-table thead th { background: var(--primary); color: #fff; font-weight: 600; }
+        .results-table tbody th { text-align: left; font-weight: 600; color: var(--primary); background: var(--bg-light); }
+        .results-table tbody tr:hover { background: rgba(37,99,235,0.04); }
+        .results-table .best { font-weight: 700; color: var(--accent); }
+        .table-caption { font-size: 0.82rem; color: var(--text-light); font-style: italic; margin: -0.5rem 0 2rem; }
+        .callout { background: var(--bg-light); border-left: 4px solid var(--accent); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+        .callout h3 { margin-bottom: 0.5rem; }
+    </style>
 </head>
 <body>
     <nav>
@@ -34,7 +45,7 @@
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">Ongoing - Prospective simulated study</span>
+                <span class="project-badge">Preliminary results - First wave</span>
                 <h1>HARMONIA</h1>
                 <p>Humans (Call Dispatchers + Physicians) vs AI in Emergency Medical Dispatch, One-to-one Impact Analysis</p>
             </div>
@@ -43,28 +54,28 @@
                 <h2>Project Description</h2>
                 <p>
                     HARMONIA is a prospective cohort study with continuous enrollment, evaluating the performance 
-                    of a GPT model compared to Medical Regulation Assistants (ARM) and dispatch physicians 
-                    at the SAS-Centre 15 of Lille University Hospital. The study uses 60 simulated call scenarios, 
-                    managed by ARM–physician pairs and simultaneously analyzed by AI. The goal is to determine 
-                    whether AI can match or exceed human performance in telephone triage 
-                    using the ARM triage scale.
+                    of a large language model (LLM) compared to Medical Regulation Assistants (ARM) and dispatch 
+                    physicians at the SAS-Centre 15 of Lille University Hospital. The study uses standardized 
+                    simulated call scenarios (SimSamu corpus), managed by ARM–physician pairs and simultaneously 
+                    analyzed by AI. The goal is to determine whether AI can match or exceed human performance in 
+                    telephone triage using the ARM triage scale.
                 </p>
                 
                 <div class="project-info-grid">
                     <div class="info-card"><h3>Design</h3><p>Prospective cohort with continuous enrollment, double-blind and intra-protocol randomization</p></div>
-                    <div class="info-card"><h3>Population</h3><p>60 simulated scenarios<br>13 dispatch physicians<br>10 volunteer ARMs</p></div>
+                    <div class="info-card"><h3>Population</h3><p>60 simulated scenarios planned<br>13 dispatch physicians<br>10 volunteer ARMs</p></div>
                     <div class="info-card"><h3>Period</h3><p>January - March 2026<br>(3-month enrollment)</p></div>
                     <div class="info-card"><h3>Center</h3><p>SAS-Centre 15<br>Lille University Hospital</p></div>
                 </div>
                 
                 <h2>Objectives</h2>
-                <p><strong>Primary:</strong> Compare GPT algorithm performance with actual ARM triage at the SAS-Centre 15 of CHU Lille against the gold-standard ARM triage scale.</p>
+                <p><strong>Primary:</strong> Compare LLM triage performance with actual ARM triage at the SAS-Centre 15 of CHU Lille against the gold-standard ARM triage scale.</p>
                 <p style="margin-top: 1rem;"><strong>Secondary:</strong></p>
                 <ul style="margin: 0.5rem 0 2rem 2rem;">
                     <li>Concordance with medical regulation decision (final regulation decision)</li>
                     <li>Participant experience analysis (ARMs + physicians) via NASA-TLX questionnaire</li>
-                    <li>Reliability and speed of GPT algorithm transcription</li>
-                    <li>Reliability of semantic analysis and predicted resource deployment by GPT</li>
+                    <li>Reliability and speed of transcription and semantic analysis</li>
+                    <li>Reliability of resource deployment predicted by AI</li>
                 </ul>
 
                 <h2>Methodology</h2>
@@ -77,21 +88,96 @@
                     The gold standard is composite: strict application of the ARM triage scale to call data 
                     and expert opinion (panel of 3 blinded physicians).
                 </p>
+                <p style="margin-top: 1rem;">
+                    The "AI" arm was operationalized using a state-of-the-art large language model (Claude family). 
+                    For each scenario, the model received the gold-quality verbatim of the call and produced, reasoning 
+                    over each case independently, an ARM triage level (N1–N5), the identified red flags and a clinical 
+                    rationale, under a "safety-first" framing (preference for cautious over-triage in case of doubt).
+                </p>
+                <div class="callout">
+                    <h3>Transparency note</h3>
+                    <p>The initial protocol referred to a "GPT model". The prediction set available for this first wave 
+                    was produced with an LLM of the Claude family; the thesis therefore presents the results actually 
+                    obtained. Evaluating a dedicated GPT pipeline, on audio (rather than transcript), with per-class 
+                    probabilities, is a direct perspective for future work.</p>
+                </div>
+
+                <h2>Preliminary Results (First Wave)</h2>
+                <p>
+                    The first wave covers 30 of the 60 planned scenarios. After code normalization, documented 
+                    corrections, and exclusion of three ARMs with insufficient coverage (&lt; 25/30 scenarios), 
+                    11 ARMs and 11 physicians are evaluable, totaling 328 ARM observations and 328 physician 
+                    observations, matched to 30 AI predictions.
+                </p>
+
+                <h3>Comparative performance vs ARM gold-standard (30 matched scenarios)</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr><th>Metric</th><th>ARM</th><th>Physician</th><th>AI (LLM)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>Exact agreement</th><td class="best">60.0%</td><td>36.7%</td><td>36.7%</td></tr>
+                        <tr><th>Agreement ±1 level</th><td class="best">100%</td><td>73.3%</td><td>83.3%</td></tr>
+                        <tr><th>MAE</th><td class="best">0.400</td><td>0.933</td><td>0.833</td></tr>
+                        <tr><th>RMSE</th><td class="best">0.632</td><td>1.265</td><td>1.140</td></tr>
+                        <tr><th>Bias (predicted − gold)</th><td class="best">−0.333</td><td>−0.733</td><td>−0.633</td></tr>
+                        <tr><th>Quadratic weighted κ</th><td class="best">0.766</td><td>0.403</td><td>0.456</td></tr>
+                        <tr><th>Spearman ρ</th><td class="best">0.813</td><td>0.572</td><td>0.585</td></tr>
+                        <tr><th>Macro F1</th><td class="best">0.550</td><td>0.277</td><td>0.262</td></tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">Table 4 — Comparative performance of ARM / physician / AI against the gold-standard (30 matched scenarios; metrics based on the mode of human evaluations).</p>
+
+                <h3>Agreement with gold-standard across all human observations</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr><th>Metric (all observations)</th><th>ARM (n = 328)</th><th>Physician (n = 328)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>Exact agreement</th><td class="best">50.9%</td><td>38.4%</td></tr>
+                        <tr><th>Agreement ±1 class</th><td class="best">95.7%</td><td>73.8%</td></tr>
+                        <tr><th>MAE</th><td class="best">0.534</td><td>0.933</td></tr>
+                        <tr><th>RMSE</th><td class="best">0.787</td><td>1.295</td></tr>
+                        <tr><th>Quadratic weighted κ</th><td class="best">0.694</td><td>0.528</td></tr>
+                        <tr><th>Spearman ρ</th><td class="best">0.713</td><td>0.588</td></tr>
+                        <tr><th>Macro F1</th><td class="best">0.466</td><td>0.352</td></tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">Table 5 — Agreement with the gold-standard across all human observations.</p>
+
+                <div class="callout">
+                    <h3>Key finding</h3>
+                    <p>ARM triage is the most robust reference baseline (κ 0.77; ±1-class agreement 100%). The AI reaches 
+                    a level of agreement comparable to physicians (κ 0.46 vs 0.40) while outperforming them on ±1-class 
+                    agreement and mean error, with a systematically cautious "safety-first" profile and 
+                    <strong>no severe under-estimation</strong>. Notably, its largest divergences occur precisely on 
+                    scenarios where the ARM gold-standard — and the ARMs themselves — under-triage (acute neurological 
+                    deficit in a young patient, altered consciousness in a homeless person). Its error profile is thus 
+                    <strong>complementary</strong> to that of the ARMs, supporting a hybrid human-AI configuration rather 
+                    than substitution.</p>
+                </div>
+
+                <p>
+                    Finally, the difficulty perceived by ARMs does not predict actual error: mean perceived difficulty is 
+                    identical whether the rating was correct (2.57/5) or off by at least one level (2.59/5; 
+                    Mann-Whitney, p = 0.87). This argues for systematic rather than selective AI assistance.
+                </p>
 
                 <h2>Statistical Analyses</h2>
                 <div class="project-info-grid">
-                    <div class="info-card"><h3>Primary Metrics</h3><p>MAE, RMSE, weighted Kappa, exact agreement and ±1 class, AUC-ROC</p></div>
+                    <div class="info-card"><h3>Primary Metrics</h3><p>MAE, RMSE, weighted Kappa, exact agreement and ±1 class, AUROC</p></div>
                     <div class="info-card"><h3>Composite Score</h3><p>F1 micro/macro, Spearman correlation, multiclass Brier score</p></div>
                     <div class="info-card"><h3>Secondary Analyses</h3><p>Bland-Altman plots, confusion matrices, reliability diagrams</p></div>
-                    <div class="info-card"><h3>Tools</h3><p>R® (v4.2.2+)<br>α = 5% threshold, Bonferroni correction</p></div>
+                    <div class="info-card"><h3>Tools</h3><p>R® (v4.2.2–4.4.0) &amp; Python 3.12<br>α = 5% threshold, Bonferroni correction</p></div>
                 </div>
 
                 <h2>Ethics and Data</h2>
                 <p>
                     The study does not modify patient care in any way. It relies exclusively on simulated data 
-                    (anonymized by default, AES-256 encrypted). AI models do not store or archive audio recordings. 
-                    Signed consent from participating ARMs and physicians. Analysis conducted on the secured 
-                    CHU Lille platform (SNDS security framework).
+                    (SimSamu corpus, anonymized by default, AES-256 encrypted). AI models do not store or archive audio 
+                    recordings, and no training is performed on these data. Signed consent from participating ARMs and 
+                    physicians. Analysis conducted on the secured CHU Lille project space (SNDS security framework), 
+                    with only aggregated results exported.
                 </p>
 
                 <h2>Timeline</h2>
@@ -100,8 +186,8 @@
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>January 2026</h4><p>Start of enrollment</p></div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>March 2026</h4><p>End of enrollment</p></div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>April 2026</h4><p>End of data extraction</p></div></div>
-                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>June 2026</h4><p>Analysis and results validation</p></div></div>
-                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>October 2026</h4><p>Final report</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>June 2026</h4><p>First-wave analysis (30 scenarios) and results validation</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>October 2026</h4><p>Final report (60 scenarios, composite gold-standard)</p></div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>2026-2027</h4><p>Peer-reviewed journal publication</p></div></div>
                 </div>
                 
