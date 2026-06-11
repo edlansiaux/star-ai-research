@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HARMONIA - STaR-AI</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .results-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem; }
+        .results-table th, .results-table td { padding: 0.6rem 0.8rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .results-table thead th { background: var(--primary); color: #fff; font-weight: 600; }
+        .results-table tbody th { text-align: left; font-weight: 600; color: var(--primary); background: var(--bg-light); }
+        .results-table tbody tr:hover { background: rgba(37,99,235,0.04); }
+        .results-table .best { font-weight: 700; color: var(--accent); }
+        .table-caption { font-size: 0.82rem; color: var(--text-light); font-style: italic; margin: -0.5rem 0 2rem; }
+        .callout { background: var(--bg-light); border-left: 4px solid var(--accent); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+        .callout h3 { margin-bottom: 0.5rem; }
+    </style>
 </head>
 <body>
     <nav>
@@ -34,37 +45,37 @@
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">En cours - Étude prospective simulée</span>
+                <span class="project-badge">Résultats préliminaires - Première vague</span>
                 <h1>HARMONIA</h1>
-                <p>Humains (ARM + médecins) vs IA en Régulation Médicale, ONe-to-one Impact Analysis</p>
+                <p>Humains (ARM + médecins) vs IA en Régulation Médicale, One-to-one Impact Analysis</p>
             </div>
             
             <div class="project-content">
                 <h2>Description du Projet</h2>
                 <p>
                     HARMONIA est une étude de cohorte prospective avec inclusion continue, évaluant la performance 
-                    d'un modèle GPT par rapport aux Assistants de Régulation Médicale (ARM) et aux médecins régulateurs 
-                    du SAS-Centre 15 du CHU de Lille. L'étude repose sur 60 scénarios d'appels simulés, pris en charge 
-                    par des binômes ARM–médecin régulateur et analysés simultanément par l'IA. L'objectif est de déterminer 
-                    si l'IA peut atteindre, voire surpasser, la performance humaine en matière de triage téléphonique 
-                    selon l'échelle de tri ARM.
+                    d'un grand modèle de langage (LLM) par rapport aux Assistants de Régulation Médicale (ARM) et aux 
+                    médecins régulateurs du SAS-Centre 15 du CHU de Lille. L'étude repose sur des scénarios d'appels 
+                    simulés standardisés (corpus SimSamu), pris en charge par des binômes ARM–médecin régulateur et 
+                    analysés simultanément par l'IA. L'objectif est de déterminer si l'IA peut atteindre, voire 
+                    surpasser, la performance humaine en matière de triage téléphonique selon l'échelle de tri ARM.
                 </p>
                 
                 <div class="project-info-grid">
                     <div class="info-card"><h3>Design</h3><p>Cohorte prospective avec inclusion continue, double insu et randomisation intra-protocole</p></div>
-                    <div class="info-card"><h3>Population</h3><p>60 scénarios simulés<br>13 médecins régulateurs<br>10 ARMs volontaires</p></div>
+                    <div class="info-card"><h3>Population</h3><p>60 scénarios simulés prévus<br>13 médecins régulateurs<br>10 ARMs volontaires</p></div>
                     <div class="info-card"><h3>Période</h3><p>Janvier - Mars 2026<br>(3 mois d'inclusion)</p></div>
                     <div class="info-card"><h3>Centre</h3><p>SAS-Centre 15<br>CHU de Lille</p></div>
                 </div>
                 
                 <h2>Objectifs</h2>
-                <p><strong>Principal :</strong> Comparer la performance de l'algorithme GPT avec le triage effectif des ARMs du SAS-Centre 15 du CHU de Lille par rapport au gold-standard de l'échelle de tri ARM.</p>
+                <p><strong>Principal :</strong> Comparer la performance de triage de l'IA (LLM) au triage effectif des ARMs du SAS-Centre 15 du CHU de Lille par rapport au gold-standard de l'échelle de tri ARM.</p>
                 <p style="margin-top: 1rem;"><strong>Secondaires :</strong></p>
                 <ul style="margin: 0.5rem 0 2rem 2rem;">
                     <li>Concordance avec la décision médicale de régulation (selon décision finale de régulation)</li>
                     <li>Analyse de ressenti sur les cas (ARMs + médecins) via questionnaire NASA-TLX</li>
-                    <li>Fiabilité et rapidité de la transcription par les algorithmes GPT</li>
-                    <li>Fiabilité de l'analyse sémantique et des moyens à engager prédits par GPT</li>
+                    <li>Fiabilité et rapidité de la transcription et de l'analyse sémantique</li>
+                    <li>Fiabilité des moyens à engager prédits par l'IA</li>
                 </ul>
 
                 <h2>Méthodologie</h2>
@@ -78,21 +89,97 @@
                     Le gold-standard est mixte : application stricto sensu de l'échelle de tri ARM sur les données 
                     de l'appel et avis d'experts (consortium de 3 médecins en aveugle).
                 </p>
+                <p style="margin-top: 1rem;">
+                    Le bras « IA » a été opérationnalisé au moyen d'un grand modèle de langage de dernière génération 
+                    (famille Claude). Pour chaque scénario, le modèle recevait le verbatim de qualité gold de l'appel et 
+                    produisait, en raisonnant chaque cas indépendamment, un niveau de tri ARM (N1–N5), les drapeaux 
+                    rouges identifiés et une justification clinique, sous un cadrage « safety-first » (préférence pour 
+                    le sur-tri prudent en cas de doute).
+                </p>
+                <div class="callout">
+                    <h3>Précision de transparence</h3>
+                    <p>Le protocole initial mentionnait un « modèle GPT ». Le jeu de prédictions disponible pour cette 
+                    première vague a été produit avec un LLM de la famille Claude ; la thèse présente donc les résultats 
+                    effectivement obtenus. L'évaluation d'un pipeline GPT dédié, sur audio (et non sur transcription), 
+                    avec probabilités par classe, constitue une perspective directe.</p>
+                </div>
+
+                <h2>Résultats Préliminaires (Première Vague)</h2>
+                <p>
+                    La première vague couvre 30 des 60 scénarios prévus. Après normalisation des codages, corrections 
+                    documentées et exclusion de trois ARM à couverture insuffisante (&lt; 25/30 scénarios), 11 ARM et 
+                    11 médecins sont évaluables, totalisant 328 observations ARM et 328 observations médecin, appariées 
+                    à 30 prédictions IA.
+                </p>
+
+                <h3>Performance comparée vs gold-standard ARM (30 scénarios appariés)</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr><th>Métrique</th><th>ARM</th><th>Médecin</th><th>IA (LLM)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>Accord exact</th><td class="best">60,0 %</td><td>36,7 %</td><td>36,7 %</td></tr>
+                        <tr><th>Accord à ±1 niveau</th><td class="best">100 %</td><td>73,3 %</td><td>83,3 %</td></tr>
+                        <tr><th>MAE</th><td class="best">0,400</td><td>0,933</td><td>0,833</td></tr>
+                        <tr><th>RMSE</th><td class="best">0,632</td><td>1,265</td><td>1,140</td></tr>
+                        <tr><th>Biais (prédit − gold)</th><td class="best">−0,333</td><td>−0,733</td><td>−0,633</td></tr>
+                        <tr><th>κ pondéré quadratique</th><td class="best">0,766</td><td>0,403</td><td>0,456</td></tr>
+                        <tr><th>ρ de Spearman</th><td class="best">0,813</td><td>0,572</td><td>0,585</td></tr>
+                        <tr><th>F1 macro</th><td class="best">0,550</td><td>0,277</td><td>0,262</td></tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">Tableau 4 — Performance comparée ARM / médecin / IA vis-à-vis du gold-standard (30 scénarios appariés ; métriques fondées sur le mode des évaluations humaines).</p>
+
+                <h3>Accord avec le gold-standard sur l'ensemble des observations humaines</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr><th>Métrique (toutes observations)</th><th>ARM (n = 328)</th><th>Médecin (n = 328)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>Accord exact</th><td class="best">50,9 %</td><td>38,4 %</td></tr>
+                        <tr><th>Accord à ±1 classe</th><td class="best">95,7 %</td><td>73,8 %</td></tr>
+                        <tr><th>MAE</th><td class="best">0,534</td><td>0,933</td></tr>
+                        <tr><th>RMSE</th><td class="best">0,787</td><td>1,295</td></tr>
+                        <tr><th>κ pondéré quadratique</th><td class="best">0,694</td><td>0,528</td></tr>
+                        <tr><th>ρ de Spearman</th><td class="best">0,713</td><td>0,588</td></tr>
+                        <tr><th>F1 macro</th><td class="best">0,466</td><td>0,352</td></tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">Tableau 5 — Accord avec le gold-standard sur l'ensemble des observations humaines.</p>
+
+                <div class="callout">
+                    <h3>Résultat marquant</h3>
+                    <p>Le triage ARM constitue le socle de référence le plus robuste (κ 0,77 ; accord à ±1 classe 100 %). 
+                    L'IA atteint un niveau d'accord comparable à celui des médecins (κ 0,46 vs 0,40) tout en les devançant 
+                    sur l'accord à ±1 classe et l'erreur moyenne, avec un profil systématiquement prudent « safety-first » 
+                    et <strong>aucune sous-estimation sévère</strong>. Surtout, ses divergences les plus marquées surviennent 
+                    précisément sur les scénarios où le gold-standard ARM — et les ARM eux-mêmes — sous-trient (déficit 
+                    neurologique aigu du sujet jeune, altération de conscience d'une personne sans domicile fixe). Son 
+                    profil d'erreur est ainsi <strong>complémentaire</strong> de celui des ARM, ce qui plaide pour un 
+                    dispositif hybride humain-IA plutôt qu'une substitution.</p>
+                </div>
+
+                <p>
+                    Enfin, la difficulté perçue par les ARM ne prédit pas l'erreur réelle : la difficulté moyenne perçue 
+                    est identique que la cotation soit exacte (2,57/5) ou erronée d'au moins un niveau (2,59/5 ; 
+                    Mann-Whitney, p = 0,87). Ce résultat plaide pour une aide IA systématique plutôt que sélective.
+                </p>
 
                 <h2>Analyses Statistiques</h2>
                 <div class="project-info-grid">
-                    <div class="info-card"><h3>Métriques principales</h3><p>MAE, RMSE, Kappa pondéré, accord exact et ±1 classe, AUC-ROC</p></div>
+                    <div class="info-card"><h3>Métriques principales</h3><p>MAE, RMSE, Kappa pondéré, accord exact et ±1 classe, AUROC</p></div>
                     <div class="info-card"><h3>Score composite</h3><p>F1 micro/macro, corrélation de Spearman, score de Brier multiclasse</p></div>
                     <div class="info-card"><h3>Analyses secondaires</h3><p>Graphiques de Bland-Altman, matrices de confusion, diagrammes de fiabilité</p></div>
-                    <div class="info-card"><h3>Outils</h3><p>R® (v4.2.2+)<br>Seuil α = 5%, correction de Bonferroni</p></div>
+                    <div class="info-card"><h3>Outils</h3><p>R® (v4.2.2–4.4.0) &amp; Python 3.12<br>Seuil α = 5%, correction de Bonferroni</p></div>
                 </div>
 
                 <h2>Éthique et Données</h2>
                 <p>
                     L'étude ne modifie aucunement la prise en charge des patients. Elle repose exclusivement sur des 
-                    données simulées (anonymisées par défaut, chiffrées AES-256). Les modèles d'IA ne stockent ni 
-                    n'archivent les bandes sonores. Consentement signé par les ARM et médecins participants. 
-                    Analyse sur plateforme sécurisée du CHU de Lille (référentiel SNDS).
+                    données simulées (corpus SimSamu, anonymisées par défaut, chiffrées AES-256). Les modèles d'IA ne 
+                    stockent ni n'archivent les bandes sonores, et aucun entraînement n'est réalisé sur ces données. 
+                    Consentement signé par les ARM et médecins participants. Analyse sur l'espace projet sécurisé du 
+                    CHU de Lille (référentiel SNDS), seuls des résultats agrégés étant exportés.
                 </p>
 
                 <h2>Calendrier Prévisionnel</h2>
@@ -101,8 +188,8 @@
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Janvier 2026</h4><p>Début des inclusions</p></div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Mars 2026</h4><p>Fin des inclusions</p></div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Avril 2026</h4><p>Fin d'extraction des données</p></div></div>
-                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Juin 2026</h4><p>Analyse et validation des résultats</p></div></div>
-                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Octobre 2026</h4><p>Rapport final</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Juin 2026</h4><p>Analyse première vague (30 scénarios) et validation des résultats</p></div></div>
+                    <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>Octobre 2026</h4><p>Rapport final (60 scénarios, gold-standard mixte)</p></div></div>
                     <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><h4>2026-2027</h4><p>Publication dans revue à comité de relecture</p></div></div>
                 </div>
                 
