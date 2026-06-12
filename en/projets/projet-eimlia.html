@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIMLIA-3M-TEU - STaR-AI</title>
+    <title>EIMLIA-TEU - STaR-AI</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .results-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem; }
+        .results-table th, .results-table td { padding: 0.6rem 0.8rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .results-table thead th { background: var(--primary); color: #fff; font-weight: 600; }
+        .results-table tbody th { text-align: left; font-weight: 600; color: var(--primary); background: var(--bg-light); }
+        .results-table tbody tr:hover { background: rgba(37,99,235,0.04); }
+        .results-table .best { font-weight: 700; color: var(--accent); }
+        .table-caption { font-size: 0.82rem; color: var(--text-light); font-style: italic; margin: -0.5rem 0 2rem; }
+        .callout { background: var(--bg-light); border-left: 4px solid var(--accent); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+        .callout h3 { margin-bottom: 0.5rem; }
+    </style>
 </head>
 <body>
     <nav>
@@ -34,49 +45,146 @@
         
         <div class="project-detail">
             <div class="project-header">
-                <span class="project-badge">Ongoing - Hybrid simulation</span>
-                <h1>EIMLIA-3M-TEU</h1>
-                <p>AI Model Intelligence Evaluation - 3 Models for Emergency Triage</p>
+                <span class="project-badge">Completed - M2 dissertation</span>
+                <h1>EIMLIA-TEU</h1>
+                <p>Hybrid Simulation Framework for Pre-Clinical Evaluation of AI-Assisted Emergency Triage</p>
             </div>
             
             <div class="project-content">
                 <h2>Project Description</h2>
                 <p>
-                    EIMLIA-3M-TEU is a multidimensional comparative evaluation study of the three AI architectures 
-                    developed in TIAEU. This project combines Process Mining, Discrete Event Simulation (DES), and 
-                    Multi-Agent Systems to create a digital twin of the emergency department.
+                    EIMLIA-TEU is a hybrid simulation framework for the pre-clinical evaluation of AI-assisted 
+                    triage across four dimensions simultaneously: clinical, organizational, economic, and technical. 
+                    It combines Discrete Event Simulation (DES), Multi-Agent Systems (MAS), four-dimensional digital 
+                    twins (structural, behavioral, temporal, technical), process mining, and a graphical systems 
+                    formalization, calibrated on 600,000 anonymized ED patient records (CHU Lille, 2018–2023).
+                </p>
+                <p style="margin-top: 1rem;">
+                    The three AI triage architectures from the TIAEU proof-of-concept (TRIAGEMASTER: Doc2Vec + MLP; 
+                    URGENTIAPARSE: FlauBERT + XGBoost; EMERGINET: JEPA + VICReg) were retrained on 340,536 patients 
+                    and evaluated under a dual-regime framework designed to disentangle algorithmic approximation 
+                    from clinical validity.
                 </p>
                 
                 <div class="project-info-grid">
-                    <div class="info-card"><h3>Approach</h3><p>Hybrid DES + Multi-Agent Systems simulation</p></div>
-                    <div class="info-card"><h3>Process Mining</h3><p>Automated patient pathway extraction</p></div>
+                    <div class="info-card"><h3>Approach</h3><p>Hybrid DES + Multi-Agent Systems simulation, 4D digital twins</p></div>
+                    <div class="info-card"><h3>Calibration data</h3><p>600,000 ED visits (CHU Lille, 2018–2023)<br>18.5M event logs (process mining)</p></div>
+                    <div class="info-card"><h3>Retraining cohort</h3><p>340,536 patients<br>(60:20:20 split; test n = 68,108)</p></div>
                     <div class="info-card"><h3>Models</h3><p>TRIAGEMASTER (NLP)<br>URGENTIAPARSE (LLM)<br>EMERGINET (JEPA)</p></div>
-                    <div class="info-card"><h3>Indicators</h3><p>Length of stay, mortality, resource allocation</p></div>
                 </div>
-                
-                <h2>Evaluated AI Models</h2>
-                <div class="model-card"><h4>NLP-TRIAGEMASTER</h4><span class="tech-badge">Doc2Vec</span><span class="tech-badge">Neural Regression</span><p style="margin-top: 0.5rem;">Unsupervised text analysis with vector representations of verbatims.</p></div>
-                <div class="model-card"><h4>LLM-URGENTIAPARSE</h4><span class="tech-badge">FlauBERT</span><span class="tech-badge">Fine-tuning</span><span class="tech-badge">Multimodal Fusion</span><p style="margin-top: 0.5rem;">Pre-trained LLM with fusion of textual embeddings and vital signs.</p></div>
-                <div class="model-card"><h4>JEPA-EMERGINET</h4><span class="tech-badge">Joint Embedding</span><span class="tech-badge">Predictive Architecture</span><p style="margin-top: 0.5rem;">JEPA architecture with specialized encoders and latent space learning.</p></div>
+
+                <h2>Dual-Regime Evaluation Framework</h2>
+                <p>
+                    The central methodological contribution is an explicit separation between two evaluation regimes, 
+                    designed to make visible an artefact the AI-triage literature has tended to leave implicit.
+                </p>
+                <ul style="margin: 0.5rem 0 1.5rem 2rem;">
+                    <li><strong>R1 — Algorithmic approximation:</strong> training and evaluation aligned on the reconstructed FRENCH-scale ideal label. Measures each architecture's capacity to recover the deterministic algorithm (test set n = 68,108).</li>
+                    <li><strong>R2 — Clinical validity:</strong> evaluation against a 5-physician expert consensus on a stratified 3,000-case sub-sample, externally moderated by Dr R. Dewilde (CH Maubeuge, TRIADE co-investigator, unaffiliated with the AI team).</li>
+                </ul>
+
+                <h2>Key Results — Dual-Regime Benchmarking</h2>
+                <table class="results-table">
+                    <thead>
+                        <tr><th>Architecture</th><th>R1 (κw)</th><th>R2 (κw, projected)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>URGENTIAPARSE (LLM)</th><td>0.9956</td><td class="best">0.81 [0.78; 0.84]</td></tr>
+                        <tr><th>EMERGINET (JEPA)</th><td>0.9391</td><td>0.74 [0.71; 0.77]</td></tr>
+                        <tr><th>TRIAGEMASTER (NLP)</th><td>0.8945</td><td>0.69 [0.66; 0.72]</td></tr>
+                        <tr><th>Nurse baseline (literature)</th><td>0.65</td><td>0.65</td></tr>
+                        <tr><th>Deployment threshold</th><td>≥ 0.80</td><td>≥ 0.80</td></tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">Dual-regime benchmarking. R1 vs. FRENCH ideal labels (algorithmic approximation, n = 68,108). R2 vs. 5-physician expert consensus (clinical validity, n = 3,000). 95% bootstrap CIs in brackets.</p>
+
+                <div class="callout">
+                    <h3>Central finding</h3>
+                    <p>Under R1, all three architectures converge to κw ≥ 0.89, confirming algorithmic-approximation 
+                    capacity but <strong>not</strong> clinical validity. Under R2, all three exceed the nurse baseline 
+                    (κw ≈ 0.65), but only <strong>URGENTIAPARSE (κw = 0.81)</strong> clears the κw ≥ 0.80 deployment 
+                    threshold. The R1→R2 gap of ≈ 0.18, replicated across architectures, quantifies the artefact of 
+                    training on algorithmically reconstructed labels: prior literature evaluating AI triage against such 
+                    labels likely overstates clinical validity by 0.10–0.20 of κw.</p>
+                </div>
+
+                <h2>Simulation Results</h2>
+                <p>
+                    Hybrid DES-MAS runs (3-day fast mode), under the R2-corrected performance estimates, yield the 
+                    following change in mean length of stay (∆LOS) versus the manual baseline:
+                </p>
+                <table class="results-table">
+                    <thead>
+                        <tr><th>Scenario</th><th>∆ Mean LOS</th><th>AI concordance</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>S2b — URGENTIAPARSE</th><td class="best">−7.1% [−9.4; −4.8]</td><td>76.5%</td></tr>
+                        <tr><th>S2a — TRIAGEMASTER</th><td>−3.2% [−5.5; −1.0]</td><td>62.3%</td></tr>
+                        <tr><th>S2c — EMERGINET</th><td>+1.2% [−0.8; +3.1]</td><td>91.0%</td></tr>
+                        <tr><th>S3 — Crisis hybrid (200% load)</th><td>+8.8%</td><td>90.5%</td></tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">Scenario comparison (3-day fast-mode runs, R2-corrected error injection). The hybrid crisis scenario preserves clinical safety (concordance 90.5%). Stress tests pass design targets (SURGE n = 220 ≥ 180; availability 99.1% ≥ 99.0%).</p>
+
+                <p>
+                    URGENTIAPARSE is the only architecture that simultaneously clears the R2 clinical-validity threshold 
+                    and produces a convergent ecological flow benefit (∆LOS = −7.1%). The framework also documents the 
+                    "URGENTIAPARSE simulation paradox": in earlier recorded-label cycles, the model produced an apparent 
+                    ∆LOS of −13.2% while critical sensitivity collapsed to ≈ 0.002 — a safety hazard invisible to any 
+                    isolated predictive metric, detectable only through multidimensional simulation.
+                </p>
+
+                <h2>Medico-Economic Projection (CHEERS 2022 + PSA)</h2>
+                <p>
+                    Probabilistic sensitivity analysis (Monte Carlo, 50,000 iterations) under the realistic scenario:
+                </p>
+                <table class="results-table">
+                    <thead>
+                        <tr><th>Scenario</th><th>3-yr ROI (95% CrI)</th><th>ICER</th><th>P(dominant)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>Pessimistic</th><td>80% [−30; 320]</td><td>12,500 €/QALY</td><td>8%</td></tr>
+                        <tr><th>Realistic</th><td class="best">480% [210; 1,250]</td><td>1,840 €/QALY [dominated; 8,300]</td><td>32%</td></tr>
+                        <tr><th>Optimistic</th><td>2,100% [890; 4,100]</td><td>dominant</td><td>64%</td></tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">PSA Monte Carlo results (50,000 iterations) by scenario. The intervention is cost-effective at the HAS 50,000 €/QALY threshold in 99.4% of simulations (Cost-Effectiveness Acceptability Curve).</p>
+
+                <p>
+                    The five parameters explaining 87% of ROI variance are, in decreasing order: inappropriate 
+                    hospitalization avoidance rate (38%), GHS unit cost (21%), imaging avoidance rate (12%), annual 
+                    ED visit volume (10%), and AI inference latency P95 (6%). An earlier deterministic projection 
+                    (ROI 10,260%, ICER 93 €/QALY) was explicitly withdrawn in favour of these probabilistic figures.
+                </p>
 
                 <h2>Evaluation Dimensions</h2>
                 <div class="project-info-grid">
-                    <div class="info-card"><h3>Technical Performance</h3><p>Accuracy, sensitivity, specificity, AUC-ROC, F1-score</p></div>
-                    <div class="info-card"><h3>Organizational Impact</h3><p>Length of stay, waiting time, room occupancy</p></div>
-                    <div class="info-card"><h3>Patient Safety</h3><p>Under-triage rate, simulated mortality</p></div>
-                    <div class="info-card"><h3>Efficiency</h3><p>Cost per patient, resource optimization</p></div>
+                    <div class="info-card"><h3>Clinical</h3><p>R1/R2 weighted κw, critical sensitivity, under-triage rate</p></div>
+                    <div class="info-card"><h3>Organizational</h3><p>Length of stay, waiting time, overcrowding rate</p></div>
+                    <div class="info-card"><h3>Economic</h3><p>ROI, ICER, CEAC via Monte Carlo PSA (CHEERS 2022)</p></div>
+                    <div class="info-card"><h3>Technical</h3><p>Availability, inference latency, MTTR</p></div>
                 </div>
 
                 <h2>Ethics</h2>
-                 <p>MR-004 methodology with declaration <a href="https://www.health-data-hub.fr/projets/eimlia-3m-teu-etude-des-impacts-medico-financiers-logistiques-de-lintelligence-artificielle">N° 27797006</a> to the Health Data Hub.</p>
+                <p>Single-center retrospective study (CHU Lille Adult ED, 2018–2023), CESREES-approved, MR-004 methodology with declaration <a href="https://www.health-data-hub.fr/projets/eimlia-3m-teu-etude-des-impacts-medico-financiers-logistiques-de-lintelligence-artificielle">N° 27797006</a> to the Health Data Hub. GDPR-compliant, CNIL MR-004 reference framework.</p>
+
+                <h2>Conclusion and Next Step</h2>
+                <p>
+                    EIMLIA-TEU demonstrates that AI triage models trained on algorithmic labels recover the algorithm 
+                    rather than clinical judgment; that ecological flow simulation is necessary to detect safety-flow 
+                    trade-offs invisible to predictive metrics; and that under realistic R2 evaluation only URGENTIAPARSE 
+                    clears the stringent κw ≥ 0.80 threshold. The TRIADE prospective multicenter cluster-RCT (CHU Lille, 
+                    CH Maubeuge, CH Dunkerque) is the indispensable next step.
+                </p>
                 
                 <h2>Project Team</h2>
                 <div class="team-grid">
-                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Principal Investigator</div><div class="affiliation">Lille University Hospital</div></div>
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Author</div><div class="affiliation">Lille University Hospital</div></div>
+                    <div class="team-member"><h4>Pr Hayfa Zgaya-Biau</h4><div class="role">Research Director</div><div class="affiliation">METRICS ULR 2694 & CRIStAL UMR 9189</div></div>
+                    <div class="team-member"><h4>Pr Mehdi Ammi</h4><div class="role">Co-supervisor</div><div class="affiliation">LIASD, University Paris 8</div></div>
                     <div class="team-member"><h4>Pr Emmanuel Chazard</h4><div class="role">Methodologist</div><div class="affiliation">METRICS ULR 2694</div></div>
                     <div class="team-member"><h4>Pr Eric Wiel</h4><div class="role">Clinical Coordinator</div><div class="affiliation">METRICS ULR 2694 & Lille University Hospital</div></div>
-                    <div class="team-member"><h4>Pr Hayfa Zgaya-Biau</h4><div class="role">Process Mining Expert</div><div class="affiliation">METRICS ULR 2694 & CRIStAL UMR 9189</div></div>
-                    <div class="team-member"><h4>Pr Mehdi Ammi</h4><div class="role">Man-machine Interface Expert</div><div class="affiliation">LIASD</div></div>
+                    <div class="team-member"><h4>Dr R. Dewilde</h4><div class="role">External R2 Moderator</div><div class="affiliation">CH Maubeuge</div></div>
                     <div class="team-member"><h4>Dr Ramy Azzouz</h4><div class="role">AI in Healthcare Expertise</div><div class="affiliation">Lille University Hospital</div></div>
                 </div>
             </div>
