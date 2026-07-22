@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLIANCE - STaR-AI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Équipe</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="projet-alliance.html" class="active">FR</a>
+                    <a href="../en/projets/projet-alliance.html">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
+
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Soumis — AAP interne CHU de Lille</span>
+                <h1>ALLIANCE</h1>
+                <p>Détection par LLM locaux des allergies aux produits de contraste iodés dans les comptes-rendus de scanner</p>
+            </div>
+
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    Aux urgences, la mention d'une allergie supposée aux produits de contraste iodés conduit
+                    fréquemment à renoncer à l'injection, alors que les vraies allergies sont rares et les bilans
+                    allergologiques à distance peu réalisés. Il en résulte une perte de temps et une perte de chance
+                    pour les patients qui auraient pu bénéficier d'un examen injecté. ALLIANCE mobilise des grands
+                    modèles de langage (LLM) exécutés localement pour analyser les comptes-rendus de scanner de
+                    l'entrepôt de données de santé et identifier les mentions d'allergie aux produits de contraste
+                    iodés, afin de les objectiver et d'ouvrir la voie à une filiérisation allergologique.
+                </p>
+
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Corpus</h3><p>~253 000 comptes-rendus de scanner<br>Entrepôt de données de santé du CHU</p></div>
+                    <div class="info-card"><h3>Pipeline</h3><p>Filtre de pré-sélection (Word2Vec) puis analyse par LLM local, sans sortie de données de l'établissement</p></div>
+                    <div class="info-card"><h3>Validation</h3><p>Relecture humaine d'un échantillon de comptes-rendus pour estimer sensibilité et spécificité</p></div>
+                    <div class="info-card"><h3>Financement</h3><p>AAP interne CHU de Lille<br>30 000 € demandés (ingénieur de recherche + fonctionnement)</p></div>
+                </div>
+
+                <h2>Objectifs</h2>
+                <p><strong>Principal :</strong> Détecter automatiquement et de façon fiable les mentions d'allergie aux produits de contraste iodés dans les comptes-rendus de scanner.</p>
+                <p style="margin-top: 1rem;"><strong>Secondaires :</strong></p>
+                <ul style="margin: 0.5rem 0 2rem 2rem;">
+                    <li>Quantifier l'écart entre allergies rapportées et allergies confirmées</li>
+                    <li>Structurer une filière de bilan allergologique pour les patients identifiés</li>
+                    <li>Évaluer l'impact sur la prise en charge aux urgences : modifications de conduite, retards, délais de passage</li>
+                </ul>
+
+                <h2>Volet Urgences</h2>
+                <p>
+                    Le groupe STaR-AI apporte l'expertise clinique de médecine d'urgence : analyse des modifications
+                    de prise en charge liées aux allergies supposées, des retards induits et des délais de passage,
+                    à partir des horodatages disponibles dans l'entrepôt de données de santé.
+                </p>
+
+                <h2>Équipe du Projet</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>Dr Bastien Le Guellec</h4><div class="role">Investigateur Principal</div><div class="affiliation">CCA Neuroradiologie<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Frédéric Dezoteux</h4><div class="role">Volet Allergologique</div><div class="affiliation">MCU-PH Dermatologie<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Expert Clinique Urgences</div><div class="affiliation">CHU de Lille<br>Pôle de l'Urgence</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

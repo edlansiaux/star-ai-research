@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiCare - STaR-AI</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Home</a></li>
+                    <li><a href="../index.html#projets">Projects</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Team</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="../../projets/projet-wicare.html">FR</a>
+                    <a href="projet-wicare.html" class="active">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Back to projects</a>
+
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">In development — Dossier v0.8</span>
+                <h1>WiCare</h1>
+                <p>Zone-level patient localization to secure care pathways in the emergency department</p>
+            </div>
+
+            <div class="project-content">
+                <h2>Project Description</h2>
+                <p>
+                    WiCare is a zone-level patient localization system for the emergency department, based on an
+                    additional identity-vigilance wristband. The system relies on passive observation of the Wi-Fi
+                    environment (RSSI/BSSID) with recalibration by fixed BLE beacons placed at mandatory passage
+                    points. It produces three organizational outputs: the patient's current functional zone, the
+                    last known sector, and detection of non-arrival at an expected destination (e.g., an ED →
+                    imaging transfer). WiCare is positioned as an organizational tool, not a medical device.
+                </p>
+
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Technology</h3><p>Wi-Fi RSSI/BSSID + fixed BLE recalibration beacons. Zone-level output, no precise coordinates</p></div>
+                    <div class="info-card"><h3>Architecture</h3><p>On-premise server in the hospital datacenter, dedicated VLAN segregated from the HIS, mTLS authentication</p></div>
+                    <div class="info-card"><h3>Data Protection</h3><p>Logical separation of identity / location data, encryption at rest, immutable (WORM) audit logs</p></div>
+                    <div class="info-card"><h3>Regulatory Framework</h3><p>Non-medical-device qualification; AI Act and RIPH positioning reviewed with the DRCI and the DPO</p></div>
+                </div>
+
+                <h2>Objectives</h2>
+                <p><strong>Primary:</strong> Secure patient pathways in the ED by detecting loss-of-sight events and non-arrivals during internal transfers early.</p>
+                <p style="margin-top: 1rem;"><strong>Secondary:</strong></p>
+                <ul style="margin: 0.5rem 0 2rem 2rem;">
+                    <li>Reduce care-related adverse events (EIAS) linked to loss of sight</li>
+                    <li>Provide role-oriented events to care teams, with no global map and no patient-facing app</li>
+                    <li>Assess the feasibility of frugal zone-level localization on existing hospital Wi-Fi infrastructure</li>
+                </ul>
+
+                <h2>Frugal and Sovereign Approach</h2>
+                <p>
+                    The project follows a "simple first, complex only if justified" principle: a Wi-Fi RSSI + BLE
+                    baseline, a lightweight and auditable model hosted by the institution, and strictly one-way HIS
+                    integration (outbound HL7/FHIR events only, no HIS reads by WiCare). The wristband carries its
+                    own identifier, with no patient name or data. The wristband–patient pairing is stored in an
+                    encrypted schema with restricted access (identity-vigilance unit and admissions).
+                </p>
+
+                <h2>Health-Economic Evaluation</h2>
+                <p>
+                    A CHEERS 2022-aligned health-economic analysis (probabilistic sensitivity analysis, 50,000
+                    Monte Carlo iterations) was conducted for an ED deployment. The result, reported without
+                    overstatement, shows that WiCare is not cash-profitable on its own, but is cost-effective at
+                    the French HAS threshold of €50,000/QALY in 99.9% of simulations, with avoided loss-of-sight
+                    adverse events as the main value driver.
+                </p>
+
+                <h2>Project Team</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Co-lead</div><div class="affiliation">CHU de Lille<br>Emergency Department</div></div>
+                    <div class="team-member"><h4>Dr Jean-Baptiste Robert-Jardiné</h4><div class="role">Co-lead</div><div class="affiliation">CHU de Lille<br>Emergency Department</div></div>
+                    <div class="team-member"><h4>Dr Roch Joly</h4><div class="role">Clinical Direction</div><div class="affiliation">Head of Emergency Division<br>CHU de Lille</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

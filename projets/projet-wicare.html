@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiCare - STaR-AI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Équipe</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="projet-wicare.html" class="active">FR</a>
+                    <a href="../en/projets/projet-wicare.html">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Retour aux projets</a>
+
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">En développement — Dossier v0.8</span>
+                <h1>WiCare</h1>
+                <p>Localisation zonale des patients pour sécuriser les parcours aux urgences</p>
+            </div>
+
+            <div class="project-content">
+                <h2>Description du Projet</h2>
+                <p>
+                    WiCare est un système de localisation zonale des patients aux urgences, fondé sur un bracelet
+                    additionnel d'identitovigilance. Le système exploite l'observation passive de l'environnement
+                    Wi-Fi (RSSI/BSSID) avec recalage par balises BLE fixes placées en zones de passage obligatoire.
+                    Il produit trois informations organisationnelles : la zone fonctionnelle actuelle du patient,
+                    le dernier secteur connu, et la détection de non-arrivée à une destination attendue
+                    (par exemple un transfert SAU → imagerie). WiCare est positionné comme un outil organisationnel,
+                    et non comme un dispositif médical.
+                </p>
+
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Technologie</h3><p>Wi-Fi RSSI/BSSID + balises BLE fixes de recalage. Visée zonale, pas de coordonnée précise</p></div>
+                    <div class="info-card"><h3>Architecture</h3><p>Serveur on-premise au datacenter du CHU, VLAN dédié cloisonné du SIH, authentification mTLS</p></div>
+                    <div class="info-card"><h3>Protection des données</h3><p>Séparation logique identité / localisation, chiffrement au repos, journaux immuables (WORM)</p></div>
+                    <div class="info-card"><h3>Cadre réglementaire</h3><p>Qualification non-DM, positionnement AI Act et RIPH instruits avec la DRCI et le DPO</p></div>
+                </div>
+
+                <h2>Objectifs</h2>
+                <p><strong>Principal :</strong> Sécuriser les parcours patients au SAU en détectant précocement les pertes de vue et les non-arrivées lors des transferts internes.</p>
+                <p style="margin-top: 1rem;"><strong>Secondaires :</strong></p>
+                <ul style="margin: 0.5rem 0 2rem 2rem;">
+                    <li>Réduire les événements indésirables associés aux soins (EIAS) liés aux pertes de vue</li>
+                    <li>Fournir des événements rôle-orientés aux équipes, sans carte globale ni application patient</li>
+                    <li>Évaluer la faisabilité d'une localisation zonale frugale sur l'infrastructure Wi-Fi existante</li>
+                </ul>
+
+                <h2>Approche Frugale et Souveraine</h2>
+                <p>
+                    Le projet suit le principe « simple d'abord, complexe seulement si justifié » : baseline Wi-Fi RSSI
+                    + BLE, modèle léger et auditable hébergé par l'établissement, intégration SIH strictement
+                    unidirectionnelle (événements sortants HL7/FHIR, aucune lecture du SIH par WiCare). Le bracelet
+                    porte un identifiant propre, sans nom ni donnée patient. L'appairage bracelet-patient est
+                    conservé dans un schéma chiffré à accès restreint (identitovigilance et admission).
+                </p>
+
+                <h2>Évaluation Médico-Économique</h2>
+                <p>
+                    Une analyse médico-économique alignée CHEERS 2022 (analyse probabiliste de sensibilité,
+                    50 000 itérations Monte Carlo) a été conduite pour un déploiement au SAU. Le résultat, présenté
+                    sans surpromesse, montre que WiCare n'est pas rentable en trésorerie seule, mais est
+                    coût-efficace au seuil HAS de 50 000 €/QALY dans 99,9 % des simulations, le principal moteur
+                    de valeur étant les EIAS de perte de vue évités.
+                </p>
+
+                <h2>Équipe du Projet</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Co-porteur</div><div class="affiliation">CHU de Lille<br>Pôle de l'Urgence</div></div>
+                    <div class="team-member"><h4>Dr Jean-Baptiste Robert-Jardiné</h4><div class="role">Co-porteur</div><div class="affiliation">CHU de Lille<br>Pôle de l'Urgence</div></div>
+                    <div class="team-member"><h4>Dr Roch Joly</h4><div class="role">Direction Clinique</div><div class="affiliation">Chef de Pôle Urgences<br>CHU de Lille</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLIANCE - STaR-AI</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo-section">
+                <div class="logo-main">STaR-AI</div>
+                <div class="logo-subtitle"><div class="line1">SYSTEMS FOR TRIAGE</div><div class="line2">AND RESPONSE WITH AI</div></div>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="../index.html#accueil">Home</a></li>
+                    <li><a href="../index.html#projets">Projects</a></li>
+                    <li><a href="../index.html#publications">Publications</a></li>
+                    <li><a href="../index.html#equipe">Team</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="../../projets/projet-alliance.html">FR</a>
+                    <a href="projet-alliance.html" class="active">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html#projets" class="back-btn">← Back to projects</a>
+
+        <div class="project-detail">
+            <div class="project-header">
+                <span class="project-badge">Submitted — CHU de Lille internal call</span>
+                <h1>ALLIANCE</h1>
+                <p>Local LLM-based detection of iodinated contrast media allergy mentions in CT reports</p>
+            </div>
+
+            <div class="project-content">
+                <h2>Project Description</h2>
+                <p>
+                    In the emergency department, a reported allergy to iodinated contrast media frequently leads to
+                    withholding contrast injection, although true allergies are rare and delayed allergy work-ups
+                    are seldom performed. The result is lost time and lost opportunity for patients who could have
+                    benefited from a contrast-enhanced examination. ALLIANCE uses locally hosted large language
+                    models (LLMs) to analyze CT reports from the hospital's clinical data warehouse and identify
+                    mentions of iodinated contrast media allergy, in order to objectify them and open a dedicated
+                    allergology referral pathway.
+                </p>
+
+                <div class="project-info-grid">
+                    <div class="info-card"><h3>Corpus</h3><p>~253,000 CT reports<br>CHU de Lille clinical data warehouse</p></div>
+                    <div class="info-card"><h3>Pipeline</h3><p>Pre-selection filter (Word2Vec) followed by local LLM analysis; no data leaves the institution</p></div>
+                    <div class="info-card"><h3>Validation</h3><p>Human review of a report sample to estimate sensitivity and specificity</p></div>
+                    <div class="info-card"><h3>Funding</h3><p>CHU de Lille internal call for projects<br>€30,000 requested (research engineer + operating costs)</p></div>
+                </div>
+
+                <h2>Objectives</h2>
+                <p><strong>Primary:</strong> Automatically and reliably detect mentions of iodinated contrast media allergy in CT reports.</p>
+                <p style="margin-top: 1rem;"><strong>Secondary:</strong></p>
+                <ul style="margin: 0.5rem 0 2rem 2rem;">
+                    <li>Quantify the gap between reported and confirmed allergies</li>
+                    <li>Structure an allergology work-up pathway for identified patients</li>
+                    <li>Assess the impact on emergency care: management changes, induced delays, length of stay</li>
+                </ul>
+
+                <h2>Emergency Medicine Component</h2>
+                <p>
+                    The STaR-AI group contributes emergency medicine clinical expertise: analysis of management
+                    changes linked to presumed allergies, induced delays and throughput times, based on timestamps
+                    available in the clinical data warehouse.
+                </p>
+
+                <h2>Project Team</h2>
+                <div class="team-grid">
+                    <div class="team-member"><h4>Dr Bastien Le Guellec</h4><div class="role">Principal Investigator</div><div class="affiliation">Neuroradiology<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Frédéric Dezoteux</h4><div class="role">Allergology Component</div><div class="affiliation">Dermatology (MCU-PH)<br>CHU de Lille</div></div>
+                    <div class="team-member"><h4>Dr Edouard Lansiaux</h4><div class="role">Emergency Medicine Clinical Expert</div><div class="affiliation">CHU de Lille<br>Emergency Department</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

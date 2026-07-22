@@ -40,6 +40,8 @@ star-ai-github/
 | **TRIADE** | 💰 Financement | Essai randomisé bicentrique |
 | **EIMLIA-3M-TEU** | 🔄 En cours | Évaluation par simulation hybride |
 | **REDIRECT-IA** | 🌍 International | Collaboration France-Canada |
+| **WiCare** | 🔄 En développement | Localisation zonale des patients aux urgences (Wi-Fi RSSI + BLE) |
+| **ALLIANCE** | 📤 Soumis (AAP interne) | LLM locaux — détection des allergies aux produits de contraste iodés dans les CR de scanner |
 
 ## 📚 Publications
 
