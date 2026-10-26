@@ -20,7 +20,11 @@ star-ai-github/
 │   ├── projet-tiaeu-2.html
 │   ├── projet-triade.html
 │   ├── projet-eimlia.html
-│   └── projet-redirect.html
+│   ├── projet-redirect.html
+│   ├── projet-harmonia.html
+│   ├── projet-34trics.html
+│   ├── projet-wicare.html
+│   └── projet-alliance.html
 └── en/                     # Version anglaise
     ├── index.html          # Homepage (EN)
     └── projets/
@@ -28,17 +32,21 @@ star-ai-github/
         ├── projet-tiaeu-2.html
         ├── projet-triade.html
         ├── projet-eimlia.html
-        └── projet-redirect.html
+        ├── projet-redirect.html
+        ├── projet-harmonia.html
+        ├── projet-34trics.html
+        ├── projet-wicare.html
+        └── projet-alliance.html
 ```
 
 ## 🔬 Projets de Recherche
 
 | Projet | Status | Description |
 |--------|--------|-------------|
-| **TIAEU** | ✅ Publié | Étude pilote monocentrique (n=657) - 90% concordance IA |
+| **TIAEU** | ✅ Publié | Étude pilote rétrospective monocentrique (n=657), publiée (JMIR Med Inform 2026) |
 | **TIAEU-2** | 🔄 En cours | Validation multicentrique prospective (5 centres) |
 | **TRIADE** | 💰 Financement | Essai randomisé bicentrique |
-| **EIMLIA-3M-TEU** | 🔄 En cours | Évaluation par simulation hybride |
+| **EIMLIA-TEU** | ✅ Terminé (mémoire M2) | Évaluation préclinique par simulation hybride |
 | **REDIRECT-IA** | 🌍 International | Collaboration France-Canada |
 | **WiCare** | 🔄 En développement | Localisation zonale des patients aux urgences (Wi-Fi RSSI + BLE) |
 | **ALLIANCE** | 📤 Soumis (AAP interne) | LLM locaux — détection des allergies aux produits de contraste iodés dans les CR de scanner |
