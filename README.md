@@ -45,7 +45,7 @@ star-ai-github/
 |--------|--------|-------------|
 | **TIAEU** | ✅ Publié | Étude pilote rétrospective monocentrique (n=657), publiée (JMIR Med Inform 2026) |
 | **TIAEU-2** | 🔄 En cours | Validation multicentrique prospective (5 centres) |
-| **TRIADE** | 💰 Financement | Essai randomisé bicentrique |
+| **TRIADE** | 💰 Financement | Essai randomisé en cluster tricentrique (CHU Lille, CH Maubeuge, CH Dunkerque) |
 | **EIMLIA-TEU** | ✅ Terminé (mémoire M2) | Évaluation préclinique par simulation hybride |
 | **REDIRECT-IA** | 🌍 International | Collaboration France-Canada |
 | **WiCare** | 🔄 En développement | Localisation zonale des patients aux urgences (Wi-Fi RSSI + BLE) |
